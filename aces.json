@@ -1,0 +1,114 @@
+﻿{
+	"common": {
+		"conditions": [],
+		"actions": [
+			{
+				"id": "initialize",
+				"scriptName": "Initialize",
+				"highlight": true,
+				"isAsync": true
+			}
+		],
+		"expressions": [
+			{
+				"id": "platform-id",
+				"expressionName": "PlatformId",
+				"returnType": "any"
+			}
+		]
+	},
+	"game": {
+		"actions": [
+			{
+				"id": "get-game-data",
+				"scriptName": "GetGameData",
+				"isAsync": true,
+				"params": [
+					{
+						"id": "key",
+						"type": "string"
+					}
+				]
+			},
+			{
+				"id": "set-game-data",
+				"scriptName": "SetGameData",
+				"isAsync": true,
+				"params": [
+					{
+						"id": "key",
+						"type": "string"
+					},
+					{
+						"id": "value",
+						"type": "any"
+					}
+				]
+			}
+		],
+		"expressions": [
+			{
+				"id": "game-data",
+				"expressionName": "GameData",
+				"returnType": "any",
+				"params": [
+					{
+						"id": "key",
+						"type": "string"
+					}
+				]
+			},
+			{
+				"id": "has-game-data",
+				"expressionName": "HasGameData",
+				"returnType": "any",
+				"params": [
+					{
+						"id": "key",
+						"type": "string"
+					}
+				]
+			}
+		]
+	},
+	"advertisement": {
+		"conditions": [
+			{
+				"id": "on-interstitial-state-changed",
+				"scriptName": "OnInterstitialStateChanged",
+				"isTrigger": true,
+				"isLooping": true
+			},
+			{
+				"id": "on-rewarded-state-changed",
+				"scriptName": "OnRewardedStateChanged",
+				"isTrigger": true,
+				"isLooping": true
+			}
+		],
+		"actions": [
+			{
+				"id": "show-interstitial",
+				"scriptName": "ShowInterstitial",
+				"isAsync": true
+			},
+			{
+				"id": "show-rewarded",
+				"scriptName": "ShowRewarded",
+				"isAsync": true
+			}
+		],
+		"expressions": [
+			{
+				"id": "interstitial-state",
+				"expressionName": "InterstitialState",
+				"returnType": "any"
+			},
+			{
+				"id": "rewarded-state",
+				"expressionName": "RewardedState",
+				"returnType": "any"
+			}
+		]
+	}
+}

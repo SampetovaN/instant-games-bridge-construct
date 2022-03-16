@@ -1,0 +1,108 @@
+﻿{
+    "languageTag": "en-US",
+    "fileDescription": "Strings for InstantGamesBridge Plugin",
+    "text": {
+        "plugins": {
+            "instantgamesbridge": {
+                "name": "InstantGamesBridge",
+                "description": "One SDK for cross platform publishing HTML5 games",
+                "author": "Mewton Games",
+                "help-url": "https://github.com/mewtongames/instant-games-bridge",
+                "aceCategories": {
+                    "common": "Common",
+                    "game": "Game",
+                    "advertisement": "Advertisement"
+                },
+                "conditions": {
+                    "on-interstitial-state-changed": {
+                        "list-name": "OnInterstitialStateChanged",
+                        "display-text": "OnInterstitialStateChanged",
+                        "description": "On interstitial state changed"
+                    },
+                    "on-rewarded-state-changed": {
+                        "list-name": "OnRewardedStateChanged",
+                        "display-text": "OnRewardedStateChanged",
+                        "description": "On rewarded state changed"
+                    }
+                },
+                "actions": {
+                    "initialize": {
+                        "list-name": "Initialize",
+                        "display-text": "Initialize",
+                        "description": "Initialize the SDK"
+                    },
+                    "get-game-data": {
+                        "list-name": "GetGameData",
+                        "display-text": "Get Game Data [b]{0}[/b]",
+                        "description": "Get Game Data",
+                        "params": {
+                            "key": {
+                                "name": "Key",
+                                "desc": "Key"
+                            }
+                        }
+                    },
+                    "set-game-data": {
+                        "list-name": "SetGameData",
+                        "display-text": "Set Game Data [b]{0}[/b] to [b]{1}[/b]",
+                        "description": "Set Game Data",
+                        "params": {
+                            "key": {
+                                "name": "Key",
+                                "desc": "Key"
+                            },
+                            "value": {
+                                "name": "Value",
+                                "desc": "Value"
+                            }
+                        }
+                    },
+                    "show-interstitial": {
+                        "list-name": "ShowInterstitial",
+                        "display-text": "Show Interstitial",
+                        "description": "Show Interstitial"
+                    },
+                    "show-rewarded": {
+                        "list-name": "ShowRewarded",
+                        "display-text": "Show Rewarded",
+                        "description": "Show Rewarded"
+                    }
+                },
+                "expressions": {
+                    "platform-id": {
+                        "translated-name": "PlatformId",
+                        "description": "Platform ID"
+                    },
+                    "game-data": {
+                        "translated-name": "GameData",
+                        "description": "Get Game Data by key",
+                        "params": {
+                            "key": {
+                                "name": "Key",
+                                "desc": "Key"
+                            }
+                        }
+                    },
+                    "has-game-data": {
+                        "translated-name": "HasGameData",
+                        "description": "Has Game Data by key",
+                        "params": {
+                            "key": {
+                                "name": "Key",
+                                "desc": "Key"
+                            }
+                        }
+                    },
+                    "interstitial-state": {
+                        "translated-name": "InterstitialState",
+                        "description": "Interstitial state"
+                    },
+                    "rewarded-state": {
+                        "translated-name": "RewardedState",
+                        "description": "Rewarded state"
+                    }
+                }
+            }
+        }
+    }
+}
