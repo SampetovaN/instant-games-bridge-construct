@@ -41,7 +41,7 @@
 					},
 					{
 						"id": "value",
-						"type": "any"
+						"type": "string"
 					}
 				]
 			}
@@ -88,9 +88,26 @@
 		],
 		"actions": [
 			{
+				"id": "set-minimum-delay-between-interstitial",
+				"scriptName": "SetMinimumDelayBetweenInterstitial",
+				"isAsync": false,
+				"params": [
+					{
+						"id": "value",
+						"type": "number"
+					}
+				]
+			},
+			{
 				"id": "show-interstitial",
 				"scriptName": "ShowInterstitial",
-				"isAsync": true
+				"isAsync": true,
+				"params": [
+					{
+						"id": "ignore-delay",
+						"type": "boolean"
+					}
+				]
 			},
 			{
 				"id": "show-rewarded",

@@ -3,11 +3,11 @@
 	"type": "plugin",
 	"name": "InstantGamesBridge",
 	"id": "InstantGamesBridge",
-	"version": "1.0.2",
+	"version": "1.0.2.1",
 	"author": "Mewton Games",
 	"website": "https://mewton.games",
 	"documentation": "https://github.com/mewtongames/instant-games-bridge",
-	"description": "One SDK for cross platform publishing HTML5 games",
+	"description": "One SDK for cross-platform publishing HTML5 games",
 	"editor-scripts": [
 		"plugin.js",
 		"type.js",

@@ -22,26 +22,54 @@
 			})
 		},
 		GetGameData(key) {
-			return window.instantGamesBridge.game.getData(key)
-				.then(data => {
-					if (!this.gameData)
-						this.gameData = { }
+			return new Promise(resolve => {
+				window.instantGamesBridge
+					.game
+					.getData(key)
+					.then(data => {
+						if (!this.gameData)
+							this.gameData = {}
 
-					this.gameData[key] = data
-				})
+						this.gameData[key] = data
+						resolve()
+					})
+					.catch(error => console.log(error))
+			})
 		},
 		SetGameData(key, value) {
 			if (!this.gameData)
 				this.gameData = { }
 
 			this.gameData[key] = value
-			return window.instantGamesBridge.game.setData(key, value)
+			return new Promise(resolve => {
+				window.instantGamesBridge
+					.game
+					.setData(key, value)
+					.catch(error => console.log(error))
+					.finally(() => resolve())
+			})
 		},
-		ShowInterstitial() {
-			return window.instantGamesBridge.advertisement.showInterstitial()
+		SetMinimumDelayBetweenInterstitial(value) {
+			window.instantGamesBridge.advertisement.setMinimumDelayBetweenInterstitial(value)
+		},
+		ShowInterstitial(ignoreDelay) {
+			let options = { ignoreDelay }
+			return new Promise(resolve => {
+				window.instantGamesBridge
+					.advertisement
+					.showInterstitial(options)
+					.catch(error => console.log(error))
+					.finally(() => resolve())
+			})
 		},
 		ShowRewarded() {
-			return window.instantGamesBridge.advertisement.showRewarded()
+			return new Promise(resolve => {
+				window.instantGamesBridge
+					.advertisement
+					.showRewarded()
+					.catch(error => console.log(error))
+					.finally(() => resolve())
+			})
 		}
 	}
 }
