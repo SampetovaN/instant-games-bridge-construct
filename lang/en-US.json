@@ -10,6 +10,7 @@
                 "help-url": "https://github.com/mewtongames/instant-games-bridge",
                 "aceCategories": {
                     "common": "Common",
+                    "platform": "Platform",
                     "game": "Game",
                     "advertisement": "Advertisement"
                 },
@@ -89,6 +90,14 @@
                     "platform-id": {
                         "translated-name": "PlatformId",
                         "description": "Platform ID"
+                    },
+                    "platform-language": {
+                        "translated-name": "PlatformLanguage",
+                        "description": "Platform Language"
+                    },
+                    "platform-payload": {
+                        "translated-name": "PlatformPayload",
+                        "description": "Platform Payload"
                     },
                     "game-data": {
                         "translated-name": "GameData",

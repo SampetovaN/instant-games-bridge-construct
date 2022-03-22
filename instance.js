@@ -1,20 +1,20 @@
 'use strict'
 {
-	const PLUGIN_CLASS = SDK.Plugins.InstantGamesBridge
+    const PLUGIN_CLASS = SDK.Plugins.InstantGamesBridge
 
-	PLUGIN_CLASS.Instance = class InstantGamesBridgeInstance extends SDK.IInstanceBase {
-		constructor(sdkType, inst){
-			super(sdkType, inst)
-		}
+    PLUGIN_CLASS.Instance = class InstantGamesBridgeInstance extends SDK.IInstanceBase {
+        constructor(sdkType, inst){
+            super(sdkType, inst)
+        }
 
-		Release() {}
+        Release() {}
 
-		OnCreate() {}
+        OnCreate() {}
 
-		OnPropertyChanged(id, value) {}
+        OnPropertyChanged(id, value) {}
 
-		LoadC2Property(name, valueString) {
-			return false
-		}
-	}
+        LoadC2Property(name, valueString) {
+            return false
+        }
+    }
 }
