@@ -8,22 +8,143 @@
                 "description": "One SDK for cross-platform publishing HTML5 games",
                 "author": "Mewton Games",
                 "help-url": "https://github.com/mewtongames/instant-games-bridge",
+                "properties": {
+                    "vk-group-id": {
+                        "name": "VK Group ID",
+                        "desc": "If you want to use JoinCommunity action on VK"
+                    }
+                },
                 "aceCategories": {
                     "common": "Common",
                     "platform": "Platform",
                     "game": "Game",
-                    "advertisement": "Advertisement"
+                    "advertisement": "Advertisement",
+                    "social": "Social"
                 },
                 "conditions": {
+                    "on-initialization-completed": {
+                        "list-name": "OnInitializationCompleted",
+                        "display-text": "On Initialization Completed",
+                        "description": "On Initialization Completed"
+                    },
+                    "is-initialized": {
+                        "list-name": "IsInitialized",
+                        "display-text": "Is Initialized",
+                        "description": "Is Initialized"
+                    },
+
+                    "on-show-interstitial-completed": {
+                        "list-name": "OnShowInterstitialCompleted",
+                        "display-text": "On Show Interstitial Completed",
+                        "description": "On Show Interstitial Completed"
+                    },
+                    "is-last-show-interstitial-shown-successfully": {
+                        "list-name": "IsLastShowInterstitialShownSuccessfully",
+                        "display-text": "Is Last Show Interstitial Shown Successfully",
+                        "description": "Is Last Show Interstitial Shown Successfully"
+                    },
                     "on-interstitial-state-changed": {
                         "list-name": "OnInterstitialStateChanged",
-                        "display-text": "OnInterstitialStateChanged",
-                        "description": "On interstitial state changed"
+                        "display-text": "On Interstitial State Changed",
+                        "description": "On Interstitial State Changed"
+                    },
+
+                    "on-show-rewarded-completed": {
+                        "list-name": "OnShowRewardedCompleted",
+                        "display-text": "On Show Rewarded Completed",
+                        "description": "On Show Rewarded Completed"
+                    },
+                    "is-last-show-rewarded-shown-successfully": {
+                        "list-name": "IsLastShowRewardedShownSuccessfully",
+                        "display-text": "Is Last Show Rewarded Shown Successfully",
+                        "description": "Is Last Show Rewarded Shown Successfully"
                     },
                     "on-rewarded-state-changed": {
                         "list-name": "OnRewardedStateChanged",
-                        "display-text": "OnRewardedStateChanged",
-                        "description": "On rewarded state changed"
+                        "display-text": "On Rewarded State Changed",
+                        "description": "On Rewarded State Changed"
+                    },
+
+                    "has-game-data": {
+                        "list-name": "HasGameData",
+                        "display-text": "Has Game Data By Key {0}",
+                        "description": "Has Game Data By Key",
+                        "params": {
+                            "key": {
+                                "name": "Key",
+                                "desc": "Key"
+                            }
+                        }
+                    },
+
+                    "on-get-game-data-completed": {
+                        "list-name": "OnGetGameDataCompleted",
+                        "display-text": "On Get Game Data Completed",
+                        "description": "On Get Game Data Completed"
+                    },
+                    "is-last-get-game-data-got-successfully": {
+                        "list-name": "IsLastGetGameDataGotSuccessfully",
+                        "display-text": "Is Last Get Game Data Got Successfully",
+                        "description": "Is Last Get Game Data Got Successfully"
+                    },
+
+                    "on-set-game-data-completed": {
+                        "list-name": "OnSetGameDataCompleted",
+                        "display-text": "On Set Game Data Completed",
+                        "description": "On Set Game Data Completed"
+                    },
+                    "is-last-set-game-data-set-successfully": {
+                        "list-name": "IsLastSetGameDataSetSuccessfully",
+                        "display-text": "Is Last Set Game Data Set Successfully",
+                        "description": "Is Last Set Game Data Set Successfully"
+                    },
+
+                    "is-share-supported": {
+                        "list-name": "IsShareSupported",
+                        "display-text": "Is Share Supported",
+                        "description": "Is Share Supported"
+                    },
+                    "on-share-completed": {
+                        "list-name": "OnShareCompleted",
+                        "display-text": "On Share Completed",
+                        "description": "On Share Completed"
+                    },
+                    "is-last-share-shared-successfully": {
+                        "list-name": "IsLastShareSharedSuccessfully",
+                        "display-text": "Is Last Share Shared Successfully",
+                        "description": "Is Last Share Shared Successfully"
+                    },
+
+                    "is-invite-friends-supported": {
+                        "list-name": "IsInviteFriendsSupported",
+                        "display-text": "Is Invite Friends Supported",
+                        "description": "Is Invite Friends Supported"
+                    },
+                    "on-invite-friends-completed": {
+                        "list-name": "OnInviteFriendsCompleted",
+                        "display-text": "On Invite Friends Completed",
+                        "description": "On Invite Friends Completed"
+                    },
+                    "is-last-invite-friends-invited-successfully": {
+                        "list-name": "IsLastInviteFriendsInvitedSuccessfully",
+                        "display-text": "Is Last Invite Friends Invited Successfully",
+                        "description": "Is Last Invite Friends Invited Successfully"
+                    },
+
+                    "is-community-supported": {
+                        "list-name": "IsCommunitySupported",
+                        "display-text": "Is Community Supported",
+                        "description": "Is Community Supported"
+                    },
+                    "on-join-community-completed": {
+                        "list-name": "OnJoinCommunityCompleted",
+                        "display-text": "On Join Community Completed",
+                        "description": "On Join Community Completed"
+                    },
+                    "is-last-join-community-joined-successfully": {
+                        "list-name": "IsLastJoinCommunityJoinedSuccessfully",
+                        "display-text": "Is Last Join Community Joined Successfully",
+                        "description": "Is Last Join Community Joined Successfully"
                     }
                 },
                 "actions": {
@@ -32,6 +153,7 @@
                         "display-text": "Initialize",
                         "description": "Initialize the SDK"
                     },
+
                     "get-game-data": {
                         "list-name": "GetGameData",
                         "display-text": "Get Game Data. Key: [b]{0}[/b].",
@@ -58,6 +180,7 @@
                             }
                         }
                     },
+
                     "set-minimum-delay-between-interstitial": {
                         "list-name": "SetMinimumDelayBetweenInterstitial",
                         "display-text": "Set Minimum Delay Between Interstitial. Seconds: [b]{0}[/b].",
@@ -76,7 +199,7 @@
                         "params": {
                             "ignore-delay": {
                                 "name": "IgnoreDelay",
-                                "desc": "IgnoreDelay"
+                                "desc": "Ignore Delay"
                             }
                         }
                     },
@@ -84,6 +207,22 @@
                         "list-name": "ShowRewarded",
                         "display-text": "Show Rewarded",
                         "description": "Show Rewarded"
+                    },
+
+                    "share": {
+                        "list-name": "Share",
+                        "display-text": "Share",
+                        "description": "Share"
+                    },
+                    "invite-friends": {
+                        "list-name": "InviteFriends",
+                        "display-text": "Invite Friends",
+                        "description": "Invite Friends"
+                    },
+                    "join-community": {
+                        "list-name": "JoinCommunity",
+                        "display-text": "Join Community",
+                        "description": "Join Community"
                     }
                 },
                 "expressions": {
@@ -99,9 +238,10 @@
                         "translated-name": "PlatformPayload",
                         "description": "Platform Payload"
                     },
+
                     "game-data": {
                         "translated-name": "GameData",
-                        "description": "Get Game Data by key",
+                        "description": "Get Game Data By Key",
                         "params": {
                             "key": {
                                 "name": "Key",
@@ -109,23 +249,14 @@
                             }
                         }
                     },
-                    "has-game-data": {
-                        "translated-name": "HasGameData",
-                        "description": "Has Game Data by key",
-                        "params": {
-                            "key": {
-                                "name": "Key",
-                                "desc": "Key"
-                            }
-                        }
-                    },
+
                     "interstitial-state": {
                         "translated-name": "InterstitialState",
-                        "description": "Interstitial state"
+                        "description": "Interstitial State"
                     },
                     "rewarded-state": {
                         "translated-name": "RewardedState",
-                        "description": "Rewarded state"
+                        "description": "Rewarded State"
                     }
                 }
             }

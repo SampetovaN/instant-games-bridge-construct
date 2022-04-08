@@ -3,7 +3,7 @@
     "type": "plugin",
     "name": "InstantGamesBridge",
     "id": "InstantGamesBridge",
-    "version": "1.1.0",
+    "version": "1.2.1",
     "author": "Mewton Games",
     "website": "https://mewton.games",
     "documentation": "https://github.com/mewtongames/instant-games-bridge",

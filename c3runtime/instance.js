@@ -7,6 +7,16 @@
             this.conditions = C3.Plugins.InstantGamesBridge.Cnds
             this.actions = C3.Plugins.InstantGamesBridge.Acts
 
+            if (properties[0]) {
+                this.instantGamesBridgeOptions = {
+                    platforms: {
+                        vk: {
+                            groupId: properties[0]
+                        }
+                    }
+                }
+            }
+
             this.gameData = null
             this._runtime.AddLoadPromise(this.loadSdk())
         }
@@ -17,7 +27,7 @@
                     ((d) => {
                         let t = d.getElementsByTagName('script')[0]
                         let s = d.createElement('script')
-                        s.src = 'https://cdn.jsdelivr.net/gh/mewtongames/instant-games-bridge@1.1.0/dist/instant-games-bridge.js'
+                        s.src = 'https://cdn.jsdelivr.net/gh/instant-games-bridge/instant-games-bridge@1.2.1/dist/instant-games-bridge.js'
                         s.async = true
                         s.onload = () => {
                             resolve()

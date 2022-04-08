@@ -1,7 +1,7 @@
 'use strict'
 {
     const PLUGIN_ID = 'InstantGamesBridge'
-    const PLUGIN_VERSION = '1.1.0'
+    const PLUGIN_VERSION = '1.2.1'
     const PLUGIN_CATEGORY = 'platform-specific'
 
     const PLUGIN_CLASS = (SDK.Plugins.InstantGamesBridge = class InstantGamesBridgePlugin extends SDK.IPluginBase {
@@ -19,6 +19,10 @@
             this._info.SetSupportedRuntimes(['c3'])
 
             SDK.Lang.PushContext('.properties')
+            this._info.SetProperties([
+                new SDK.PluginProperty('integer', 'vk-group-id', 0),
+            ]);
+
             SDK.Lang.PopContext()
             SDK.Lang.PopContext()
         }

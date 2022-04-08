@@ -1,6 +1,18 @@
 ﻿{
     "common": {
-        "conditions": [],
+        "conditions": [
+            {
+                "id": "on-initialization-completed",
+                "scriptName": "OnInitializationCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "is-initialized",
+                "scriptName": "IsInitialized"
+            }
+        ],
         "actions": [
             {
                 "id": "initialize",
@@ -30,6 +42,42 @@
         ]
     },
     "game": {
+        "conditions": [
+            {
+                "id": "has-game-data",
+                "scriptName": "HasGameData",
+                "params": [
+                    {
+                        "id": "key",
+                        "type": "string"
+                    }
+                ]
+            },
+
+            {
+                "id": "on-get-game-data-completed",
+                "scriptName": "OnGetGameDataCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "is-last-get-game-data-got-successfully",
+                "scriptName": "IsLastGetGameDataGotSuccessfully"
+            },
+
+            {
+                "id": "on-set-game-data-completed",
+                "scriptName": "OnSetGameDataCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "is-last-set-game-data-set-successfully",
+                "scriptName": "IsLastSetGameDataSetSuccessfully"
+            }
+        ],
         "actions": [
             {
                 "id": "get-game-data",
@@ -53,7 +101,7 @@
                     },
                     {
                         "id": "value",
-                        "type": "string"
+                        "type": "any"
                     }
                 ]
             }
@@ -69,33 +117,47 @@
                         "type": "string"
                     }
                 ]
-            },
-            {
-                "id": "has-game-data",
-                "expressionName": "HasGameData",
-                "returnType": "any",
-                "params": [
-                    {
-                        "id": "key",
-                        "type": "string"
-                    }
-                ]
             }
         ]
     },
     "advertisement": {
         "conditions": [
             {
+                "id": "on-show-interstitial-completed",
+                "scriptName": "OnShowInterstitialCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
                 "id": "on-interstitial-state-changed",
                 "scriptName": "OnInterstitialStateChanged",
                 "isTrigger": true,
-                "isLooping": true
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
             },
+            {
+                "id": "is-last-show-interstitial-shown-successfully",
+                "scriptName": "IsLastShowInterstitialShownSuccessfully"
+            },
+
             {
                 "id": "on-rewarded-state-changed",
                 "scriptName": "OnRewardedStateChanged",
                 "isTrigger": true,
-                "isLooping": true
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "on-show-rewarded-completed",
+                "scriptName": "OnShowRewardedCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "is-last-show-rewarded-shown-successfully",
+                "scriptName": "IsLastShowRewardedShownSuccessfully"
             }
         ],
         "actions": [
@@ -131,12 +193,80 @@
             {
                 "id": "interstitial-state",
                 "expressionName": "InterstitialState",
-                "returnType": "any"
+                "returnType": "string"
             },
             {
                 "id": "rewarded-state",
                 "expressionName": "RewardedState",
-                "returnType": "any"
+                "returnType": "string"
+            }
+        ]
+    },
+    "social": {
+        "conditions": [
+            {
+                "id": "is-share-supported",
+                "scriptName": "IsShareSupported"
+            },
+            {
+                "id": "on-share-completed",
+                "scriptName": "OnShareCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "is-last-share-shared-successfully",
+                "scriptName": "IsLastShareSharedSuccessfully"
+            },
+
+            {
+                "id": "is-invite-friends-supported",
+                "scriptName": "IsInviteFriendsSupported"
+            },
+            {
+                "id": "on-invite-friends-completed",
+                "scriptName": "OnInviteFriendsCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "is-last-invite-friends-invited-successfully",
+                "scriptName": "IsLastInviteFriendsInvitedSuccessfully"
+            },
+
+            {
+                "id": "is-community-supported",
+                "scriptName": "IsCommunitySupported"
+            },
+            {
+                "id": "on-join-community-completed",
+                "scriptName": "OnJoinCommunityCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "is-last-join-community-joined-successfully",
+                "scriptName": "IsLastJoinCommunityJoinedSuccessfully"
+            }
+        ],
+        "actions": [
+            {
+                "id": "share",
+                "scriptName": "Share",
+                "isAsync": true
+            },
+            {
+                "id": "invite-friends",
+                "scriptName": "InviteFriends",
+                "isAsync": true
+            },
+            {
+                "id": "join-community",
+                "scriptName": "JoinCommunity",
+                "isAsync": true
             }
         ]
     }
