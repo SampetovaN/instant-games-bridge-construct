@@ -7,18 +7,20 @@
             this.conditions = C3.Plugins.InstantGamesBridge.Cnds
             this.actions = C3.Plugins.InstantGamesBridge.Acts
 
-            if (properties[0]) {
+            if (properties[0])
+                this._runtime.AddLoadPromise(this.loadSdk())
+
+            if (properties[1]) {
                 this.instantGamesBridgeOptions = {
                     platforms: {
                         vk: {
-                            groupId: properties[0]
+                            groupId: properties[1]
                         }
                     }
                 }
             }
 
             this.gameData = null
-            this._runtime.AddLoadPromise(this.loadSdk())
         }
 
         loadSdk() {

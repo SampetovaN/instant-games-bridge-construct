@@ -20,6 +20,7 @@
 
             SDK.Lang.PushContext('.properties')
             this._info.SetProperties([
+                new SDK.PluginProperty('check', 'load-sdk-from-cdn', true),
                 new SDK.PluginProperty('integer', 'vk-group-id', 0),
             ]);
 

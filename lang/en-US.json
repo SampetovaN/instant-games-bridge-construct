@@ -9,6 +9,10 @@
                 "author": "Mewton Games",
                 "help-url": "https://github.com/mewtongames/instant-games-bridge",
                 "properties": {
+                    "load-sdk-from-cdn": {
+                        "name": "Load SDK from CDN",
+                        "desc": "If false - you should import SDK JS script into scripts folder and mark as main"
+                    },
                     "vk-group-id": {
                         "name": "VK Group ID",
                         "desc": "If you want to use JoinCommunity action on VK"
