@@ -1,6 +1,8 @@
 'use strict'
 {
     C3.Plugins.InstantGamesBridge.Acts = {
+
+        // common
         Initialize() {
             if (this.isInitialized)
                 return Promise.resolve()
@@ -31,6 +33,27 @@
                     })
             })
         },
+
+
+        // player
+        AuthorizePlayer() {
+            this.isLastAuthorizePlayerAuthorizedSuccessfully = false
+
+            return new Promise(resolve => {
+                window.instantGamesBridge.player.authorize()
+                    .then(() => {
+                        this.isLastAuthorizePlayerAuthorizedSuccessfully = true
+                    })
+                    .catch(error => console.log(error))
+                    .finally(() => {
+                        this.Trigger(this.conditions.OnAuthorizePlayerCompleted)
+                        resolve()
+                    })
+            })
+        },
+
+
+        // game
         GetGameData(key) {
             this.isLastGetGameDataGotSuccessfully = false
 
@@ -69,6 +92,27 @@
                     })
             })
         },
+        DeleteGameData(key) {
+            this.isLastDeleteGameDataDeletedSuccessfully = false
+
+            return new Promise(resolve => {
+                window.instantGamesBridge.game.deleteData(key)
+                    .then(() => {
+                        if (this.gameData)
+                            delete this.gameData[key]
+
+                        this.isLastDeleteGameDataDeletedSuccessfully = true
+                    })
+                    .catch(error => console.log(error))
+                    .finally(() => {
+                        this.Trigger(this.conditions.OnDeleteGameDataCompleted)
+                        resolve()
+                    })
+            })
+        },
+
+
+        // advertisement
         SetMinimumDelayBetweenInterstitial(value) {
             window.instantGamesBridge.advertisement.setMinimumDelayBetweenInterstitial(value)
         },
@@ -103,6 +147,9 @@
                     })
             })
         },
+
+
+        // social
         Share() {
             this.isLastShareSharedSuccessfully = false
 
@@ -144,6 +191,51 @@
                     .catch(error => console.log(error))
                     .finally(() => {
                         this.Trigger(this.conditions.OnJoinCommunityCompleted)
+                        resolve()
+                    })
+            })
+        },
+        CreatePost(text) {
+            this.isLastCreatePostCreatedSuccessfully = false
+
+            return new Promise(resolve => {
+                window.instantGamesBridge.social.createPost(text)
+                    .then(() => {
+                        this.isLastCreatePostCreatedSuccessfully = true
+                    })
+                    .catch(error => console.log(error))
+                    .finally(() => {
+                        this.Trigger(this.conditions.OnCreatePostCompleted)
+                        resolve()
+                    })
+            })
+        },
+        AddToHomeScreen() {
+            this.isLastAddToHomeScreenAddedSuccessfully = false
+
+            return new Promise(resolve => {
+                window.instantGamesBridge.social.addToHomeScreen()
+                    .then(() => {
+                        this.isLastAddToHomeScreenAddedSuccessfully = true
+                    })
+                    .catch(error => console.log(error))
+                    .finally(() => {
+                        this.Trigger(this.conditions.OnAddToHomeScreenCompleted)
+                        resolve()
+                    })
+            })
+        },
+        AddToFavorites() {
+            this.isLastAddToFavoritesAddedSuccessfully = false
+
+            return new Promise(resolve => {
+                window.instantGamesBridge.social.addToFavorites()
+                    .then(() => {
+                        this.isLastAddToFavoritesAddedSuccessfully = true
+                    })
+                    .catch(error => console.log(error))
+                    .finally(() => {
+                        this.Trigger(this.conditions.OnAddToFavoritesCompleted)
                         resolve()
                     })
             })

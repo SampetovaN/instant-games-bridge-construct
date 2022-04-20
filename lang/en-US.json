@@ -7,7 +7,7 @@
                 "name": "InstantGamesBridge",
                 "description": "One SDK for cross-platform publishing HTML5 games",
                 "author": "Mewton Games",
-                "help-url": "https://github.com/mewtongames/instant-games-bridge",
+                "help-url": "https://github.com/instant-games-bridge",
                 "properties": {
                     "load-sdk-from-cdn": {
                         "name": "Load SDK from CDN",
@@ -16,11 +16,48 @@
                     "vk-group-id": {
                         "name": "VK Group ID",
                         "desc": "If you want to use JoinCommunity action on VK"
+                    },
+                    "yandex-authorization-scopes": {
+                        "name": "Yandex Authorization Scopes",
+                        "desc": "Request access to photo and name"
+                    },
+                    "mock-simulate-share": {
+                        "name": "Mock Simulate Share",
+                        "desc": "Simulate Share on Mock Platform"
+                    },
+                    "mock-simulate-invite-friends": {
+                        "name": "Mock Simulate Invite Friends",
+                        "desc": "Simulate Invite Friends on Mock Platform"
+                    },
+                    "mock-simulate-join-community": {
+                        "name": "Mock Simulate Join Community",
+                        "desc": "Simulate Join Community on Mock Platform"
+                    },
+                    "mock-simulate-create-post": {
+                        "name": "Mock Simulate Create Post",
+                        "desc": "Simulate Create Post on Mock Platform"
+                    },
+                    "mock-simulate-add-to-home-screen": {
+                        "name": "Mock Simulate Add To Home Screen",
+                        "desc": "Simulate Add To Home Screen on Mock Platform"
+                    },
+                    "mock-simulate-add-to-favorites": {
+                        "name": "Mock Simulate Add To Favorites",
+                        "desc": "Simulate Add To Favorites on Mock Platform"
+                    },
+                    "mock-simulate-interstitial": {
+                        "name": "Mock Simulate Interstitial",
+                        "desc": "Simulate Interstitial on Mock Platform"
+                    },
+                    "mock-simulate-rewarded": {
+                        "name": "Mock Simulate Rewarded",
+                        "desc": "Simulate Rewarded on Mock Platform"
                     }
                 },
                 "aceCategories": {
                     "common": "Common",
                     "platform": "Platform",
+                    "player": "Player",
                     "game": "Game",
                     "advertisement": "Advertisement",
                     "social": "Social"
@@ -37,37 +74,45 @@
                         "description": "Is Initialized"
                     },
 
-                    "on-show-interstitial-completed": {
-                        "list-name": "OnShowInterstitialCompleted",
-                        "display-text": "On Show Interstitial Completed",
-                        "description": "On Show Interstitial Completed"
+
+                    "is-player-authorization-supported": {
+                        "list-name": "IsPlayerAuthorizationSupported",
+                        "display-text": "Is Player Authorization Supported",
+                        "description": "Is Player Authorization Supported"
                     },
-                    "is-last-show-interstitial-shown-successfully": {
-                        "list-name": "IsLastShowInterstitialShownSuccessfully",
-                        "display-text": "Is Last Show Interstitial Shown Successfully",
-                        "description": "Is Last Show Interstitial Shown Successfully"
+                    "is-player-authorized": {
+                        "list-name": "IsPlayerAuthorized",
+                        "display-text": "Is Player Authorized",
+                        "description": "Is Player Authorized"
                     },
-                    "on-interstitial-state-changed": {
-                        "list-name": "OnInterstitialStateChanged",
-                        "display-text": "On Interstitial State Changed",
-                        "description": "On Interstitial State Changed"
+                    "on-authorize-player-completed": {
+                        "list-name": "OnAuthorizePlayerCompleted",
+                        "display-text": "On Authorize Player Completed",
+                        "description": "On Authorize Player Completed"
+                    },
+                    "is-last-authorize-player-authorized-successfully": {
+                        "list-name": "IsLastAuthorizePlayerAuthorizedSuccessfully",
+                        "display-text": "Is Last Authorize Player Authorized Successfully",
+                        "description": "Is Last Authorize Player Authorized Successfully"
                     },
 
-                    "on-show-rewarded-completed": {
-                        "list-name": "OnShowRewardedCompleted",
-                        "display-text": "On Show Rewarded Completed",
-                        "description": "On Show Rewarded Completed"
+                    "does-player-have-name": {
+                        "list-name": "DoesPlayerHaveName",
+                        "display-text": "Does Player Have Name",
+                        "description": "Does Player Have Name"
                     },
-                    "is-last-show-rewarded-shown-successfully": {
-                        "list-name": "IsLastShowRewardedShownSuccessfully",
-                        "display-text": "Is Last Show Rewarded Shown Successfully",
-                        "description": "Is Last Show Rewarded Shown Successfully"
+                    "does-player-have-photo": {
+                        "list-name": "DoesPlayerHavePhoto",
+                        "display-text": "Does Player Have Photo {0}",
+                        "description": "Does Player Have Photo",
+                        "params": {
+                            "index": {
+                                "name": "Index",
+                                "desc": "Index"
+                            }
+                        }
                     },
-                    "on-rewarded-state-changed": {
-                        "list-name": "OnRewardedStateChanged",
-                        "display-text": "On Rewarded State Changed",
-                        "description": "On Rewarded State Changed"
-                    },
+
 
                     "has-game-data": {
                         "list-name": "HasGameData",
@@ -103,6 +148,51 @@
                         "description": "Is Last Set Game Data Set Successfully"
                     },
 
+                    "on-delete-game-data-completed": {
+                        "list-name": "OnDeleteGameDataCompleted",
+                        "display-text": "On Delete Game Data Completed",
+                        "description": "On Delete Game Data Completed"
+                    },
+                    "is-last-delete-game-data-deleted-successfully": {
+                        "list-name": "IsLastDeleteGameDataDeletedSuccessfully",
+                        "display-text": "Is Last Delete Game Data Deleted Successfully",
+                        "description": "Is Last Delete Game Data Deleted Successfully"
+                    },
+
+
+                    "on-show-interstitial-completed": {
+                        "list-name": "OnShowInterstitialCompleted",
+                        "display-text": "On Show Interstitial Completed",
+                        "description": "On Show Interstitial Completed"
+                    },
+                    "is-last-show-interstitial-shown-successfully": {
+                        "list-name": "IsLastShowInterstitialShownSuccessfully",
+                        "display-text": "Is Last Show Interstitial Shown Successfully",
+                        "description": "Is Last Show Interstitial Shown Successfully"
+                    },
+                    "on-interstitial-state-changed": {
+                        "list-name": "OnInterstitialStateChanged",
+                        "display-text": "On Interstitial State Changed",
+                        "description": "On Interstitial State Changed"
+                    },
+
+                    "on-show-rewarded-completed": {
+                        "list-name": "OnShowRewardedCompleted",
+                        "display-text": "On Show Rewarded Completed",
+                        "description": "On Show Rewarded Completed"
+                    },
+                    "is-last-show-rewarded-shown-successfully": {
+                        "list-name": "IsLastShowRewardedShownSuccessfully",
+                        "display-text": "Is Last Show Rewarded Shown Successfully",
+                        "description": "Is Last Show Rewarded Shown Successfully"
+                    },
+                    "on-rewarded-state-changed": {
+                        "list-name": "OnRewardedStateChanged",
+                        "display-text": "On Rewarded State Changed",
+                        "description": "On Rewarded State Changed"
+                    },
+
+
                     "is-share-supported": {
                         "list-name": "IsShareSupported",
                         "display-text": "Is Share Supported",
@@ -135,10 +225,10 @@
                         "description": "Is Last Invite Friends Invited Successfully"
                     },
 
-                    "is-community-supported": {
-                        "list-name": "IsCommunitySupported",
-                        "display-text": "Is Community Supported",
-                        "description": "Is Community Supported"
+                    "is-join-community-supported": {
+                        "list-name": "IsJoinCommunitySupported",
+                        "display-text": "Is Join Community Supported",
+                        "description": "Is Join Community Supported"
                     },
                     "on-join-community-completed": {
                         "list-name": "OnJoinCommunityCompleted",
@@ -149,6 +239,54 @@
                         "list-name": "IsLastJoinCommunityJoinedSuccessfully",
                         "display-text": "Is Last Join Community Joined Successfully",
                         "description": "Is Last Join Community Joined Successfully"
+                    },
+
+                    "is-create-post-supported": {
+                        "list-name": "IsCreatePostSupported",
+                        "display-text": "Is Create Post Supported",
+                        "description": "Is Create Post Supported"
+                    },
+                    "on-create-post-completed": {
+                        "list-name": "OnCreatePostCompleted",
+                        "display-text": "On Create Post Completed",
+                        "description": "On Create Post Completed"
+                    },
+                    "is-last-create-post-created-successfully": {
+                        "list-name": "IsLastCreatePostCreatedSuccessfully",
+                        "display-text": "Is Last Create Post Created Successfully",
+                        "description": "Is Last Create Post Created Successfully"
+                    },
+
+                    "is-add-to-home-screen-supported": {
+                        "list-name": "IsAddToHomeScreenSupported",
+                        "display-text": "Is Add To Home Screen Supported",
+                        "description": "Is Add To Home Screen Supported"
+                    },
+                    "on-add-to-home-screen-completed": {
+                        "list-name": "OnAddToHomeScreenCompleted",
+                        "display-text": "On Add To Home Screen Completed",
+                        "description": "On Add To Home Screen Completed"
+                    },
+                    "is-last-add-to-home-screen-added-successfully": {
+                        "list-name": "IsLastAddToHomeScreenAddedSuccessfully",
+                        "display-text": "Is Last Add To Home Screen Added Successfully",
+                        "description": "Is Last Add To Home Screen Added Successfully"
+                    },
+
+                    "is-add-to-favorites-supported": {
+                        "list-name": "IsAddToFavoritesSupported",
+                        "display-text": "Is Add To Favorites Supported",
+                        "description": "Is Add To Favorites Supported"
+                    },
+                    "on-add-to-favorites-completed": {
+                        "list-name": "OnAddToFavoritesCompleted",
+                        "display-text": "On Add To Favorites Completed",
+                        "description": "On Add To Favorites Completed"
+                    },
+                    "is-last-add-to-favorites-added-successfully": {
+                        "list-name": "IsLastAddToFavoritesAddedSuccessfully",
+                        "display-text": "Is Last Add To Favorites Added Successfully",
+                        "description": "Is Last Add To Favorites Added Successfully"
                     }
                 },
                 "actions": {
@@ -157,6 +295,14 @@
                         "display-text": "Initialize",
                         "description": "Initialize the SDK"
                     },
+
+
+                    "authorize-player": {
+                        "list-name": "AuthorizePlayer",
+                        "display-text": "AuthorizePlayer",
+                        "description": "Authorize Player"
+                    },
+
 
                     "get-game-data": {
                         "list-name": "GetGameData",
@@ -184,6 +330,18 @@
                             }
                         }
                     },
+                    "delete-game-data": {
+                        "list-name": "DeleteGameData",
+                        "display-text": "Delete Game Data. Key: [b]{0}[/b].",
+                        "description": "Delete Game Data",
+                        "params": {
+                            "key": {
+                                "name": "Key",
+                                "desc": "Key"
+                            }
+                        }
+                    },
+
 
                     "set-minimum-delay-between-interstitial": {
                         "list-name": "SetMinimumDelayBetweenInterstitial",
@@ -213,6 +371,7 @@
                         "description": "Show Rewarded"
                     },
 
+
                     "share": {
                         "list-name": "Share",
                         "display-text": "Share",
@@ -227,6 +386,27 @@
                         "list-name": "JoinCommunity",
                         "display-text": "Join Community",
                         "description": "Join Community"
+                    },
+                    "create-post": {
+                        "list-name": "CreatePost",
+                        "display-text": "Create Post. Text: [b]{0}[/b]",
+                        "description": "Create Post",
+                        "params": {
+                            "text": {
+                                "name": "Text",
+                                "desc": "Text"
+                            }
+                        }
+                    },
+                    "add-to-home-screen": {
+                        "list-name": "AddToHomeScreen",
+                        "display-text": "Add To Home Screen",
+                        "description": "Add To Home Screen"
+                    },
+                    "add-to-favorites": {
+                        "list-name": "AddToFavorites",
+                        "display-text": "Add To Favorites",
+                        "description": "Add To Favorites"
                     }
                 },
                 "expressions": {
@@ -243,6 +423,31 @@
                         "description": "Platform Payload"
                     },
 
+
+                    "player-id": {
+                        "translated-name": "PlayerId",
+                        "description": "Player ID"
+                    },
+                    "player-name": {
+                        "translated-name": "PlayerName",
+                        "description": "Player Name"
+                    },
+                    "player-photos-count": {
+                        "translated-name": "PlayerPhotosCount",
+                        "description": "Player Photos Count"
+                    },
+                    "player-photo": {
+                        "translated-name": "PlayerPhoto",
+                        "description": "Player Photo",
+                        "params": {
+                            "index": {
+                                "name": "Index",
+                                "desc": "Index"
+                            }
+                        }
+                    },
+
+
                     "game-data": {
                         "translated-name": "GameData",
                         "description": "Get Game Data By Key",
@@ -254,6 +459,7 @@
                         }
                     },
 
+
                     "interstitial-state": {
                         "translated-name": "InterstitialState",
                         "description": "Interstitial State"
@@ -261,6 +467,10 @@
                     "rewarded-state": {
                         "translated-name": "RewardedState",
                         "description": "Rewarded State"
+                    },
+                    "minimum-delay-between-interstitial": {
+                        "translated-name": "MinimumDelayBetweenInterstitial",
+                        "description": "Minimum Delay Between Interstitial"
                     }
                 }
             }

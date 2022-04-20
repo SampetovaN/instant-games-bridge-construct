@@ -41,6 +41,80 @@
             }
         ]
     },
+    "player": {
+        "conditions": [
+            {
+                "id": "is-player-authorization-supported",
+                "scriptName": "IsPlayerAuthorizationSupported"
+            },
+
+            {
+                "id": "is-player-authorized",
+                "scriptName": "IsPlayerAuthorized"
+            },
+            {
+                "id": "on-authorize-player-completed",
+                "scriptName": "OnAuthorizePlayerCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "is-last-authorize-player-authorized-successfully",
+                "scriptName": "IsLastAuthorizePlayerAuthorizedSuccessfully"
+            },
+
+            {
+                "id": "does-player-have-name",
+                "scriptName": "DoesPlayerHaveName"
+            },
+            {
+                "id": "does-player-have-photo",
+                "scriptName": "DoesPlayerHavePhoto",
+                "params": [
+                    {
+                        "id": "index",
+                        "type": "number"
+                    }
+                ]
+            }
+        ],
+        "actions": [
+            {
+                "id": "authorize-player",
+                "scriptName": "AuthorizePlayer",
+                "isAsync": true
+            }
+        ],
+        "expressions": [
+            {
+                "id": "player-id",
+                "expressionName": "PlayerId",
+                "returnType": "string"
+            },
+            {
+                "id": "player-name",
+                "expressionName": "PlayerName",
+                "returnType": "string"
+            },
+            {
+                "id": "player-photos-count",
+                "expressionName": "PlayerPhotosCount",
+                "returnType": "number"
+            },
+            {
+                "id": "player-photo",
+                "expressionName": "PlayerPhoto",
+                "returnType": "string",
+                "params": [
+                    {
+                        "id": "index",
+                        "type": "number"
+                    }
+                ]
+            }
+        ]
+    },
     "game": {
         "conditions": [
             {
@@ -76,6 +150,18 @@
             {
                 "id": "is-last-set-game-data-set-successfully",
                 "scriptName": "IsLastSetGameDataSetSuccessfully"
+            },
+
+            {
+                "id": "on-delete-game-data-completed",
+                "scriptName": "OnDeleteGameDataCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "is-last-delete-game-data-deleted-successfully",
+                "scriptName": "IsLastDeleteGameDataDeletedSuccessfully"
             }
         ],
         "actions": [
@@ -102,6 +188,17 @@
                     {
                         "id": "value",
                         "type": "any"
+                    }
+                ]
+            },
+            {
+                "id": "delete-game-data",
+                "scriptName": "DeleteGameData",
+                "isAsync": true,
+                "params": [
+                    {
+                        "id": "key",
+                        "type": "string"
                     }
                 ]
             }
@@ -191,6 +288,11 @@
         ],
         "expressions": [
             {
+                "id": "minimum-delay-between-interstitial",
+                "expressionName": "MinimumDelayBetweenInterstitial",
+                "returnType": "number"
+            },
+            {
                 "id": "interstitial-state",
                 "expressionName": "InterstitialState",
                 "returnType": "string"
@@ -237,8 +339,8 @@
             },
 
             {
-                "id": "is-community-supported",
-                "scriptName": "IsCommunitySupported"
+                "id": "is-join-community-supported",
+                "scriptName": "IsJoinCommunitySupported"
             },
             {
                 "id": "on-join-community-completed",
@@ -250,6 +352,54 @@
             {
                 "id": "is-last-join-community-joined-successfully",
                 "scriptName": "IsLastJoinCommunityJoinedSuccessfully"
+            },
+
+            {
+                "id": "is-create-post-supported",
+                "scriptName": "IsCreatePostSupported"
+            },
+            {
+                "id": "on-create-post-completed",
+                "scriptName": "OnCreatePostCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "is-last-create-post-created-successfully",
+                "scriptName": "IsLastCreatePostCreatedSuccessfully"
+            },
+
+            {
+                "id": "is-add-to-home-screen-supported",
+                "scriptName": "IsAddToHomeScreenSupported"
+            },
+            {
+                "id": "on-add-to-home-screen-completed",
+                "scriptName": "OnAddToHomeScreenCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "is-last-add-to-home-screen-added-successfully",
+                "scriptName": "IsLastAddToHomeScreenAddedSuccessfully"
+            },
+
+            {
+                "id": "is-add-to-favorites-supported",
+                "scriptName": "IsAddToFavoritesSupported"
+            },
+            {
+                "id": "on-add-to-favorites-completed",
+                "scriptName": "OnAddToFavoritesCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "is-last-add-to-favorites-added-successfully",
+                "scriptName": "IsLastAddToFavoritesAddedSuccessfully"
             }
         ],
         "actions": [
@@ -266,6 +416,27 @@
             {
                 "id": "join-community",
                 "scriptName": "JoinCommunity",
+                "isAsync": true
+            },
+            {
+                "id": "create-post",
+                "scriptName": "CreatePost",
+                "isAsync": true,
+                "params": [
+                    {
+                        "id": "text",
+                        "type": "string"
+                    }
+                ]
+            },
+            {
+                "id": "add-to-home-screen",
+                "scriptName": "AddToHomeScreen",
+                "isAsync": true
+            },
+            {
+                "id": "add-to-favorites",
+                "scriptName": "AddToFavorites",
                 "isAsync": true
             }
         ]
