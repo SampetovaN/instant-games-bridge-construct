@@ -41,6 +41,15 @@
             }
         ]
     },
+    "device": {
+        "expressions": [
+            {
+                "id": "device-type",
+                "expressionName": "DeviceType",
+                "returnType": "string"
+            }
+        ]
+    },
     "player": {
         "conditions": [
             {
@@ -83,7 +92,13 @@
             {
                 "id": "authorize-player",
                 "scriptName": "AuthorizePlayer",
-                "isAsync": true
+                "isAsync": true,
+                "params": [
+                    {
+                        "id": "yandex-scopes",
+                        "type": "boolean"
+                    }
+                ]
             }
         ],
         "expressions": [
@@ -264,7 +279,15 @@
                 "isAsync": false,
                 "params": [
                     {
-                        "id": "value",
+                        "id": "vk",
+                        "type": "number"
+                    },
+                    {
+                        "id": "yandex",
+                        "type": "number"
+                    },
+                    {
+                        "id": "mock",
                         "type": "number"
                     }
                 ]
@@ -275,7 +298,15 @@
                 "isAsync": true,
                 "params": [
                     {
-                        "id": "ignore-delay",
+                        "id": "vk",
+                        "type": "boolean"
+                    },
+                    {
+                        "id": "yandex",
+                        "type": "boolean"
+                    },
+                    {
+                        "id": "mock",
                         "type": "boolean"
                     }
                 ]
@@ -400,13 +431,35 @@
             {
                 "id": "is-last-add-to-favorites-added-successfully",
                 "scriptName": "IsLastAddToFavoritesAddedSuccessfully"
+            },
+
+            {
+                "id": "is-rate-supported",
+                "scriptName": "IsRateSupported"
+            },
+            {
+                "id": "on-rate-completed",
+                "scriptName": "OnRateCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "is-last-rate-rated-successfully",
+                "scriptName": "IsLastRateRatedSuccessfully"
             }
         ],
         "actions": [
             {
                 "id": "share",
                 "scriptName": "Share",
-                "isAsync": true
+                "isAsync": true,
+                "params": [
+                    {
+                        "id": "vk-link",
+                        "type": "string"
+                    }
+                ]
             },
             {
                 "id": "invite-friends",
@@ -416,7 +469,13 @@
             {
                 "id": "join-community",
                 "scriptName": "JoinCommunity",
-                "isAsync": true
+                "isAsync": true,
+                "params": [
+                    {
+                        "id": "vk-group-id",
+                        "type": "number"
+                    }
+                ]
             },
             {
                 "id": "create-post",
@@ -424,7 +483,11 @@
                 "isAsync": true,
                 "params": [
                     {
-                        "id": "text",
+                        "id": "vk-message",
+                        "type": "string"
+                    },
+                    {
+                        "id": "vk-attachments",
                         "type": "string"
                     }
                 ]
@@ -438,6 +501,260 @@
                 "id": "add-to-favorites",
                 "scriptName": "AddToFavorites",
                 "isAsync": true
+            },
+            {
+                "id": "rate",
+                "scriptName": "Rate",
+                "isAsync": true
+            }
+        ]
+    },
+    "leaderboard": {
+        "conditions": [
+            {
+                "id": "is-leaderboard-supported",
+                "scriptName": "IsLeaderboardSupported"
+            },
+            {
+                "id": "is-leaderboard-native-popup-supported",
+                "scriptName": "IsLeaderboardNativePopupSupported"
+            },
+            {
+                "id": "is-leaderboard-multiple-boards-supported",
+                "scriptName": "IsLeaderboardMultipleBoardsSupported"
+            },
+            {
+                "id": "is-leaderboard-set-score-supported",
+                "scriptName": "IsLeaderboardSetScoreSupported"
+            },
+            {
+                "id": "is-leaderboard-get-score-supported",
+                "scriptName": "IsLeaderboardGetScoreSupported"
+            },
+            {
+                "id": "is-leaderboard-get-entries-supported",
+                "scriptName": "IsLeaderboardGetEntriesSupported"
+            },
+
+            {
+                "id": "on-leaderboard-set-score-completed",
+                "scriptName": "OnLeaderboardSetScoreCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "is-last-leaderboard-set-score-set-successfully",
+                "scriptName": "IsLastLeaderboardSetScoreSetSuccessfully"
+            },
+
+            {
+                "id": "on-leaderboard-get-score-completed",
+                "scriptName": "OnLeaderboardGetScoreCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "is-last-leaderboard-get-score-got-successfully",
+                "scriptName": "IsLastLeaderboardGetScoreGotSuccessfully"
+            },
+
+            {
+                "id": "on-leaderboard-get-entries-completed",
+                "scriptName": "OnLeaderboardGetEntriesCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "is-last-leaderboard-get-entries-got-successfully",
+                "scriptName": "IsLastLeaderboardGetEntriesGotSuccessfully"
+            },
+
+            {
+                "id": "on-leaderboard-show-native-popup-completed",
+                "scriptName": "OnLeaderboardShowNativePopupCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "is-last-leaderboard-show-native-popup-shown-successfully",
+                "scriptName": "IsLastLeaderboardShowNativePopupShownSuccessfully"
+            },
+
+            {
+                "id": "does-leaderboard-entry-player-have-name",
+                "scriptName": "DoesLeaderboardEntryPlayerHaveName",
+                "params": [
+                    {
+                        "id": "entry-index",
+                        "type": "number"
+                    }
+                ]
+            },
+            {
+                "id": "does-leaderboard-entry-player-have-photo",
+                "scriptName": "DoesLeaderboardEntryPlayerHavePhoto",
+                "params": [
+                    {
+                        "id": "entry-index",
+                        "type": "number"
+                    },
+                    {
+                        "id": "photo-index",
+                        "type": "number"
+                    }
+                ]
+            }
+        ],
+        "actions": [
+            {
+                "id": "leaderboard-set-score",
+                "scriptName": "LeaderboardSetScore",
+                "isAsync": true,
+                "params": [
+                    {
+                        "id": "yandex-leaderboard-name",
+                        "type": "string"
+                    },
+                    {
+                        "id": "yandex-score",
+                        "type": "number"
+                    }
+                ]
+            },
+            {
+                "id": "leaderboard-get-score",
+                "scriptName": "LeaderboardGetScore",
+                "isAsync": true,
+                "params": [
+                    {
+                        "id": "yandex-leaderboard-name",
+                        "type": "string"
+                    }
+                ]
+            },
+            {
+                "id": "leaderboard-get-entries",
+                "scriptName": "LeaderboardGetEntries",
+                "isAsync": true,
+                "params": [
+                    {
+                        "id": "yandex-leaderboard-name",
+                        "type": "string"
+                    },
+                    {
+                        "id": "yandex-include-user",
+                        "type": "boolean"
+                    },
+                    {
+                        "id": "yandex-quantity-around",
+                        "type": "number"
+                    },
+                    {
+                        "id": "yandex-quantity-top",
+                        "type": "number"
+                    }
+                ]
+            },
+            {
+                "id": "leaderboard-show-native-popup",
+                "scriptName": "LeaderboardShowNativePopup",
+                "isAsync": true,
+                "params": [
+                    {
+                        "id": "vk-user-result",
+                        "type": "number"
+                    },
+                    {
+                        "id": "vk-global",
+                        "type": "boolean"
+                    }
+                ]
+            }
+        ],
+        "expressions": [
+            {
+                "id": "leaderboard-player-score",
+                "expressionName": "LeaderboardPlayerScore",
+                "returnType": "number"
+            },
+            {
+                "id": "leaderboard-entries-count",
+                "expressionName": "LeaderboardEntriesCount",
+                "returnType": "number"
+            },
+            {
+                "id": "leaderboard-entry-player-id",
+                "expressionName": "LeaderboardEntryPlayerId",
+                "returnType": "string",
+                "params": [
+                    {
+                        "id": "entry-index",
+                        "type": "number"
+                    }
+                ]
+            },
+            {
+                "id": "leaderboard-entry-player-name",
+                "expressionName": "LeaderboardEntryPlayerName",
+                "returnType": "string",
+                "params": [
+                    {
+                        "id": "entry-index",
+                        "type": "number"
+                    }
+                ]
+            },
+            {
+                "id": "leaderboard-entry-player-score",
+                "expressionName": "LeaderboardEntryPlayerScore",
+                "returnType": "number",
+                "params": [
+                    {
+                        "id": "entry-index",
+                        "type": "number"
+                    }
+                ]
+            },
+            {
+                "id": "leaderboard-entry-player-rank",
+                "expressionName": "LeaderboardEntryPlayerRank",
+                "returnType": "number",
+                "params": [
+                    {
+                        "id": "entry-index",
+                        "type": "number"
+                    }
+                ]
+            },
+            {
+                "id": "leaderboard-entry-player-photos-count",
+                "expressionName": "LeaderboardEntryPlayerPhotosCount",
+                "returnType": "number",
+                "params": [
+                    {
+                        "id": "entry-index",
+                        "type": "number"
+                    }
+                ]
+            },
+            {
+                "id": "leaderboard-entry-player-photo",
+                "expressionName": "LeaderboardEntryPlayerPhoto",
+                "returnType": "string",
+                "params": [
+                    {
+                        "id": "entry-index",
+                        "type": "number"
+                    },
+                    {
+                        "id": "photo-index",
+                        "type": "number"
+                    }
+                ]
             }
         ]
     }

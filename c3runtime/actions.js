@@ -8,12 +8,7 @@
                 return Promise.resolve()
 
             return new Promise(resolve => {
-                if (!window.instantGamesBridge) {
-                    resolve()
-                    return
-                }
-
-                window.instantGamesBridge.initialize(this.instantGamesBridgeOptions ? this.instantGamesBridgeOptions : { })
+                window.instantGamesBridge.initialize()
                     .then(() => {
                         window.instantGamesBridge.advertisement.on('interstitial_state_changed', state => {
                             this.interstitialState = state
@@ -36,11 +31,17 @@
 
 
         // player
-        AuthorizePlayer() {
+        AuthorizePlayer(yandexScopes) {
             this.isLastAuthorizePlayerAuthorizedSuccessfully = false
 
+            let authorizationOptions = {
+                yandex: {
+                    scopes: yandexScopes
+                }
+            }
+
             return new Promise(resolve => {
-                window.instantGamesBridge.player.authorize()
+                window.instantGamesBridge.player.authorize(authorizationOptions)
                     .then(() => {
                         this.isLastAuthorizePlayerAuthorizedSuccessfully = true
                     })
@@ -113,15 +114,16 @@
 
 
         // advertisement
-        SetMinimumDelayBetweenInterstitial(value) {
-            window.instantGamesBridge.advertisement.setMinimumDelayBetweenInterstitial(value)
+        SetMinimumDelayBetweenInterstitial(vk, yandex, mock) {
+            let delayOptions = { vk, yandex, mock }
+            window.instantGamesBridge.advertisement.setMinimumDelayBetweenInterstitial(delayOptions)
         },
-        ShowInterstitial(ignoreDelay) {
+        ShowInterstitial(vk, yandex, mock) {
             this.isLastShowInterstitialShownSuccessfully = false
 
-            let options = { ignoreDelay }
+            let interstitialOptions = { vk, yandex, mock }
             return new Promise(resolve => {
-                window.instantGamesBridge.advertisement.showInterstitial(options)
+                window.instantGamesBridge.advertisement.showInterstitial(interstitialOptions)
                     .then(() => {
                         this.isLastShowInterstitialShownSuccessfully = true
                     })
@@ -150,11 +152,17 @@
 
 
         // social
-        Share() {
+        Share(vkLink) {
             this.isLastShareSharedSuccessfully = false
 
+            let shareOptions = {
+                vk: {
+                    link: vkLink
+                }
+            }
+
             return new Promise(resolve => {
-                window.instantGamesBridge.social.share()
+                window.instantGamesBridge.social.share(shareOptions)
                     .then(() => {
                         this.isLastShareSharedSuccessfully = true
                     })
@@ -180,11 +188,17 @@
                     })
             })
         },
-        JoinCommunity() {
+        JoinCommunity(vkGroupId) {
             this.isLastJoinCommunityJoinedSuccessfully = false
 
+            let joinCommunityOptions = {
+                vk: {
+                    groupId: vkGroupId
+                }
+            }
+
             return new Promise(resolve => {
-                window.instantGamesBridge.social.joinCommunity()
+                window.instantGamesBridge.social.joinCommunity(joinCommunityOptions)
                     .then(() => {
                         this.isLastJoinCommunityJoinedSuccessfully = true
                     })
@@ -195,11 +209,18 @@
                     })
             })
         },
-        CreatePost(text) {
+        CreatePost(vkMessage, vkAttachments) {
             this.isLastCreatePostCreatedSuccessfully = false
 
+            let createPostOptions = {
+                vk: {
+                    message: vkMessage,
+                    attachments: vkAttachments
+                }
+            }
+
             return new Promise(resolve => {
-                window.instantGamesBridge.social.createPost(text)
+                window.instantGamesBridge.social.createPost(createPostOptions)
                     .then(() => {
                         this.isLastCreatePostCreatedSuccessfully = true
                     })
@@ -236,6 +257,116 @@
                     .catch(error => console.log(error))
                     .finally(() => {
                         this.Trigger(this.conditions.OnAddToFavoritesCompleted)
+                        resolve()
+                    })
+            })
+        },
+        Rate() {
+            this.isLastRateRatedSuccessfully = false
+
+            return new Promise(resolve => {
+                window.instantGamesBridge.social.rate()
+                    .then(() => {
+                        this.isLastRateRatedSuccessfully = true
+                    })
+                    .catch(error => console.log(error))
+                    .finally(() => {
+                        this.Trigger(this.conditions.OnRateCompleted)
+                        resolve()
+                    })
+            })
+        },
+
+
+        LeaderboardSetScore(yandexLeaderboardName, yandexScore) {
+            this.isLastLeaderboardSetScoreSetSuccessfully = false
+
+            let options = {
+                yandex: {
+                    leaderboardName: yandexLeaderboardName,
+                    score: yandexScore
+                }
+            }
+
+            return new Promise(resolve => {
+                window.instantGamesBridge.leaderboard.setScore(options)
+                    .then(() => {
+                        this.isLastLeaderboardSetScoreSetSuccessfully = true
+                    })
+                    .catch(error => console.log(error))
+                    .finally(() => {
+                        this.Trigger(this.conditions.OnLeaderboardSetScoreCompleted)
+                        resolve()
+                    })
+            })
+        },
+        LeaderboardGetScore(yandexLeaderboardName) {
+            this.leaderboardPlayerScore = null
+            this.isLastLeaderboardGetScoreGotSuccessfully = false
+
+            let options = {
+                yandex: {
+                    leaderboardName: yandexLeaderboardName
+                }
+            }
+
+            return new Promise(resolve => {
+                window.instantGamesBridge.leaderboard.getScore(options)
+                    .then(score => {
+                        this.leaderboardPlayerScore = score
+                        this.isLastLeaderboardGetScoreGotSuccessfully = true
+                    })
+                    .catch(error => console.log(error))
+                    .finally(() => {
+                        this.Trigger(this.conditions.OnLeaderboardGetScoreCompleted)
+                        resolve()
+                    })
+            })
+        },
+        LeaderboardGetEntries(yandexLeaderboardName, yandexIncludeUser, yandexQuantityAround, yandexQuantityTop) {
+            this.leaderboardEntries = null
+            this.isLastLeaderboardGetEntriesGotSuccessfully = false
+
+            let options = {
+                yandex: {
+                    leaderboardName: yandexLeaderboardName,
+                    includeUser: yandexIncludeUser,
+                    quantityAround: yandexQuantityAround,
+                    quantityTop: yandexQuantityTop
+                }
+            }
+
+            return new Promise(resolve => {
+                window.instantGamesBridge.leaderboard.getEntries(options)
+                    .then(entries => {
+                        this.leaderboardEntries = entries
+                        this.isLastLeaderboardGetEntriesGotSuccessfully = true
+                    })
+                    .catch(error => console.log(error))
+                    .finally(() => {
+                        this.Trigger(this.conditions.OnLeaderboardGetEntriesCompleted)
+                        resolve()
+                    })
+            })
+        },
+        LeaderboardShowNativePopup(vkUserResult, vkGlobal) {
+            this.isLastShowNativePopupShownSuccessfully = false
+
+            let showNativePopupOptions = {
+                vk: {
+                    userResult: vkUserResult,
+                    global: vkGlobal
+                }
+            }
+
+            return new Promise(resolve => {
+                window.instantGamesBridge.leaderboard.showNativePopup(showNativePopupOptions)
+                    .then(() => {
+                        this.isLastShowNativePopupShownSuccessfully = true
+                    })
+                    .catch(error => console.log(error))
+                    .finally(() => {
+                        this.Trigger(this.conditions.OnShowNativePopupCompleted)
                         resolve()
                     })
             })

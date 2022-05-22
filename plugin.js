@@ -1,7 +1,7 @@
 'use strict'
 {
     const PLUGIN_ID = 'InstantGamesBridge'
-    const PLUGIN_VERSION = '1.3.0'
+    const PLUGIN_VERSION = '1.4.4'
     const PLUGIN_CATEGORY = 'platform-specific'
 
     const PLUGIN_CLASS = (SDK.Plugins.InstantGamesBridge = class InstantGamesBridgePlugin extends SDK.IPluginBase {
@@ -20,17 +20,7 @@
 
             SDK.Lang.PushContext('.properties')
             this._info.SetProperties([
-                new SDK.PluginProperty('check', 'load-sdk-from-cdn', true),
-                new SDK.PluginProperty('integer', 'vk-group-id', 0),
-                new SDK.PluginProperty('check', 'yandex-authorization-scopes', true),
-                new SDK.PluginProperty('check', 'mock-simulate-share', false),
-                new SDK.PluginProperty('check', 'mock-simulate-invite-friends', false),
-                new SDK.PluginProperty('check', 'mock-simulate-join-community', false),
-                new SDK.PluginProperty('check', 'mock-simulate-create-post', false),
-                new SDK.PluginProperty('check', 'mock-simulate-add-to-home-screen', false),
-                new SDK.PluginProperty('check', 'mock-simulate-add-to-favorites', false),
-                new SDK.PluginProperty('check', 'mock-simulate-interstitial', false),
-                new SDK.PluginProperty('check', 'mock-simulate-rewarded', false)
+                new SDK.PluginProperty('check', 'load-sdk-from-cdn', true)
             ]);
 
             SDK.Lang.PopContext()

@@ -12,55 +12,17 @@
                     "load-sdk-from-cdn": {
                         "name": "Load SDK from CDN",
                         "desc": "If false - you should import SDK JS script into scripts folder and mark as main"
-                    },
-                    "vk-group-id": {
-                        "name": "VK Group ID",
-                        "desc": "If you want to use JoinCommunity action on VK"
-                    },
-                    "yandex-authorization-scopes": {
-                        "name": "Yandex Authorization Scopes",
-                        "desc": "Request access to photo and name"
-                    },
-                    "mock-simulate-share": {
-                        "name": "Mock Simulate Share",
-                        "desc": "Simulate Share on Mock Platform"
-                    },
-                    "mock-simulate-invite-friends": {
-                        "name": "Mock Simulate Invite Friends",
-                        "desc": "Simulate Invite Friends on Mock Platform"
-                    },
-                    "mock-simulate-join-community": {
-                        "name": "Mock Simulate Join Community",
-                        "desc": "Simulate Join Community on Mock Platform"
-                    },
-                    "mock-simulate-create-post": {
-                        "name": "Mock Simulate Create Post",
-                        "desc": "Simulate Create Post on Mock Platform"
-                    },
-                    "mock-simulate-add-to-home-screen": {
-                        "name": "Mock Simulate Add To Home Screen",
-                        "desc": "Simulate Add To Home Screen on Mock Platform"
-                    },
-                    "mock-simulate-add-to-favorites": {
-                        "name": "Mock Simulate Add To Favorites",
-                        "desc": "Simulate Add To Favorites on Mock Platform"
-                    },
-                    "mock-simulate-interstitial": {
-                        "name": "Mock Simulate Interstitial",
-                        "desc": "Simulate Interstitial on Mock Platform"
-                    },
-                    "mock-simulate-rewarded": {
-                        "name": "Mock Simulate Rewarded",
-                        "desc": "Simulate Rewarded on Mock Platform"
                     }
                 },
                 "aceCategories": {
                     "common": "Common",
                     "platform": "Platform",
+                    "device": "Device",
                     "player": "Player",
                     "game": "Game",
                     "advertisement": "Advertisement",
-                    "social": "Social"
+                    "social": "Social",
+                    "leaderboard": "Leaderboard"
                 },
                 "conditions": {
                     "on-initialization-completed": {
@@ -103,7 +65,7 @@
                     },
                     "does-player-have-photo": {
                         "list-name": "DoesPlayerHavePhoto",
-                        "display-text": "Does Player Have Photo {0}",
+                        "display-text": "Does Player Have Photo. Index: [b]{0}[/b].",
                         "description": "Does Player Have Photo",
                         "params": {
                             "index": {
@@ -116,7 +78,7 @@
 
                     "has-game-data": {
                         "list-name": "HasGameData",
-                        "display-text": "Has Game Data By Key {0}",
+                        "display-text": "Has Game Data By Key: [b]{0}[/b].",
                         "description": "Has Game Data By Key",
                         "params": {
                             "key": {
@@ -287,6 +249,121 @@
                         "list-name": "IsLastAddToFavoritesAddedSuccessfully",
                         "display-text": "Is Last Add To Favorites Added Successfully",
                         "description": "Is Last Add To Favorites Added Successfully"
+                    },
+
+                    "is-rate-supported": {
+                        "list-name": "IsRateSupported",
+                        "display-text": "Is Rate Supported",
+                        "description": "Is Rate Supported"
+                    },
+                    "on-rate-completed": {
+                        "list-name": "OnRateCompleted",
+                        "display-text": "On Rate Completed",
+                        "description": "On Rate Completed"
+                    },
+                    "is-last-rate-rated-successfully": {
+                        "list-name": "IsLastRateRatedSuccessfully",
+                        "display-text": "Is Last Rate Rated Successfully",
+                        "description": "Is Last Rate Rated Successfully"
+                    },
+
+
+                    "is-leaderboard-supported": {
+                        "list-name": "IsLeaderboardSupported",
+                        "display-text": "Is Leaderboard Supported",
+                        "description": "Is Leaderboard Supported"
+                    },
+                    "is-leaderboard-native-popup-supported": {
+                        "list-name": "IsLeaderboardNativePopupSupported",
+                        "display-text": "Is Leaderboard Native Popup Supported",
+                        "description": "Is Leaderboard Native Popup Supported"
+                    },
+                    "is-leaderboard-multiple-boards-supported": {
+                        "list-name": "IsLeaderboardMultipleBoardsSupported",
+                        "display-text": "Is Leaderboard Multiple Boards Supported",
+                        "description": "Is Leaderboard Multiple Boards Supported"
+                    },
+                    "is-leaderboard-set-score-supported": {
+                        "list-name": "IsLeaderboardSetScoreSupported",
+                        "display-text": "Is Leaderboard Set Score Supported",
+                        "description": "Is Leaderboard Set Score Supported"
+                    },
+                    "is-leaderboard-get-score-supported": {
+                        "list-name": "IsLeaderboardGetScoreSupported",
+                        "display-text": "Is Leaderboard Get Score Supported",
+                        "description": "Is Leaderboard Get Score Supported"
+                    },
+                    "is-leaderboard-get-entries-supported": {
+                        "list-name": "IsLeaderboardGetEntriesSupported",
+                        "display-text": "Is Leaderboard Get Entries Supported",
+                        "description": "Is Leaderboard Get Entries Supported"
+                    },
+
+                    "on-leaderboard-set-score-completed": {
+                        "list-name": "OnLeaderboardSetScoreCompleted",
+                        "display-text": "On Leaderboard Set Score Completed",
+                        "description": "On Leaderboard Set Score Completed"
+                    },
+                    "is-last-leaderboard-set-score-set-successfully": {
+                        "list-name": "IsLastLeaderboardSetScoreSetSuccessfully",
+                        "display-text": "Is Last Leaderboard Set Score Set Successfully",
+                        "description": "Is Last Leaderboard Set Score Set Successfully"
+                    },
+                    "on-leaderboard-get-score-completed": {
+                        "list-name": "OnLeaderboardGetScoreCompleted",
+                        "display-text": "On Leaderboard Get Score Completed",
+                        "description": "On Leaderboard Get Score Completed"
+                    },
+                    "is-last-leaderboard-get-score-got-successfully": {
+                        "list-name": "IsLastLeaderboardGetScoreGotSuccessfully",
+                        "display-text": "Is Last Leaderboard Get Score Got Successfully",
+                        "description": "Is Last Leaderboard Get Score Got Successfully"
+                    },
+                    "on-leaderboard-get-entries-completed": {
+                        "list-name": "OnLeaderboardGetEntriesCompleted",
+                        "display-text": "On Leaderboard Get Entries Completed",
+                        "description": "On Leaderboard Get Entries Completed"
+                    },
+                    "is-last-leaderboard-get-entries-got-successfully": {
+                        "list-name": "IsLastLeaderboardGetEntriesGotSuccessfully",
+                        "display-text": "Is Last Leaderboard Get Entries Got Successfully",
+                        "description": "Is Last Leaderboard Get Entries Got Successfully"
+                    },
+                    "on-leaderboard-show-native-popup-completed": {
+                        "list-name": "OnLeaderboardShowNativePopupCompleted",
+                        "display-text": "On Leaderboard Show Native Popup Completed",
+                        "description": "On Leaderboard Show Native Popup Completed"
+                    },
+                    "is-last-leaderboard-show-native-popup-shown-successfully": {
+                        "list-name": "IsLastLeaderboardShowNativePopupShownSuccessfully",
+                        "display-text": "Is Last Leaderboard Show Native Popup Shown Successfully",
+                        "description": "Is Last Leaderboard Show Native Popup Shown Successfully"
+                    },
+                    "does-leaderboard-entry-player-have-name": {
+                        "list-name": "DoesLeaderboardEntryPlayerHaveName",
+                        "display-text": "Does Leaderboard Entry Player Have Name. Entry Index: [b]{0}[/b].",
+                        "description": "Does Leaderboard Entry Player Have Name",
+                        "params": {
+                            "entry-index": {
+                                "name": "Entry Index",
+                                "desc": "Entry Index"
+                            }
+                        }
+                    },
+                    "does-leaderboard-entry-player-have-photo": {
+                        "list-name": "DoesLeaderboardEntryPlayerHavePhoto",
+                        "display-text": "Does Leaderboard Entry Player Have Photo. Entry Index: [b]{0}[/b]. Photo Index: [b]{1}[/b].",
+                        "description": "Does Leaderboard Entry Player Have Photo",
+                        "params": {
+                            "entry-index": {
+                                "name": "Entry Index",
+                                "desc": "Entry Index"
+                            },
+                            "photo-index": {
+                                "name": "Photo Index",
+                                "desc": "Photo Index"
+                            }
+                        }
                     }
                 },
                 "actions": {
@@ -299,8 +376,14 @@
 
                     "authorize-player": {
                         "list-name": "AuthorizePlayer",
-                        "display-text": "AuthorizePlayer",
-                        "description": "Authorize Player"
+                        "display-text": "AuthorizePlayer. Yandex Scopes: [b]{0}[/b].",
+                        "description": "Authorize Player",
+                        "params": {
+                            "yandex-scopes": {
+                                "name": "Yandex Scopes",
+                                "desc": "Request player name and photo"
+                            }
+                        }
                     },
 
 
@@ -345,23 +428,39 @@
 
                     "set-minimum-delay-between-interstitial": {
                         "list-name": "SetMinimumDelayBetweenInterstitial",
-                        "display-text": "Set Minimum Delay Between Interstitial. Seconds: [b]{0}[/b].",
+                        "display-text": "Set Minimum Delay Between Interstitial. VK: [b]{0}[/b], Yandex: [b]{1}[/b]. Mock: [b]{2}[/b].",
                         "description": "Set Minimum Delay Between Interstitial",
                         "params": {
-                            "value": {
-                                "name": "Value",
-                                "desc": "Value"
+                            "vk": {
+                                "name": "VK",
+                                "desc": "Value for VK (seconds)"
+                            },
+                            "yandex": {
+                                "name": "Yandex",
+                                "desc": "Value for Yandex (seconds)"
+                            },
+                            "mock": {
+                                "name": "MOCK",
+                                "desc": "Value for MOCK (seconds)"
                             }
                         }
                     },
                     "show-interstitial": {
                         "list-name": "ShowInterstitial",
-                        "display-text": "Show Interstitial. Ignore delay: [b]{0}[/b].",
+                        "display-text": "Show Interstitial. Ignore Delay VK: [b]{0}[/b], Yandex: [b]{1}[/b]. Mock: [b]{2}[/b].",
                         "description": "Show Interstitial",
                         "params": {
-                            "ignore-delay": {
-                                "name": "IgnoreDelay",
-                                "desc": "Ignore Delay"
+                            "vk": {
+                                "name": "VK",
+                                "desc": "Ignore Delay for VK"
+                            },
+                            "yandex": {
+                                "name": "Yandex",
+                                "desc": "Ignore Delay for Yandex"
+                            },
+                            "mock": {
+                                "name": "MOCK",
+                                "desc": "Ignore Delay MOCK"
                             }
                         }
                     },
@@ -374,8 +473,14 @@
 
                     "share": {
                         "list-name": "Share",
-                        "display-text": "Share",
-                        "description": "Share"
+                        "display-text": "Share. VK Link: [b]{0}[/b].",
+                        "description": "Share",
+                        "params": {
+                            "vk-link": {
+                                "name": "VK Link",
+                                "desc": "VK Link"
+                            }
+                        }
                     },
                     "invite-friends": {
                         "list-name": "InviteFriends",
@@ -384,17 +489,27 @@
                     },
                     "join-community": {
                         "list-name": "JoinCommunity",
-                        "display-text": "Join Community",
-                        "description": "Join Community"
+                        "display-text": "Join Community. VK Group ID: [b]{0}[/b].",
+                        "description": "Join Community",
+                        "params": {
+                            "vk-group-id": {
+                                "name": "VK Group ID",
+                                "desc": "VK Group ID"
+                            }
+                        }
                     },
                     "create-post": {
                         "list-name": "CreatePost",
-                        "display-text": "Create Post. Text: [b]{0}[/b]",
+                        "display-text": "Create Post. VK Message: [b]{0}[/b], VK Attachments: [b]{1}[/b].",
                         "description": "Create Post",
                         "params": {
-                            "text": {
-                                "name": "Text",
-                                "desc": "Text"
+                            "vk-message": {
+                                "name": "VK Message",
+                                "desc": "VK Message"
+                            },
+                            "vk-attachments": {
+                                "name": "VK Attachments",
+                                "desc": "VK Attachments"
                             }
                         }
                     },
@@ -407,6 +522,77 @@
                         "list-name": "AddToFavorites",
                         "display-text": "Add To Favorites",
                         "description": "Add To Favorites"
+                    },
+                    "rate": {
+                        "list-name": "Rate",
+                        "display-text": "Rate",
+                        "description": "Rate"
+                    },
+
+
+                    "leaderboard-set-score": {
+                        "list-name": "LeaderboardSetScore",
+                        "display-text": "Set Leaderboard Score. Yandex Leaderboard Name: [b]{0}[/b], Yandex Score: [b]{1}[/b].",
+                        "description": "Set Leaderboard Score",
+                        "params": {
+                            "yandex-leaderboard-name": {
+                                "name": "Yandex Leaderboard Name",
+                                "desc": "Yandex Leaderboard Name"
+                            },
+                            "yandex-score": {
+                                "name": "Yandex Score",
+                                "desc": "Yandex Score"
+                            }
+                        }
+                    },
+                    "leaderboard-get-score": {
+                        "list-name": "LeaderboardGetScore",
+                        "display-text": "Get Leaderboard Score. Yandex Leaderboard Name: [b]{0}[/b].",
+                        "description": "Get Leaderboard Score",
+                        "params": {
+                            "yandex-leaderboard-name": {
+                                "name": "Yandex Leaderboard Name",
+                                "desc": "Yandex Leaderboard Name"
+                            }
+                        }
+                    },
+                    "leaderboard-get-entries": {
+                        "list-name": "LeaderboardGetEntries",
+                        "display-text": "Get Leaderboard Entries. Yandex Leaderboard Name: [b]{0}[/b], Yandex Include User: [b]{1}[/b], Yandex Quantity Around: [b]{2}[/b], Yandex Quantity Top: [b]{3}[/b].",
+                        "description": "Get Leaderboard Entries",
+                        "params": {
+                            "yandex-leaderboard-name": {
+                                "name": "Yandex Leaderboard Name",
+                                "desc": "Yandex Leaderboard Name"
+                            },
+                            "yandex-include-user": {
+                                "name": "Yandex Include User",
+                                "desc": "Yandex Include User"
+                            },
+                            "yandex-quantity-around": {
+                                "name": "Yandex Quantity Around",
+                                "desc": "Yandex Quantity Around"
+                            },
+                            "yandex-quantity-top": {
+                                "name": "Yandex Quantity Top",
+                                "desc": "Yandex Quantity Top"
+                            }
+                        }
+                    },
+                    "leaderboard-show-native-popup": {
+                        "list-name": "LeaderboardShowNativePopup",
+                        "display-text": "Show Leaderboard Native Popup. VK User Result: [b]{0}[/b], VK Global: [b]{1}[/b].",
+                        "description": "Show Leaderboard Native Popup",
+                        "params": {
+                            "vk-user-result": {
+                                "name": "VK User Result",
+                                "desc": "VK User Result"
+                            },
+                            "vk-global": {
+                                "name": "VK Global",
+                                "desc": "VK Global"
+                            }
+                        }
                     }
                 },
                 "expressions": {
@@ -421,6 +607,12 @@
                     "platform-payload": {
                         "translated-name": "PlatformPayload",
                         "description": "Platform Payload"
+                    },
+
+
+                    "device-type": {
+                        "translated-name": "DeviceType",
+                        "description": "Device Type"
                     },
 
 
@@ -471,6 +663,80 @@
                     "minimum-delay-between-interstitial": {
                         "translated-name": "MinimumDelayBetweenInterstitial",
                         "description": "Minimum Delay Between Interstitial"
+                    },
+
+
+                    "leaderboard-player-score": {
+                        "translated-name": "LeaderboardPlayerScore",
+                        "description": "Leaderboard Player Score"
+                    },
+                    "leaderboard-entries-count": {
+                        "translated-name": "LeaderboardEntriesCount",
+                        "description": "Leaderboard Entries Count"
+                    },
+                    "leaderboard-entry-player-id": {
+                        "translated-name": "LeaderboardEntryPlayerId",
+                        "description": "Leaderboard Entry Player Id",
+                        "params": {
+                            "entry-index": {
+                                "name": "Entry Index",
+                                "desc": "Entry Index"
+                            }
+                        }
+                    },
+                    "leaderboard-entry-player-name": {
+                        "translated-name": "LeaderboardEntryPlayerName",
+                        "description": "Leaderboard Entry Player Name",
+                        "params": {
+                            "entry-index": {
+                                "name": "Entry Index",
+                                "desc": "Entry Index"
+                            }
+                        }
+                    },
+                    "leaderboard-entry-player-score": {
+                        "translated-name": "LeaderboardEntryPlayerScore",
+                        "description": "Leaderboard Entry Player Score",
+                        "params": {
+                            "entry-index": {
+                                "name": "Entry Index",
+                                "desc": "Entry Index"
+                            }
+                        }
+                    },
+                    "leaderboard-entry-player-rank": {
+                        "translated-name": "LeaderboardEntryPlayerRank",
+                        "description": "Leaderboard Entry Player Rank",
+                        "params": {
+                            "entry-index": {
+                                "name": "Entry Index",
+                                "desc": "Entry Index"
+                            }
+                        }
+                    },
+                    "leaderboard-entry-player-photos-count": {
+                        "translated-name": "LeaderboardEntryPlayerPhotosCount",
+                        "description": "Leaderboard Entry Player Photos Count",
+                        "params": {
+                            "entry-index": {
+                                "name": "Entry Index",
+                                "desc": "Entry Index"
+                            }
+                        }
+                    },
+                    "leaderboard-entry-player-photo": {
+                        "translated-name": "LeaderboardEntryPlayerPhoto",
+                        "description": "Leaderboard Entry Player Photo",
+                        "params": {
+                            "entry-index": {
+                                "name": "Entry Index",
+                                "desc": "Entry Index"
+                            },
+                            "photo-index": {
+                                "name": "Photo Index",
+                                "desc": "Photo Index"
+                            }
+                        }
                     }
                 }
             }

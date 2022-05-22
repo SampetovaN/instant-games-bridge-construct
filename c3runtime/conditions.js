@@ -140,6 +140,84 @@
         },
         IsLastAddToFavoritesAddedSuccessfully() {
             return this.isLastAddToFavoritesAddedSuccessfully
-        }
+        },
+
+        IsRateSupported() {
+            return window.instantGamesBridge.social.isRateSupported
+        },
+        OnRateCompleted() {
+            return true
+        },
+        IsLastRateRatedSuccessfully() {
+            return this.isLastRateRatedSuccessfully
+        },
+
+
+        // leaderboard
+        IsLeaderboardSupported() {
+            return window.instantGamesBridge.leaderboard.isSupported
+        },
+        IsLeaderboardNativePopupSupported() {
+            return window.instantGamesBridge.leaderboard.isNativePopupSupported
+        },
+        IsLeaderboardMultipleBoardsSupported() {
+            return window.instantGamesBridge.leaderboard.isMultipleBoardsSupported
+        },
+        IsLeaderboardSetScoreSupported() {
+            return window.instantGamesBridge.leaderboard.isSetScoreSupported
+        },
+        IsLeaderboardGetScoreSupported() {
+            return window.instantGamesBridge.leaderboard.isGetScoreSupported
+        },
+        IsLeaderboardGetEntriesSupported() {
+            return window.instantGamesBridge.leaderboard.isGetEntriesSupported
+        },
+
+        OnLeaderboardSetScoreCompleted() {
+            return true
+        },
+        OnLeaderboardGetScoreCompleted() {
+            return true
+        },
+        OnLeaderboardGetEntriesCompleted() {
+            return true
+        },
+        OnLeaderboardShowNativePopupCompleted() {
+            return true
+        },
+
+        IsLastLeaderboardSetScoreSetSuccessfully() {
+            return this.isLastLeaderboardSetScoreSetSuccessfully
+        },
+        IsLastLeaderboardGetScoreGotSuccessfully() {
+            return this.isLastLeaderboardGetScoreGotSuccessfully
+        },
+        IsLastLeaderboardGetEntriesGotSuccessfully() {
+            return this.isLastLeaderboardGetEntriesGotSuccessfully
+        },
+        IsLastLeaderboardShowNativePopupShownSuccessfully() {
+            return this.isLastLeaderboardShowNativePopupShownSuccessfully
+        },
+
+        DoesLeaderboardEntryPlayerHaveName(entryIndex) {
+            if (this.leaderboardEntries === null)
+                return false
+
+            let entry = this.leaderboardEntries[entryIndex]
+            if (entry === undefined)
+                return false
+
+            return typeof entry.name === 'string'
+        },
+        DoesLeaderboardEntryPlayerHavePhoto(entryIndex, photoIndex) {
+            if (this.leaderboardEntries === null)
+                return false
+
+            let entry = this.leaderboardEntries[entryIndex]
+            if (entry === undefined)
+                return false
+
+            return entry.photos.length > photoIndex
+        },
     }
 }

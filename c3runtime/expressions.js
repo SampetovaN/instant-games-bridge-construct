@@ -13,6 +13,12 @@
         },
 
 
+        // device
+        DeviceType() {
+            return window.instantGamesBridge.device.type
+        },
+
+
         // player
         PlayerId() {
             return window.instantGamesBridge.player.id
@@ -46,6 +52,57 @@
         },
         RewardedState() {
             return window.instantGamesBridge.advertisement.rewardedState
-        }
+        },
+
+
+        // leaderboard
+        LeaderboardPlayerScore() {
+            if (typeof this.leaderboardPlayerScore !== 'number')
+                return 0
+
+            return this.leaderboardPlayerScore
+        },
+        LeaderboardEntriesCount() {
+            if (!this.leaderboardEntries)
+                return 0
+
+            return this.leaderboardEntries.length
+        },
+        LeaderboardEntryPlayerId(entryIndex) {
+            if (!this.leaderboardEntries)
+                return ''
+
+            return this.leaderboardEntries[entryIndex].id
+        },
+        LeaderboardEntryPlayerName(entryIndex) {
+            if (!this.leaderboardEntries)
+                return ''
+
+            return this.leaderboardEntries[entryIndex].name
+        },
+        LeaderboardEntryPlayerScore(entryIndex) {
+            if (!this.leaderboardEntries)
+                return 0
+
+            return this.leaderboardEntries[entryIndex].score
+        },
+        LeaderboardEntryPlayerRank(entryIndex) {
+            if (!this.leaderboardEntries)
+                return 0
+
+            return this.leaderboardEntries[entryIndex].rank
+        },
+        LeaderboardEntryPlayerPhotosCount(entryIndex) {
+            if (!this.leaderboardEntries)
+                return ''
+
+            return this.leaderboardEntries[entryIndex].photos.length
+        },
+        LeaderboardEntryPlayerPhoto(entryIndex, photoIndex) {
+            if (!this.leaderboardEntries)
+                return ''
+
+            return this.leaderboardEntries[entryIndex].photos[photoIndex]
+        },
     }
 }
