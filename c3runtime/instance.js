@@ -19,7 +19,7 @@
                     ((d) => {
                         let t = d.getElementsByTagName('script')[0]
                         let s = d.createElement('script')
-                        s.src = 'https://cdn.jsdelivr.net/gh/instant-games-bridge/instant-games-bridge@1.4.4/dist/instant-games-bridge.js'
+                        s.src = 'https://cdn.jsdelivr.net/gh/instant-games-bridge/instant-games-bridge@1.4.5/dist/instant-games-bridge.js'
                         s.async = true
                         s.onload = () => {
                             resolve()
