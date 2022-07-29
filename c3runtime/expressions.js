@@ -3,55 +3,64 @@
     C3.Plugins.InstantGamesBridge.Exps = {
         // platform
         PlatformId() {
-            return window.instantGamesBridge.platform.id
+            return window.bridge.platform.id
         },
         PlatformLanguage() {
-            return window.instantGamesBridge.platform.language
+            return window.bridge.platform.language
         },
         PlatformPayload() {
-            return window.instantGamesBridge.platform.payload
+            return window.bridge.platform.payload
         },
 
 
         // device
         DeviceType() {
-            return window.instantGamesBridge.device.type
+            return window.bridge.device.type
         },
 
 
         // player
         PlayerId() {
-            return window.instantGamesBridge.player.id
+            return window.bridge.player.id
         },
         PlayerName() {
-            return window.instantGamesBridge.player.name
+            return window.bridge.player.name
         },
         PlayerPhotosCount() {
-            return window.instantGamesBridge.player.photos.length
+            return window.bridge.player.photos.length
         },
         PlayerPhoto(index) {
-            return window.instantGamesBridge.player.photos[index]
+            return window.bridge.player.photos[index]
         },
 
 
         // game
-        GameData(key) {
-            if (!this.gameData)
+        VisibilityState() {
+            return window.bridge.game.visibilityState
+        },
+
+
+        // storage
+        DefaultStorageType() {
+            return window.bridge.storage.defaultType
+        },
+        StorageData(key) {
+            if (!this.storageData)
                 return null
 
-            return this.gameData[key]
+            return this.storageData[key]
         },
 
 
         // advertisement
         MinimumDelayBetweenInterstitial() {
-            return window.instantGamesBridge.advertisement.minimumDelayBetweenInterstitial
+            return window.bridge.advertisement.minimumDelayBetweenInterstitial
         },
         InterstitialState() {
-            return window.instantGamesBridge.advertisement.interstitialState
+            return window.bridge.advertisement.interstitialState
         },
         RewardedState() {
-            return window.instantGamesBridge.advertisement.rewardedState
+            return window.bridge.advertisement.rewardedState
         },
 
 

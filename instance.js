@@ -7,11 +7,11 @@
             super(sdkType, inst)
         }
 
-        Release() {}
+        Release() { }
 
-        OnCreate() {}
+        OnCreate() { }
 
-        OnPropertyChanged(id, value) {}
+        OnPropertyChanged(id, value) { }
 
         LoadC2Property(name, valueString) {
             return false

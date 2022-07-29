@@ -133,8 +133,26 @@
     "game": {
         "conditions": [
             {
-                "id": "has-game-data",
-                "scriptName": "HasGameData",
+                "id": "on-visibility-state-changed",
+                "scriptName": "OnVisibilityStateChanged",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            }
+        ],
+        "expressions": [
+            {
+                "id": "visibility-state",
+                "expressionName": "VisibilityState",
+                "returnType": "string"
+            }
+        ]
+    },
+    "storage": {
+        "conditions": [
+            {
+                "id": "has-storage-data",
+                "scriptName": "HasStorageData",
                 "params": [
                     {
                         "id": "key",
@@ -142,58 +160,74 @@
                     }
                 ]
             },
+            {
+                "id": "is-storage-supported",
+                "scriptName": "IsStorageSupported",
+                "params": [
+                    {
+                        "id": "storage-type",
+                        "type": "combo",
+                        "items": ["local-storage", "platform-internal"]
+                    }
+                ]
+            },
 
             {
-                "id": "on-get-game-data-completed",
-                "scriptName": "OnGetGameDataCompleted",
+                "id": "on-get-storage-data-completed",
+                "scriptName": "OnGetStorageDataCompleted",
                 "isTrigger": true,
                 "isInvertible": false,
                 "isCompatibleWithTriggers": false
             },
             {
-                "id": "is-last-get-game-data-got-successfully",
-                "scriptName": "IsLastGetGameDataGotSuccessfully"
+                "id": "is-last-get-storage-data-got-successfully",
+                "scriptName": "IsLastGetStorageDataGotSuccessfully"
             },
 
             {
-                "id": "on-set-game-data-completed",
-                "scriptName": "OnSetGameDataCompleted",
+                "id": "on-set-storage-data-completed",
+                "scriptName": "OnSetStorageDataCompleted",
                 "isTrigger": true,
                 "isInvertible": false,
                 "isCompatibleWithTriggers": false
             },
             {
-                "id": "is-last-set-game-data-set-successfully",
-                "scriptName": "IsLastSetGameDataSetSuccessfully"
+                "id": "is-last-set-storage-data-set-successfully",
+                "scriptName": "IsLastSetStorageDataSetSuccessfully"
             },
 
             {
-                "id": "on-delete-game-data-completed",
-                "scriptName": "OnDeleteGameDataCompleted",
+                "id": "on-delete-storage-data-completed",
+                "scriptName": "OnDeleteStorageDataCompleted",
                 "isTrigger": true,
                 "isInvertible": false,
                 "isCompatibleWithTriggers": false
             },
             {
-                "id": "is-last-delete-game-data-deleted-successfully",
-                "scriptName": "IsLastDeleteGameDataDeletedSuccessfully"
+                "id": "is-last-delete-storage-data-deleted-successfully",
+                "scriptName": "IsLastDeleteStorageDataDeletedSuccessfully"
             }
         ],
         "actions": [
             {
-                "id": "get-game-data",
-                "scriptName": "GetGameData",
+                "id": "get-storage-data",
+                "scriptName": "GetStorageData",
                 "isAsync": true,
                 "params": [
                     {
                         "id": "key",
                         "type": "string"
+                    },
+                    {
+                        "id": "storage-type",
+                        "type": "combo",
+                        "items": ["default", "local-storage", "platform-internal"]
                     }
                 ]
             },
             {
-                "id": "set-game-data",
-                "scriptName": "SetGameData",
+                "id": "set-storage-data",
+                "scriptName": "SetStorageData",
                 "isAsync": true,
                 "params": [
                     {
@@ -203,25 +237,35 @@
                     {
                         "id": "value",
                         "type": "any"
+                    },
+                    {
+                        "id": "storage-type",
+                        "type": "combo",
+                        "items": ["default", "local-storage", "platform-internal"]
                     }
                 ]
             },
             {
-                "id": "delete-game-data",
-                "scriptName": "DeleteGameData",
+                "id": "delete-storage-data",
+                "scriptName": "DeleteStorageData",
                 "isAsync": true,
                 "params": [
                     {
                         "id": "key",
                         "type": "string"
+                    },
+                    {
+                        "id": "storage-type",
+                        "type": "combo",
+                        "items": ["default", "local-storage", "platform-internal"]
                     }
                 ]
             }
         ],
         "expressions": [
             {
-                "id": "game-data",
-                "expressionName": "GameData",
+                "id": "storage-data",
+                "expressionName": "StorageData",
                 "returnType": "any",
                 "params": [
                     {
@@ -229,6 +273,11 @@
                         "type": "string"
                     }
                 ]
+            },
+            {
+                "id": "default-storage-type",
+                "expressionName": "DefaultStorageType",
+                "returnType": "string"
             }
         ]
     },

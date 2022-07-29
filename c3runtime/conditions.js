@@ -6,16 +6,16 @@
             return true
         },
         IsInitialized() {
-            return this.isInitialized
+            return window.bridge.isInitialized
         },
 
 
         // player
         IsPlayerAuthorizationSupported() {
-            return window.instantGamesBridge.player.isAuthorizationSupported
+            return window.bridge.player.isAuthorizationSupported
         },
         IsAuthorized() {
-            return window.instantGamesBridge.player.isAuthorized
+            return window.bridge.player.isAuthorized
         },
         OnAuthorizePlayerCompleted() {
             return true
@@ -24,38 +24,56 @@
             return this.isLastAuthorizePlayerAuthorizedSuccessfully
         },
         DoesPlayerHaveName() {
-            return typeof window.instantGamesBridge.player.name === 'string'
+            return typeof window.bridge.player.name === 'string'
         },
         DoesPlayerHavePhoto(index) {
-            return window.instantGamesBridge.player.photos.length > index
+            return window.bridge.player.photos.length > index
         },
 
 
         // game
-        OnGetGameDataCompleted() {
+        OnVisibilityStateChanged() {
             return true
         },
-        IsLastGetGameDataGotSuccessfully() {
-            return this.isLastGetGameDataGotSuccessfully
-        },
-        OnSetGameDataCompleted() {
+
+
+        // storage
+        OnGetStorageDataCompleted() {
             return true
         },
-        IsLastSetGameDataSetSuccessfully() {
-            return this.isLastSetGameDataSetSuccessfully
+        IsLastGetStorageDataGotSuccessfully() {
+            return this.isLastGetStorageDataGotSuccessfully
         },
-        OnDeleteGameDataCompleted() {
+        OnSetStorageDataCompleted() {
             return true
         },
-        IsLastDeleteGameDataDeletedSuccessfully() {
-            return this.isLastDeleteGameDataDeletedSuccessfully
+        IsLastSetStorageDataSetSuccessfully() {
+            return this.isLastSetStorageDataSetSuccessfully
         },
-        HasGameData(key) {
-            if (!this.gameData)
+        OnDeleteStorageDataCompleted() {
+            return true
+        },
+        IsLastDeleteStorageDataDeletedSuccessfully() {
+            return this.isLastDeleteStorageDataDeletedSuccessfully
+        },
+        HasStorageData(key) {
+            if (!this.storageData)
                 return 0
 
-            let value = this.gameData[key]
+            let value = this.storageData[key]
             return value !== null && typeof value !== 'undefined'
+        },
+        IsStorageSupported(storageType) {
+            switch (storageType) {
+                case 0:
+                    storageType = "local_storage"
+                    break
+                case 1:
+                    storageType = "platform_internal"
+                    break
+            }
+
+            return window.bridge.storage.isSupported(storageType)
         },
 
 
@@ -83,7 +101,7 @@
 
         // social
         IsShareSupported() {
-            return window.instantGamesBridge.social.isShareSupported
+            return window.bridge.social.isShareSupported
         },
         OnShareCompleted() {
             return true
@@ -93,7 +111,7 @@
         },
 
         IsInviteFriendsSupported() {
-            return window.instantGamesBridge.social.isInviteFriendsSupported
+            return window.bridge.social.isInviteFriendsSupported
         },
         OnInviteFriendsCompleted() {
             return true
@@ -103,7 +121,7 @@
         },
 
         IsJoinCommunitySupported() {
-            return window.instantGamesBridge.social.isJoinCommunitySupported
+            return window.bridge.social.isJoinCommunitySupported
         },
         OnJoinCommunityCompleted() {
             return true
@@ -113,7 +131,7 @@
         },
 
         IsCreatePostSupported() {
-            return window.instantGamesBridge.social.isCreatePostSupported
+            return window.bridge.social.isCreatePostSupported
         },
         OnCreatePostCompleted() {
             return true
@@ -123,7 +141,7 @@
         },
 
         IsAddToHomeScreenSupported() {
-            return window.instantGamesBridge.social.isAddToHomeScreenSupported
+            return window.bridge.social.isAddToHomeScreenSupported
         },
         OnAddToHomeScreenCompleted() {
             return true
@@ -133,7 +151,7 @@
         },
 
         IsAddToFavoritesSupported() {
-            return window.instantGamesBridge.social.isAddToFavoritesSupported
+            return window.bridge.social.isAddToFavoritesSupported
         },
         OnAddToFavoritesCompleted() {
             return true
@@ -143,7 +161,7 @@
         },
 
         IsRateSupported() {
-            return window.instantGamesBridge.social.isRateSupported
+            return window.bridge.social.isRateSupported
         },
         OnRateCompleted() {
             return true
@@ -155,22 +173,22 @@
 
         // leaderboard
         IsLeaderboardSupported() {
-            return window.instantGamesBridge.leaderboard.isSupported
+            return window.bridge.leaderboard.isSupported
         },
         IsLeaderboardNativePopupSupported() {
-            return window.instantGamesBridge.leaderboard.isNativePopupSupported
+            return window.bridge.leaderboard.isNativePopupSupported
         },
         IsLeaderboardMultipleBoardsSupported() {
-            return window.instantGamesBridge.leaderboard.isMultipleBoardsSupported
+            return window.bridge.leaderboard.isMultipleBoardsSupported
         },
         IsLeaderboardSetScoreSupported() {
-            return window.instantGamesBridge.leaderboard.isSetScoreSupported
+            return window.bridge.leaderboard.isSetScoreSupported
         },
         IsLeaderboardGetScoreSupported() {
-            return window.instantGamesBridge.leaderboard.isGetScoreSupported
+            return window.bridge.leaderboard.isGetScoreSupported
         },
         IsLeaderboardGetEntriesSupported() {
-            return window.instantGamesBridge.leaderboard.isGetEntriesSupported
+            return window.bridge.leaderboard.isGetEntriesSupported
         },
 
         OnLeaderboardSetScoreCompleted() {

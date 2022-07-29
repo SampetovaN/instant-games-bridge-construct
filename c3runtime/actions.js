@@ -4,23 +4,24 @@
 
         // common
         Initialize() {
-            if (this.isInitialized)
+            if (this.isInitialized) {
                 return Promise.resolve()
+            }
 
             return new Promise(resolve => {
-                window.instantGamesBridge.initialize()
+                window.bridge.initialize()
                     .then(() => {
-                        window.instantGamesBridge.advertisement.on('interstitial_state_changed', state => {
-                            this.interstitialState = state
+                        window.bridge.advertisement.on('interstitial_state_changed', state => {
                             this.Trigger(this.conditions.OnInterstitialStateChanged)
                         })
 
-                        window.instantGamesBridge.advertisement.on('rewarded_state_changed', state => {
-                            this.rewardedState = state
+                        window.bridge.advertisement.on('rewarded_state_changed', state => {
                             this.Trigger(this.conditions.OnRewardedStateChanged)
                         })
 
-                        this.isInitialized = true
+                        window.bridge.game.on('visibility_state_changed', state => {
+                            this.Trigger(this.conditions.OnVisibilityStateChanged)
+                        })
                     })
                     .finally(() => {
                         this.Trigger(this.conditions.OnInitializationCompleted)
@@ -41,7 +42,7 @@
             }
 
             return new Promise(resolve => {
-                window.instantGamesBridge.player.authorize(authorizationOptions)
+                window.bridge.player.authorize(authorizationOptions)
                     .then(() => {
                         this.isLastAuthorizePlayerAuthorizedSuccessfully = true
                     })
@@ -54,59 +55,98 @@
         },
 
 
-        // game
-        GetGameData(key) {
-            this.isLastGetGameDataGotSuccessfully = false
+        // storage
+        GetStorageData(key, storageType) {
+            this.isLastGetStorageDataGotSuccessfully = false
+
+            switch (storageType) {
+                case 0:
+                    storageType = null
+                    break
+                case 1:
+                    storageType = "local_storage"
+                    break
+                case 2:
+                    storageType = "platform_internal"
+                    break
+            }
 
             return new Promise(resolve => {
-                window.instantGamesBridge.game.getData(key)
+                window.bridge.storage.get(key, storageType)
                     .then(data => {
-                        if (!this.gameData)
-                            this.gameData = {}
+                        if (!this.storageData) {
+                            this.storageData = {}
+                        }
 
-                        this.gameData[key] = data
-                        this.isLastGetGameDataGotSuccessfully = true
+                        this.storageData[key] = data
+                        this.isLastGetStorageDataGotSuccessfully = true
                     })
                     .catch(error => console.log(error))
                     .finally(() => {
-                        this.Trigger(this.conditions.OnGetGameDataCompleted)
+                        this.Trigger(this.conditions.OnGetStorageDataCompleted)
                         resolve()
                     })
             })
         },
-        SetGameData(key, value) {
-            this.isLastSetGameDataSetSuccessfully = false
+        SetStorageData(key, value, storageType) {
+            this.isLastSetStorageDataSetSuccessfully = false
 
-            if (!this.gameData)
-                this.gameData = { }
+            switch (storageType) {
+                case 0:
+                    storageType = null
+                    break
+                case 1:
+                    storageType = "local_storage"
+                    break
+                case 2:
+                    storageType = "platform_internal"
+                    break
+            }
 
-            this.gameData[key] = value
+            if (!this.storageData) {
+                this.storageData = {}
+            }
+
+            this.storageData[key] = value
             return new Promise(resolve => {
-                window.instantGamesBridge.game.setData(key, value)
+                window.bridge.storage.set(key, value, storageType)
                     .then(() => {
-                        this.isLastSetGameDataSetSuccessfully = true
+                        this.isLastSetStorageDataSetSuccessfully = true
                     })
                     .catch(error => console.log(error))
                     .finally(() => {
-                        this.Trigger(this.conditions.OnSetGameDataCompleted)
+                        this.Trigger(this.conditions.OnSetStorageDataCompleted)
                         resolve()
                     })
             })
         },
-        DeleteGameData(key) {
-            this.isLastDeleteGameDataDeletedSuccessfully = false
+        DeleteStorageData(key, storageType) {
+            this.isLastDeleteStorageDataDeletedSuccessfully = false
+
+            switch (storageType) {
+                case 0:
+                    storageType = null
+                    break
+                case 1:
+                    storageType = "local_storage"
+                    break
+                case 2:
+                    storageType = "platform_internal"
+                    break
+            }
 
             return new Promise(resolve => {
-                window.instantGamesBridge.game.deleteData(key)
+                window.bridge.storage.delete(key, storageType)
                     .then(() => {
-                        if (this.gameData)
-                            delete this.gameData[key]
+                        if (this.storageData) {
+                            delete this.storageData[key]
+                        }
 
-                        this.isLastDeleteGameDataDeletedSuccessfully = true
+                        this.isLastDeleteStorageDataDeletedSuccessfully = true
                     })
                     .catch(error => console.log(error))
                     .finally(() => {
-                        this.Trigger(this.conditions.OnDeleteGameDataCompleted)
+                        this.Trigger(this.conditions.OnDeleteStorageDataCompleted)
                         resolve()
                     })
             })
@@ -116,14 +156,14 @@
         // advertisement
         SetMinimumDelayBetweenInterstitial(vk, yandex, mock) {
             let delayOptions = { vk, yandex, mock }
-            window.instantGamesBridge.advertisement.setMinimumDelayBetweenInterstitial(delayOptions)
+            window.bridge.advertisement.setMinimumDelayBetweenInterstitial(delayOptions)
         },
         ShowInterstitial(vk, yandex, mock) {
             this.isLastShowInterstitialShownSuccessfully = false
 
             let interstitialOptions = { vk, yandex, mock }
             return new Promise(resolve => {
-                window.instantGamesBridge.advertisement.showInterstitial(interstitialOptions)
+                window.bridge.advertisement.showInterstitial(interstitialOptions)
                     .then(() => {
                         this.isLastShowInterstitialShownSuccessfully = true
                     })
@@ -138,7 +178,7 @@
             this.isLastShowRewardedShownSuccessfully = false
 
             return new Promise(resolve => {
-                window.instantGamesBridge.advertisement.showRewarded()
+                window.bridge.advertisement.showRewarded()
                     .then(() => {
                         this.isLastShowRewardedShownSuccessfully = true
                     })
@@ -162,7 +202,7 @@
             }
 
             return new Promise(resolve => {
-                window.instantGamesBridge.social.share(shareOptions)
+                window.bridge.social.share(shareOptions)
                     .then(() => {
                         this.isLastShareSharedSuccessfully = true
                     })
@@ -177,7 +217,7 @@
             this.isLastInviteFriendsInvitedSuccessfully = false
 
             return new Promise(resolve => {
-                window.instantGamesBridge.social.inviteFriends()
+                window.bridge.social.inviteFriends()
                     .then(() => {
                         this.isLastInviteFriendsInvitedSuccessfully = true
                     })
@@ -198,7 +238,7 @@
             }
 
             return new Promise(resolve => {
-                window.instantGamesBridge.social.joinCommunity(joinCommunityOptions)
+                window.bridge.social.joinCommunity(joinCommunityOptions)
                     .then(() => {
                         this.isLastJoinCommunityJoinedSuccessfully = true
                     })
@@ -220,7 +260,7 @@
             }
 
             return new Promise(resolve => {
-                window.instantGamesBridge.social.createPost(createPostOptions)
+                window.bridge.social.createPost(createPostOptions)
                     .then(() => {
                         this.isLastCreatePostCreatedSuccessfully = true
                     })
@@ -235,7 +275,7 @@
             this.isLastAddToHomeScreenAddedSuccessfully = false
 
             return new Promise(resolve => {
-                window.instantGamesBridge.social.addToHomeScreen()
+                window.bridge.social.addToHomeScreen()
                     .then(() => {
                         this.isLastAddToHomeScreenAddedSuccessfully = true
                     })
@@ -250,7 +290,7 @@
             this.isLastAddToFavoritesAddedSuccessfully = false
 
             return new Promise(resolve => {
-                window.instantGamesBridge.social.addToFavorites()
+                window.bridge.social.addToFavorites()
                     .then(() => {
                         this.isLastAddToFavoritesAddedSuccessfully = true
                     })
@@ -265,7 +305,7 @@
             this.isLastRateRatedSuccessfully = false
 
             return new Promise(resolve => {
-                window.instantGamesBridge.social.rate()
+                window.bridge.social.rate()
                     .then(() => {
                         this.isLastRateRatedSuccessfully = true
                     })
@@ -289,7 +329,7 @@
             }
 
             return new Promise(resolve => {
-                window.instantGamesBridge.leaderboard.setScore(options)
+                window.bridge.leaderboard.setScore(options)
                     .then(() => {
                         this.isLastLeaderboardSetScoreSetSuccessfully = true
                     })
@@ -311,7 +351,7 @@
             }
 
             return new Promise(resolve => {
-                window.instantGamesBridge.leaderboard.getScore(options)
+                window.bridge.leaderboard.getScore(options)
                     .then(score => {
                         this.leaderboardPlayerScore = score
                         this.isLastLeaderboardGetScoreGotSuccessfully = true
@@ -337,7 +377,7 @@
             }
 
             return new Promise(resolve => {
-                window.instantGamesBridge.leaderboard.getEntries(options)
+                window.bridge.leaderboard.getEntries(options)
                     .then(entries => {
                         this.leaderboardEntries = entries
                         this.isLastLeaderboardGetEntriesGotSuccessfully = true
@@ -360,7 +400,7 @@
             }
 
             return new Promise(resolve => {
-                window.instantGamesBridge.leaderboard.showNativePopup(showNativePopupOptions)
+                window.bridge.leaderboard.showNativePopup(showNativePopupOptions)
                     .then(() => {
                         this.isLastShowNativePopupShownSuccessfully = true
                     })

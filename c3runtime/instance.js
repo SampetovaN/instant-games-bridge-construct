@@ -7,10 +7,15 @@
             this.conditions = C3.Plugins.InstantGamesBridge.Cnds
             this.actions = C3.Plugins.InstantGamesBridge.Acts
 
-            if (properties[0])
+            if (properties[0]) {
                 this._runtime.AddLoadPromise(this.loadSdk())
+            }
 
-            this.gameData = null
+            if (properties[1]) {
+                this._runtime.AddLoadPromise(this.initializeSdk())
+            }
+
+            this.storageData = null
         }
 
         loadSdk() {
@@ -19,7 +24,7 @@
                     ((d) => {
                         let t = d.getElementsByTagName('script')[0]
                         let s = d.createElement('script')
-                        s.src = 'https://cdn.jsdelivr.net/gh/instant-games-bridge/instant-games-bridge@1.4.6/dist/instant-games-bridge.js'
+                        s.src = 'https://cdn.jsdelivr.net/gh/instant-games-bridge/instant-games-bridge@1.5.1/dist/instant-games-bridge.js'
                         s.async = true
                         s.onload = () => {
                             resolve()
@@ -33,22 +38,52 @@
             })
         }
 
+        initializeSdk() {
+            return new Promise((resolve, reject) => {
+                const waitForBridgeLoaded = () => {
+                    if (window.bridge !== undefined) {
+                        window.bridge.initialize()
+                            .then(() => {
+                                window.bridge.advertisement.on('interstitial_state_changed', state => {
+                                    this.Trigger(this.conditions.OnInterstitialStateChanged)
+                                })
+
+                                window.bridge.advertisement.on('rewarded_state_changed', state => {
+                                    this.Trigger(this.conditions.OnRewardedStateChanged)
+                                })
+
+                                window.bridge.game.on('visibility_state_changed', state => {
+                                    this.Trigger(this.conditions.OnVisibilityStateChanged)
+                                })
+
+                                resolve()
+                            })
+                            .catch(error => reject(error))
+                    } else {
+                        setTimeout(waitForBridgeLoaded, 100)
+                    }
+                }
+
+                waitForBridgeLoaded()
+            })
+        }
+
         Release() {
             super.Release()
         }
 
         SaveToJson() {
             return {
-                gameData: this.gameData
+                storageData: this.storageData
             }
         }
 
         LoadFromJson(o) {
-            this.gameData = o.gameData || { }
+            this.storageData = o.storageData || { }
         }
 
         GetDebuggerProperties() {
-            return [ {
+            return [{
                 title: 'InstantGamesBridge',
                 properties: []
             }]

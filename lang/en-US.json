@@ -12,6 +12,10 @@
                     "load-sdk-from-cdn": {
                         "name": "Load SDK from CDN",
                         "desc": "If false - you should import SDK JS script into scripts folder and mark as main"
+                    },
+                    "initialize-on-load": {
+                        "name": "Initialize On Load",
+                        "desc": "Automatically initialize the SDK when it is loaded"
                     }
                 },
                 "aceCategories": {
@@ -20,6 +24,7 @@
                     "device": "Device",
                     "player": "Player",
                     "game": "Game",
+                    "storage": "Storage",
                     "advertisement": "Advertisement",
                     "social": "Social",
                     "leaderboard": "Leaderboard"
@@ -76,10 +81,32 @@
                     },
 
 
-                    "has-game-data": {
-                        "list-name": "HasGameData",
-                        "display-text": "Has Game Data By Key: [b]{0}[/b].",
-                        "description": "Has Game Data By Key",
+                    "on-visibility-state-changed": {
+                        "list-name": "OnVisibilityStateChanged",
+                        "display-text": "On Visibility State Changed",
+                        "description": "On Visibility State Changed"
+                    },
+
+
+                    "is-storage-supported": {
+                        "list-name": "IsStorageSupported",
+                        "display-text": "Is Storage Supported: [b]{0}[/b].",
+                        "description": "Is Storage Supported",
+                        "params": {
+                            "storage-type": {
+                                "name": "StorageType",
+                                "desc": "Storage Type",
+                                "items": {
+                                    "local-storage": "LocalStorage",
+                                    "platform-internal": "PlatformInternal"
+                                }
+                            }
+                        }
+                    },
+                    "has-storage-data": {
+                        "list-name": "HasStorageData",
+                        "display-text": "Has Storage Data By Key: [b]{0}[/b].",
+                        "description": "Has Storage Data By Key",
                         "params": {
                             "key": {
                                 "name": "Key",
@@ -88,37 +115,37 @@
                         }
                     },
 
-                    "on-get-game-data-completed": {
-                        "list-name": "OnGetGameDataCompleted",
-                        "display-text": "On Get Game Data Completed",
-                        "description": "On Get Game Data Completed"
+                    "on-get-storage-data-completed": {
+                        "list-name": "OnGetStorageDataCompleted",
+                        "display-text": "On Get Storage Data Completed",
+                        "description": "On Get Storage Data Completed"
                     },
-                    "is-last-get-game-data-got-successfully": {
-                        "list-name": "IsLastGetGameDataGotSuccessfully",
-                        "display-text": "Is Last Get Game Data Got Successfully",
-                        "description": "Is Last Get Game Data Got Successfully"
-                    },
-
-                    "on-set-game-data-completed": {
-                        "list-name": "OnSetGameDataCompleted",
-                        "display-text": "On Set Game Data Completed",
-                        "description": "On Set Game Data Completed"
-                    },
-                    "is-last-set-game-data-set-successfully": {
-                        "list-name": "IsLastSetGameDataSetSuccessfully",
-                        "display-text": "Is Last Set Game Data Set Successfully",
-                        "description": "Is Last Set Game Data Set Successfully"
+                    "is-last-get-storage-data-got-successfully": {
+                        "list-name": "IsLastGetStorageDataGotSuccessfully",
+                        "display-text": "Is Last Get Storage Data Got Successfully",
+                        "description": "Is Last Get Storage Data Got Successfully"
                     },
 
-                    "on-delete-game-data-completed": {
-                        "list-name": "OnDeleteGameDataCompleted",
-                        "display-text": "On Delete Game Data Completed",
-                        "description": "On Delete Game Data Completed"
+                    "on-set-storage-data-completed": {
+                        "list-name": "OnSetStorageDataCompleted",
+                        "display-text": "On Set Storage Data Completed",
+                        "description": "On Set Storage Data Completed"
                     },
-                    "is-last-delete-game-data-deleted-successfully": {
-                        "list-name": "IsLastDeleteGameDataDeletedSuccessfully",
-                        "display-text": "Is Last Delete Game Data Deleted Successfully",
-                        "description": "Is Last Delete Game Data Deleted Successfully"
+                    "is-last-set-storage-data-set-successfully": {
+                        "list-name": "IsLastSetStorageDataSetSuccessfully",
+                        "display-text": "Is Last Set Storage Data Set Successfully",
+                        "description": "Is Last Set Storage Data Set Successfully"
+                    },
+
+                    "on-delete-storage-data-completed": {
+                        "list-name": "OnDeleteStorageDataCompleted",
+                        "display-text": "On Delete Storage Data Completed",
+                        "description": "On Delete Storage Data Completed"
+                    },
+                    "is-last-delete-storage-data-deleted-successfully": {
+                        "list-name": "IsLastDeleteStorageDataDeletedSuccessfully",
+                        "display-text": "Is Last Delete Storage Data Deleted Successfully",
+                        "description": "Is Last Delete Storage Data Deleted Successfully"
                     },
 
 
@@ -387,21 +414,30 @@
                     },
 
 
-                    "get-game-data": {
-                        "list-name": "GetGameData",
-                        "display-text": "Get Game Data. Key: [b]{0}[/b].",
-                        "description": "Get Game Data",
+                    "get-storage-data": {
+                        "list-name": "GetStorageData",
+                        "display-text": "Get Storage Data. Key: [b]{0}[/b]. Storage: [b]{1}[/b]",
+                        "description": "Get Storage Data",
                         "params": {
                             "key": {
                                 "name": "Key",
                                 "desc": "Key"
+                            },
+                            "storage-type": {
+                                "name": "StorageType",
+                                "desc": "Storage Type",
+                                "items": {
+                                    "default": "Default",
+                                    "local-storage": "LocalStorage",
+                                    "platform-internal": "PlatformInternal"
+                                }
                             }
                         }
                     },
-                    "set-game-data": {
-                        "list-name": "SetGameData",
-                        "display-text": "Set Game Data. Key: [b]{0}[/b], value: [b]{1}[/b].",
-                        "description": "Set Game Data",
+                    "set-storage-data": {
+                        "list-name": "SetStorageData",
+                        "display-text": "Set Storage Data. Key: [b]{0}[/b], value: [b]{1}[/b]. Storage: [b]{2}[/b]",
+                        "description": "Set Storage Data",
                         "params": {
                             "key": {
                                 "name": "Key",
@@ -410,17 +446,35 @@
                             "value": {
                                 "name": "Value",
                                 "desc": "Value"
+                            },
+                            "storage-type": {
+                                "name": "StorageType",
+                                "desc": "Storage Type",
+                                "items": {
+                                    "default": "Default",
+                                    "local-storage": "LocalStorage",
+                                    "platform-internal": "PlatformInternal"
+                                }
                             }
                         }
                     },
-                    "delete-game-data": {
-                        "list-name": "DeleteGameData",
-                        "display-text": "Delete Game Data. Key: [b]{0}[/b].",
-                        "description": "Delete Game Data",
+                    "delete-storage-data": {
+                        "list-name": "DeleteStorageData",
+                        "display-text": "Delete Storage Data. Key: [b]{0}[/b]. Storage: [b]{1}[/b]",
+                        "description": "Delete Storage Data",
                         "params": {
                             "key": {
                                 "name": "Key",
                                 "desc": "Key"
+                            },
+                            "storage-type": {
+                                "name": "StorageType",
+                                "desc": "Storage Type",
+                                "items": {
+                                    "default": "Default",
+                                    "local-storage": "LocalStorage",
+                                    "platform-internal": "PlatformInternal"
+                                }
                             }
                         }
                     },
@@ -639,10 +693,18 @@
                         }
                     },
 
+                    "visibility-state": {
+                        "translated-name": "VisibilityState",
+                        "description": "Visibility State"
+                    },
 
-                    "game-data": {
-                        "translated-name": "GameData",
-                        "description": "Get Game Data By Key",
+                    "default-storage-type": {
+                        "translated-name": "DefaultStorageType",
+                        "description": "Default Storage Type"
+                    },
+                    "storage-data": {
+                        "translated-name": "StorageData",
+                        "description": "Get Storage Data By Key",
                         "params": {
                             "key": {
                                 "name": "Key",

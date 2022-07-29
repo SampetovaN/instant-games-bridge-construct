@@ -1,7 +1,7 @@
 'use strict'
 {
     const PLUGIN_ID = 'InstantGamesBridge'
-    const PLUGIN_VERSION = '1.4.5'
+    const PLUGIN_VERSION = '1.5.1'
     const PLUGIN_CATEGORY = 'platform-specific'
 
     const PLUGIN_CLASS = (SDK.Plugins.InstantGamesBridge = class InstantGamesBridgePlugin extends SDK.IPluginBase {
@@ -20,7 +20,8 @@
 
             SDK.Lang.PushContext('.properties')
             this._info.SetProperties([
-                new SDK.PluginProperty('check', 'load-sdk-from-cdn', true)
+                new SDK.PluginProperty('check', 'load-sdk-from-cdn', true),
+                new SDK.PluginProperty('check', 'initialize-on-load', true)
             ]);
 
             SDK.Lang.PopContext()
