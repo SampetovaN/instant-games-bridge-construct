@@ -14,7 +14,7 @@
         IsPlayerAuthorizationSupported() {
             return window.bridge.player.isAuthorizationSupported
         },
-        IsAuthorized() {
+        IsPlayerAuthorized() {
             return window.bridge.player.isAuthorized
         },
         OnAuthorizePlayerCompleted() {
