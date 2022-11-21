@@ -24,7 +24,7 @@
                     ((d) => {
                         let t = d.getElementsByTagName('script')[0]
                         let s = d.createElement('script')
-                        s.src = 'https://cdn.jsdelivr.net/gh/instant-games-bridge/instant-games-bridge@1.5.2/dist/instant-games-bridge.js'
+                        s.src = 'https://cdn.jsdelivr.net/gh/instant-games-bridge/instant-games-bridge@1.6.2/dist/instant-games-bridge.js'
                         s.async = true
                         s.onload = () => {
                             resolve()
@@ -46,10 +46,37 @@
                             .then(() => {
                                 window.bridge.advertisement.on('interstitial_state_changed', state => {
                                     this.Trigger(this.conditions.OnInterstitialStateChanged)
+
+                                    switch (state) {
+                                        case window.bridge.INTERSTITIAL_STATE.OPENED:
+                                            this.Trigger(this.conditions.OnInterstitialOpened)
+                                            break
+                                        case window.bridge.INTERSTITIAL_STATE.CLOSED:
+                                            this.Trigger(this.conditions.OnInterstitialClosed)
+                                            break
+                                        case window.bridge.INTERSTITIAL_STATE.FAILED:
+                                            this.Trigger(this.conditions.OnInterstitialFailed)
+                                            break
+                                    }
                                 })
 
                                 window.bridge.advertisement.on('rewarded_state_changed', state => {
                                     this.Trigger(this.conditions.OnRewardedStateChanged)
+
+                                    switch (state) {
+                                        case window.bridge.REWARDED_STATE.OPENED:
+                                            this.Trigger(this.conditions.OnRewardedOpened)
+                                            break
+                                        case window.bridge.REWARDED_STATE.REWARDED:
+                                            this.Trigger(this.conditions.OnRewardedRewarded)
+                                            break
+                                        case window.bridge.REWARDED_STATE.CLOSED:
+                                            this.Trigger(this.conditions.OnRewardedClosed)
+                                            break
+                                        case window.bridge.REWARDED_STATE.FAILED:
+                                            this.Trigger(this.conditions.OnRewardedFailed)
+                                            break
+                                    }
                                 })
 
                                 window.bridge.game.on('visibility_state_changed', state => {

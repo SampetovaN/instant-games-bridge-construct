@@ -284,6 +284,37 @@
     "advertisement": {
         "conditions": [
             {
+                "id": "on-show-banner-completed",
+                "scriptName": "OnShowBannerCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "on-hide-banner-completed",
+                "scriptName": "OnHideBannerCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "is-last-show-banner-shown-successfully",
+                "scriptName": "IsLastShowBannerShownSuccessfully"
+            },
+            {
+                "id": "is-last-hide-banner-hidden-successfully",
+                "scriptName": "IsLastHideBannerHiddenSuccessfully"
+            },
+            {
+                "id": "is-banner-supported",
+                "scriptName": "IsBannerSupported"
+            },
+            {
+                "id": "is-banner-showing",
+                "scriptName": "IsBannerShowing"
+            },
+
+            {
                 "id": "on-show-interstitial-completed",
                 "scriptName": "OnShowInterstitialCompleted",
                 "isTrigger": true,
@@ -293,6 +324,27 @@
             {
                 "id": "on-interstitial-state-changed",
                 "scriptName": "OnInterstitialStateChanged",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "on-interstitial-opened",
+                "scriptName": "OnInterstitialOpened",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "on-interstitial-closed",
+                "scriptName": "OnInterstitialClosed",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "on-interstitial-failed",
+                "scriptName": "OnInterstitialFailed",
                 "isTrigger": true,
                 "isInvertible": false,
                 "isCompatibleWithTriggers": false
@@ -312,6 +364,34 @@
             {
                 "id": "on-show-rewarded-completed",
                 "scriptName": "OnShowRewardedCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "on-rewarded-opened",
+                "scriptName": "OnRewardedOpened",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "on-rewarded-rewarded",
+                "scriptName": "OnRewardedRewarded",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "on-rewarded-closed",
+                "scriptName": "OnRewardedClosed",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "on-rewarded-failed",
+                "scriptName": "OnRewardedFailed",
                 "isTrigger": true,
                 "isInvertible": false,
                 "isCompatibleWithTriggers": false
@@ -340,6 +420,22 @@
                         "type": "number"
                     }
                 ]
+            },
+            {
+                "id": "show-banner",
+                "scriptName": "ShowBanner",
+                "isAsync": true,
+                "params": [
+                    {
+                        "id": "vk",
+                        "type": "string"
+                    }
+                ]
+            },
+            {
+                "id": "hide-banner",
+                "scriptName": "HideBanner",
+                "isAsync": true
             },
             {
                 "id": "show-interstitial",

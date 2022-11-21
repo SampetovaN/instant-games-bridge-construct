@@ -78,6 +78,25 @@
 
 
         // advertisement
+        IsBannerSupported() {
+            return window.bridge.advertisement.isBannerSupported
+        },
+        IsBannerShowing() {
+            return window.bridge.advertisement.isBannerShowing
+        },
+        OnShowBannerCompleted() {
+            return true
+        },
+        OnHideBannerCompleted() {
+            return true
+        },
+        IsLastShowBannerShownSuccessfully() {
+            return this.isLastShowBannerShownSuccessfully
+        },
+        IsLastHideBannerHiddenSuccessfully() {
+            return this.isLastHideBannerHiddenSuccessfully
+        },
+
         OnShowInterstitialCompleted() {
             return true
         },
@@ -85,6 +104,15 @@
             return this.isLastShowInterstitialShownSuccessfully
         },
         OnInterstitialStateChanged() {
+            return true
+        },
+        OnInterstitialOpened() {
+            return true
+        },
+        OnInterstitialClosed() {
+            return true
+        },
+        OnInterstitialFailed() {
             return true
         },
 
@@ -95,6 +123,18 @@
             return this.isLastShowRewardedShownSuccessfully
         },
         OnRewardedStateChanged() {
+            return true
+        },
+        OnRewardedOpened() {
+            return true
+        },
+        OnRewardedRewarded() {
+            return true
+        },
+        OnRewardedClosed() {
+            return true
+        },
+        OnRewardedFailed() {
             return true
         },
 

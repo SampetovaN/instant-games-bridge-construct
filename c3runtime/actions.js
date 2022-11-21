@@ -13,10 +13,37 @@
                     .then(() => {
                         window.bridge.advertisement.on('interstitial_state_changed', state => {
                             this.Trigger(this.conditions.OnInterstitialStateChanged)
+
+                            switch (state) {
+                                case window.bridge.INTERSTITIAL_STATE.OPENED:
+                                    this.Trigger(this.conditions.OnInterstitialOpened)
+                                    break
+                                case window.bridge.INTERSTITIAL_STATE.CLOSED:
+                                    this.Trigger(this.conditions.OnInterstitialClosed)
+                                    break
+                                case window.bridge.INTERSTITIAL_STATE.FAILED:
+                                    this.Trigger(this.conditions.OnInterstitialFailed)
+                                    break
+                            }
                         })
 
                         window.bridge.advertisement.on('rewarded_state_changed', state => {
                             this.Trigger(this.conditions.OnRewardedStateChanged)
+
+                            switch (state) {
+                                case window.bridge.REWARDED_STATE.OPENED:
+                                    this.Trigger(this.conditions.OnRewardedOpened)
+                                    break
+                                case window.bridge.REWARDED_STATE.REWARDED:
+                                    this.Trigger(this.conditions.OnRewardedRewarded)
+                                    break
+                                case window.bridge.REWARDED_STATE.CLOSED:
+                                    this.Trigger(this.conditions.OnRewardedClosed)
+                                    break
+                                case window.bridge.REWARDED_STATE.FAILED:
+                                    this.Trigger(this.conditions.OnRewardedFailed)
+                                    break
+                            }
                         })
 
                         window.bridge.game.on('visibility_state_changed', state => {
@@ -157,6 +184,37 @@
         SetMinimumDelayBetweenInterstitial(vk, yandex, mock) {
             let delayOptions = { vk, yandex, mock }
             window.bridge.advertisement.setMinimumDelayBetweenInterstitial(delayOptions)
+        },
+        ShowBanner(vk) {
+            this.isLastShowBannerShownSuccessfully = false
+
+            let bannerOptions = { vk }
+            return new Promise(resolve => {
+                window.bridge.advertisement.showBanner(bannerOptions)
+                    .then(() => {
+                        this.isLastShowBannerShownSuccessfully = true
+                    })
+                    .catch(error => console.log(error))
+                    .finally(() => {
+                        this.Trigger(this.conditions.OnShowBannerCompleted)
+                        resolve()
+                    })
+            })
+        },
+        HideBanner() {
+            this.isLastHideBannerHiddenSuccessfully = false
+
+            return new Promise(resolve => {
+                window.bridge.advertisement.hideBanner()
+                    .then(() => {
+                        this.isLastHideBannerHiddenSuccessfully = true
+                    })
+                    .catch(error => console.log(error))
+                    .finally(() => {
+                        this.Trigger(this.conditions.OnHideBannerCompleted)
+                        resolve()
+                    })
+            })
         },
         ShowInterstitial(vk, yandex, mock) {
             this.isLastShowInterstitialShownSuccessfully = false

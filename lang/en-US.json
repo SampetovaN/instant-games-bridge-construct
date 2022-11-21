@@ -149,6 +149,37 @@
                     },
 
 
+                    "is-banner-supported": {
+                        "list-name": "IsBannerSupported",
+                        "display-text": "Is Banner Supported",
+                        "description": "Is Banner Supported"
+                    },
+                    "is-banner-showing": {
+                        "list-name": "IsBannerShowing",
+                        "display-text": "Is Banner Showing",
+                        "description": "Is Banner Showing"
+                    },
+                    "on-show-banner-completed": {
+                        "list-name": "OnShowBannerCompleted",
+                        "display-text": "On Show Banner Completed",
+                        "description": "On Show Banner Completed"
+                    },
+                    "on-hide-banner-completed": {
+                        "list-name": "OnHideBannerCompleted",
+                        "display-text": "On Hide Banner Completed",
+                        "description": "On Hide Banner Completed"
+                    },
+                    "is-last-show-banner-shown-successfully": {
+                        "list-name": "IsLastShowBannerShownSuccessfully",
+                        "display-text": "Is Last Show Banner Shown Successfully",
+                        "description": "Is Last Show Banner Shown Successfully"
+                    },
+                    "is-last-hide-banner-hidden-successfully": {
+                        "list-name": "IsLastHideBannerHiddenSuccessfully",
+                        "display-text": "Is Last Hide BannerHidden Successfully",
+                        "description": "Is Last Hide BannerHidden Successfully"
+                    },
+
                     "on-show-interstitial-completed": {
                         "list-name": "OnShowInterstitialCompleted",
                         "display-text": "On Show Interstitial Completed",
@@ -163,6 +194,21 @@
                         "list-name": "OnInterstitialStateChanged",
                         "display-text": "On Interstitial State Changed",
                         "description": "On Interstitial State Changed"
+                    },
+                    "on-interstitial-opened": {
+                        "list-name": "OnInterstitialOpened",
+                        "display-text": "On Interstitial Opened",
+                        "description": "On Interstitial Opened"
+                    },
+                    "on-interstitial-closed": {
+                        "list-name": "OnInterstitialClosed",
+                        "display-text": "On Interstitial Closed",
+                        "description": "On Interstitial Closed"
+                    },
+                    "on-interstitial-failed": {
+                        "list-name": "OnInterstitialFailed",
+                        "display-text": "On Interstitial Failed",
+                        "description": "On Interstitial Failed"
                     },
 
                     "on-show-rewarded-completed": {
@@ -179,6 +225,26 @@
                         "list-name": "OnRewardedStateChanged",
                         "display-text": "On Rewarded State Changed",
                         "description": "On Rewarded State Changed"
+                    },
+                    "on-rewarded-opened": {
+                        "list-name": "OnRewardedOpened",
+                        "display-text": "On Rewarded Opened",
+                        "description": "On Rewarded Opened"
+                    },
+                    "on-rewarded-rewarded": {
+                        "list-name": "OnRewardedRewarded",
+                        "display-text": "On Rewarded Rewarded",
+                        "description": "On Rewarded Rewarded"
+                    },
+                    "on-rewarded-closed": {
+                        "list-name": "OnRewardedClosed",
+                        "display-text": "On Rewarded Closed",
+                        "description": "On Rewarded Closed"
+                    },
+                    "on-rewarded-failed": {
+                        "list-name": "OnRewardedFailed",
+                        "display-text": "On Rewarded Failed",
+                        "description": "On Rewarded Failed"
                     },
 
 
@@ -480,6 +546,22 @@
                     },
 
 
+                    "show-banner": {
+                        "list-name": "ShowBanner",
+                        "display-text": "Show Banner. VK banner position: [b]{0}[/b]",
+                        "description": "Show Banner",
+                        "params": {
+                            "vk": {
+                                "name": "VK",
+                                "desc": "Position of the banner for VK. Possible values: top, bottom. Default: bottom."
+                            }
+                        }
+                    },
+                    "hide-banner": {
+                        "list-name": "HideBanner",
+                        "display-text": "Hide Banner",
+                        "description": "Hide Banner"
+                    },
                     "set-minimum-delay-between-interstitial": {
                         "list-name": "SetMinimumDelayBetweenInterstitial",
                         "display-text": "Set Minimum Delay Between Interstitial. VK: [b]{0}[/b], Yandex: [b]{1}[/b]. Mock: [b]{2}[/b].",
