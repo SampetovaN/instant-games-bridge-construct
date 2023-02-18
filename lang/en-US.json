@@ -13,6 +13,10 @@
                         "name": "Load SDK from CDN",
                         "desc": "If false - you should import SDK JS script into scripts folder and mark as main"
                     },
+                    "custom-cdn-url": {
+                        "name": "Custom CDN URL",
+                        "desc": "Custom CDN URL for loading SDK"
+                    },
                     "initialize-on-load": {
                         "name": "Initialize On Load",
                         "desc": "Automatically initialize the SDK when it is loaded"
@@ -154,46 +158,41 @@
                         "display-text": "Is Banner Supported",
                         "description": "Is Banner Supported"
                     },
-                    "is-banner-showing": {
-                        "list-name": "IsBannerShowing",
-                        "display-text": "Is Banner Showing",
-                        "description": "Is Banner Showing"
+                    "on-banner-state-changed": {
+                        "list-name": "OnBannerStateChanged",
+                        "display-text": "On Banner State Changed",
+                        "description": "On Banner State Changed"
                     },
-                    "on-show-banner-completed": {
-                        "list-name": "OnShowBannerCompleted",
-                        "display-text": "On Show Banner Completed",
-                        "description": "On Show Banner Completed"
+                    "on-banner-loading": {
+                        "list-name": "OnBannerLoading",
+                        "display-text": "On Banner Loading",
+                        "description": "On Banner Loading"
                     },
-                    "on-hide-banner-completed": {
-                        "list-name": "OnHideBannerCompleted",
-                        "display-text": "On Hide Banner Completed",
-                        "description": "On Hide Banner Completed"
+                    "on-banner-shown": {
+                        "list-name": "OnBannerShown",
+                        "display-text": "On Banner Shown",
+                        "description": "On Banner Shown"
                     },
-                    "is-last-show-banner-shown-successfully": {
-                        "list-name": "IsLastShowBannerShownSuccessfully",
-                        "display-text": "Is Last Show Banner Shown Successfully",
-                        "description": "Is Last Show Banner Shown Successfully"
+                    "on-banner-hidden": {
+                        "list-name": "OnBannerHidden",
+                        "display-text": "On Banner Hidden",
+                        "description": "On Banner Hidden"
                     },
-                    "is-last-hide-banner-hidden-successfully": {
-                        "list-name": "IsLastHideBannerHiddenSuccessfully",
-                        "display-text": "Is Last Hide BannerHidden Successfully",
-                        "description": "Is Last Hide BannerHidden Successfully"
+                    "on-banner-failed": {
+                        "list-name": "OnBannerFailed",
+                        "display-text": "On Banner Failed",
+                        "description": "On Banner Failed"
                     },
 
-                    "on-show-interstitial-completed": {
-                        "list-name": "OnShowInterstitialCompleted",
-                        "display-text": "On Show Interstitial Completed",
-                        "description": "On Show Interstitial Completed"
-                    },
-                    "is-last-show-interstitial-shown-successfully": {
-                        "list-name": "IsLastShowInterstitialShownSuccessfully",
-                        "display-text": "Is Last Show Interstitial Shown Successfully",
-                        "description": "Is Last Show Interstitial Shown Successfully"
-                    },
                     "on-interstitial-state-changed": {
                         "list-name": "OnInterstitialStateChanged",
                         "display-text": "On Interstitial State Changed",
                         "description": "On Interstitial State Changed"
+                    },
+                    "on-interstitial-loading": {
+                        "list-name": "OnInterstitialLoading",
+                        "display-text": "On Interstitial Loading",
+                        "description": "On Interstitial Loading"
                     },
                     "on-interstitial-opened": {
                         "list-name": "OnInterstitialOpened",
@@ -211,20 +210,15 @@
                         "description": "On Interstitial Failed"
                     },
 
-                    "on-show-rewarded-completed": {
-                        "list-name": "OnShowRewardedCompleted",
-                        "display-text": "On Show Rewarded Completed",
-                        "description": "On Show Rewarded Completed"
-                    },
-                    "is-last-show-rewarded-shown-successfully": {
-                        "list-name": "IsLastShowRewardedShownSuccessfully",
-                        "display-text": "Is Last Show Rewarded Shown Successfully",
-                        "description": "Is Last Show Rewarded Shown Successfully"
-                    },
                     "on-rewarded-state-changed": {
                         "list-name": "OnRewardedStateChanged",
                         "display-text": "On Rewarded State Changed",
                         "description": "On Rewarded State Changed"
+                    },
+                    "on-rewarded-loading": {
+                        "list-name": "OnRewardedLoading",
+                        "display-text": "On Rewarded Loading",
+                        "description": "On Rewarded Loading"
                     },
                     "on-rewarded-opened": {
                         "list-name": "OnRewardedOpened",
@@ -548,12 +542,16 @@
 
                     "show-banner": {
                         "list-name": "ShowBanner",
-                        "display-text": "Show Banner. VK banner position: [b]{0}[/b]",
+                        "display-text": "Show Banner. VK banner position: [b]{0}[/b]. Crazy Games responsive banner container ID: [b]{1}[/b]",
                         "description": "Show Banner",
                         "params": {
                             "vk": {
                                 "name": "VK",
                                 "desc": "Position of the banner for VK. Possible values: top, bottom. Default: bottom."
+                            },
+                            "crazy_games": {
+                                "name": "Crazy Games",
+                                "desc": "Responsive banner container ID"
                             }
                         }
                     },
@@ -564,7 +562,7 @@
                     },
                     "set-minimum-delay-between-interstitial": {
                         "list-name": "SetMinimumDelayBetweenInterstitial",
-                        "display-text": "Set Minimum Delay Between Interstitial. VK: [b]{0}[/b], Yandex: [b]{1}[/b]. Mock: [b]{2}[/b].",
+                        "display-text": "Set Minimum Delay Between Interstitial. VK: [b]{0}[/b], Yandex: [b]{1}[/b], Crazy Games: [b]{2}[/b], Mock: [b]{3}[/b].",
                         "description": "Set Minimum Delay Between Interstitial",
                         "params": {
                             "vk": {
@@ -575,6 +573,10 @@
                                 "name": "Yandex",
                                 "desc": "Value for Yandex (seconds)"
                             },
+                            "crazy_games": {
+                                "name": "Crazy Games",
+                                "desc": "Value for razy Games (seconds)"
+                            },
                             "mock": {
                                 "name": "MOCK",
                                 "desc": "Value for MOCK (seconds)"
@@ -583,7 +585,7 @@
                     },
                     "show-interstitial": {
                         "list-name": "ShowInterstitial",
-                        "display-text": "Show Interstitial. Ignore Delay VK: [b]{0}[/b], Yandex: [b]{1}[/b]. Mock: [b]{2}[/b].",
+                        "display-text": "Show Interstitial. Ignore Delay VK: [b]{0}[/b], Yandex: [b]{1}[/b], Crazy Games: [b]{2}[/b], Mock: [b]{3}[/b].",
                         "description": "Show Interstitial",
                         "params": {
                             "vk": {
@@ -593,6 +595,10 @@
                             "yandex": {
                                 "name": "Yandex",
                                 "desc": "Ignore Delay for Yandex"
+                            },
+                            "crazy_games": {
+                                "name": "Crazy Games",
+                                "desc": "Ignore Delay for Crazy Games"
                             },
                             "mock": {
                                 "name": "MOCK",
@@ -796,6 +802,10 @@
                     },
 
 
+                    "banner-state": {
+                        "translated-name": "BannerState",
+                        "description": "Banner State"
+                    },
                     "interstitial-state": {
                         "translated-name": "InterstitialState",
                         "description": "Interstitial State"

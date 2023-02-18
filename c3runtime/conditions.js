@@ -81,29 +81,26 @@
         IsBannerSupported() {
             return window.bridge.advertisement.isBannerSupported
         },
-        IsBannerShowing() {
-            return window.bridge.advertisement.isBannerShowing
-        },
-        OnShowBannerCompleted() {
+        OnBannerStateChanged() {
             return true
         },
-        OnHideBannerCompleted() {
+        OnBannerLoading() {
             return true
         },
-        IsLastShowBannerShownSuccessfully() {
-            return this.isLastShowBannerShownSuccessfully
+        OnBannerShown() {
+            return true
         },
-        IsLastHideBannerHiddenSuccessfully() {
-            return this.isLastHideBannerHiddenSuccessfully
+        OnBannerHidden() {
+            return true
+        },
+        OnBannerFailed() {
+            return true
         },
 
-        OnShowInterstitialCompleted() {
+        OnInterstitialStateChanged() {
             return true
         },
-        IsLastShowInterstitialShownSuccessfully() {
-            return this.isLastShowInterstitialShownSuccessfully
-        },
-        OnInterstitialStateChanged() {
+        OnInterstitialLoading() {
             return true
         },
         OnInterstitialOpened() {
@@ -116,13 +113,10 @@
             return true
         },
 
-        OnShowRewardedCompleted() {
+        OnRewardedStateChanged() {
             return true
         },
-        IsLastShowRewardedShownSuccessfully() {
-            return this.isLastShowRewardedShownSuccessfully
-        },
-        OnRewardedStateChanged() {
+        OnRewardedLoading() {
             return true
         },
         OnRewardedOpened() {

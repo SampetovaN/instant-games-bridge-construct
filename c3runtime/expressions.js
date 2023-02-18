@@ -56,6 +56,9 @@
         MinimumDelayBetweenInterstitial() {
             return window.bridge.advertisement.minimumDelayBetweenInterstitial
         },
+        BannerState() {
+            return window.bridge.advertisement.bannerState
+        },
         InterstitialState() {
             return window.bridge.advertisement.interstitialState
         },

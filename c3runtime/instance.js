@@ -7,24 +7,29 @@
             this.conditions = C3.Plugins.InstantGamesBridge.Cnds
             this.actions = C3.Plugins.InstantGamesBridge.Acts
 
-            if (properties[0]) {
-                this._runtime.AddLoadPromise(this.loadSdk())
+            let cdnUrl = 'https://cdn.jsdelivr.net/gh/instant-games-bridge/instant-games-bridge@1.7.2/dist/instant-games-bridge.js'
+            if (properties[1] !== '') {
+                cdnUrl = properties[1]
             }
 
-            if (properties[1]) {
+            if (properties[0]) {
+                this._runtime.AddLoadPromise(this.loadSdk(cdnUrl))
+            }
+
+            if (properties[2]) {
                 this._runtime.AddLoadPromise(this.initializeSdk())
             }
 
             this.storageData = null
         }
 
-        loadSdk() {
+        loadSdk(cdnUrl) {
             return new Promise((resolve, reject) => {
                 try {
                     ((d) => {
                         let t = d.getElementsByTagName('script')[0]
                         let s = d.createElement('script')
-                        s.src = 'https://cdn.jsdelivr.net/gh/instant-games-bridge/instant-games-bridge@1.6.2/dist/instant-games-bridge.js'
+                        s.src = cdnUrl
                         s.async = true
                         s.onload = () => {
                             resolve()
@@ -44,6 +49,25 @@
                     if (window.bridge !== undefined) {
                         window.bridge.initialize()
                             .then(() => {
+                                window.bridge.advertisement.on('banner_state_changed', state => {
+                                    this.Trigger(this.conditions.OnBannerStateChanged)
+
+                                    switch (state) {
+                                        case window.bridge.BANNER_STATE.LOADING:
+                                            this.Trigger(this.conditions.OnBannerLoading)
+                                            break
+                                        case window.bridge.BANNER_STATE.SHOWN:
+                                            this.Trigger(this.conditions.OnBannerShown)
+                                            break
+                                        case window.bridge.BANNER_STATE.HIDDEN:
+                                            this.Trigger(this.conditions.OnBannerHidden)
+                                            break
+                                        case window.bridge.BANNER_STATE.FAILED:
+                                            this.Trigger(this.conditions.OnBannerFailed)
+                                            break
+                                    }
+                                })
+
                                 window.bridge.advertisement.on('interstitial_state_changed', state => {
                                     this.Trigger(this.conditions.OnInterstitialStateChanged)
 

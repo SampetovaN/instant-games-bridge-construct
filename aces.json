@@ -284,46 +284,55 @@
     "advertisement": {
         "conditions": [
             {
-                "id": "on-show-banner-completed",
-                "scriptName": "OnShowBannerCompleted",
-                "isTrigger": true,
-                "isInvertible": false,
-                "isCompatibleWithTriggers": false
-            },
-            {
-                "id": "on-hide-banner-completed",
-                "scriptName": "OnHideBannerCompleted",
-                "isTrigger": true,
-                "isInvertible": false,
-                "isCompatibleWithTriggers": false
-            },
-            {
-                "id": "is-last-show-banner-shown-successfully",
-                "scriptName": "IsLastShowBannerShownSuccessfully"
-            },
-            {
-                "id": "is-last-hide-banner-hidden-successfully",
-                "scriptName": "IsLastHideBannerHiddenSuccessfully"
-            },
-            {
                 "id": "is-banner-supported",
                 "scriptName": "IsBannerSupported"
             },
             {
-                "id": "is-banner-showing",
-                "scriptName": "IsBannerShowing"
-            },
-
-            {
-                "id": "on-show-interstitial-completed",
-                "scriptName": "OnShowInterstitialCompleted",
+                "id": "on-banner-state-changed",
+                "scriptName": "OnBannerStateChanged",
                 "isTrigger": true,
                 "isInvertible": false,
                 "isCompatibleWithTriggers": false
             },
             {
+                "id": "on-banner-loading",
+                "scriptName": "OnBannerLoading",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "on-banner-shown",
+                "scriptName": "OnBannerShown",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "on-banner-hidden",
+                "scriptName": "OnBannerHidden",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "on-banner-failed",
+                "scriptName": "OnBannerFailed",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+
+            {
                 "id": "on-interstitial-state-changed",
                 "scriptName": "OnInterstitialStateChanged",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "on-interstitial-loading",
+                "scriptName": "OnInterstitialLoading",
                 "isTrigger": true,
                 "isInvertible": false,
                 "isCompatibleWithTriggers": false
@@ -349,10 +358,6 @@
                 "isInvertible": false,
                 "isCompatibleWithTriggers": false
             },
-            {
-                "id": "is-last-show-interstitial-shown-successfully",
-                "scriptName": "IsLastShowInterstitialShownSuccessfully"
-            },
 
             {
                 "id": "on-rewarded-state-changed",
@@ -362,8 +367,8 @@
                 "isCompatibleWithTriggers": false
             },
             {
-                "id": "on-show-rewarded-completed",
-                "scriptName": "OnShowRewardedCompleted",
+                "id": "on-rewarded-loading",
+                "scriptName": "OnRewardedLoading",
                 "isTrigger": true,
                 "isInvertible": false,
                 "isCompatibleWithTriggers": false
@@ -395,10 +400,6 @@
                 "isTrigger": true,
                 "isInvertible": false,
                 "isCompatibleWithTriggers": false
-            },
-            {
-                "id": "is-last-show-rewarded-shown-successfully",
-                "scriptName": "IsLastShowRewardedShownSuccessfully"
             }
         ],
         "actions": [
@@ -416,6 +417,10 @@
                         "type": "number"
                     },
                     {
+                        "id": "crazy_games",
+                        "type": "number"
+                    },
+                    {
                         "id": "mock",
                         "type": "number"
                     }
@@ -424,10 +429,14 @@
             {
                 "id": "show-banner",
                 "scriptName": "ShowBanner",
-                "isAsync": true,
+                "isAsync": false,
                 "params": [
                     {
                         "id": "vk",
+                        "type": "string"
+                    },
+                    {
+                        "id": "crazy_games",
                         "type": "string"
                     }
                 ]
@@ -435,12 +444,12 @@
             {
                 "id": "hide-banner",
                 "scriptName": "HideBanner",
-                "isAsync": true
+                "isAsync": false
             },
             {
                 "id": "show-interstitial",
                 "scriptName": "ShowInterstitial",
-                "isAsync": true,
+                "isAsync": false,
                 "params": [
                     {
                         "id": "vk",
@@ -448,6 +457,10 @@
                     },
                     {
                         "id": "yandex",
+                        "type": "boolean"
+                    },
+                    {
+                        "id": "crazy_games",
                         "type": "boolean"
                     },
                     {
@@ -459,7 +472,7 @@
             {
                 "id": "show-rewarded",
                 "scriptName": "ShowRewarded",
-                "isAsync": true
+                "isAsync": false
             }
         ],
         "expressions": [
@@ -467,6 +480,11 @@
                 "id": "minimum-delay-between-interstitial",
                 "expressionName": "MinimumDelayBetweenInterstitial",
                 "returnType": "number"
+            },
+            {
+                "id": "banner-state",
+                "expressionName": "BannerState",
+                "returnType": "string"
             },
             {
                 "id": "interstitial-state",

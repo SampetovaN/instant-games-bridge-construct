@@ -11,10 +11,32 @@
             return new Promise(resolve => {
                 window.bridge.initialize()
                     .then(() => {
+                        window.bridge.advertisement.on('banner_state_changed', state => {
+                            this.Trigger(this.conditions.OnBannerStateChanged)
+
+                            switch (state) {
+                                case window.bridge.BANNER_STATE.LOADING:
+                                    this.Trigger(this.conditions.OnBannerLoading)
+                                    break
+                                case window.bridge.BANNER_STATE.SHOWN:
+                                    this.Trigger(this.conditions.OnBannerShown)
+                                    break
+                                case window.bridge.BANNER_STATE.HIDDEN:
+                                    this.Trigger(this.conditions.OnBannerHidden)
+                                    break
+                                case window.bridge.BANNER_STATE.FAILED:
+                                    this.Trigger(this.conditions.OnBannerFailed)
+                                    break
+                            }
+                        })
+
                         window.bridge.advertisement.on('interstitial_state_changed', state => {
                             this.Trigger(this.conditions.OnInterstitialStateChanged)
 
                             switch (state) {
+                                case window.bridge.INTERSTITIAL_STATE.LOADING:
+                                    this.Trigger(this.conditions.OnInterstitialLoading)
+                                    break
                                 case window.bridge.INTERSTITIAL_STATE.OPENED:
                                     this.Trigger(this.conditions.OnInterstitialOpened)
                                     break
@@ -31,6 +53,9 @@
                             this.Trigger(this.conditions.OnRewardedStateChanged)
 
                             switch (state) {
+                                case window.bridge.REWARDED_STATE.LOADING:
+                                    this.Trigger(this.conditions.OnRewardedLoading)
+                                    break
                                 case window.bridge.REWARDED_STATE.OPENED:
                                     this.Trigger(this.conditions.OnRewardedOpened)
                                     break
@@ -181,71 +206,23 @@
 
 
         // advertisement
-        SetMinimumDelayBetweenInterstitial(vk, yandex, mock) {
-            let delayOptions = { vk, yandex, mock }
+        SetMinimumDelayBetweenInterstitial(vk, yandex, crazy_games, mock) {
+            let delayOptions = { vk, yandex, crazy_games, mock }
             window.bridge.advertisement.setMinimumDelayBetweenInterstitial(delayOptions)
         },
-        ShowBanner(vk) {
-            this.isLastShowBannerShownSuccessfully = false
-
-            let bannerOptions = { vk }
-            return new Promise(resolve => {
-                window.bridge.advertisement.showBanner(bannerOptions)
-                    .then(() => {
-                        this.isLastShowBannerShownSuccessfully = true
-                    })
-                    .catch(error => console.log(error))
-                    .finally(() => {
-                        this.Trigger(this.conditions.OnShowBannerCompleted)
-                        resolve()
-                    })
-            })
+        ShowBanner(vk, crazy_games) {
+            let bannerOptions = { vk, crazy_games }
+            window.bridge.advertisement.showBanner(bannerOptions)
         },
         HideBanner() {
-            this.isLastHideBannerHiddenSuccessfully = false
-
-            return new Promise(resolve => {
-                window.bridge.advertisement.hideBanner()
-                    .then(() => {
-                        this.isLastHideBannerHiddenSuccessfully = true
-                    })
-                    .catch(error => console.log(error))
-                    .finally(() => {
-                        this.Trigger(this.conditions.OnHideBannerCompleted)
-                        resolve()
-                    })
-            })
+            window.bridge.advertisement.hideBanner()
         },
-        ShowInterstitial(vk, yandex, mock) {
-            this.isLastShowInterstitialShownSuccessfully = false
-
-            let interstitialOptions = { vk, yandex, mock }
-            return new Promise(resolve => {
-                window.bridge.advertisement.showInterstitial(interstitialOptions)
-                    .then(() => {
-                        this.isLastShowInterstitialShownSuccessfully = true
-                    })
-                    .catch(error => console.log(error))
-                    .finally(() => {
-                        this.Trigger(this.conditions.OnShowInterstitialCompleted)
-                        resolve()
-                    })
-            })
+        ShowInterstitial(vk, yandex, crazy_games, mock) {
+            let interstitialOptions = { vk, yandex, crazy_games, mock }
+            window.bridge.advertisement.showInterstitial(interstitialOptions)
         },
         ShowRewarded() {
-            this.isLastShowRewardedShownSuccessfully = false
-
-            return new Promise(resolve => {
-                window.bridge.advertisement.showRewarded()
-                    .then(() => {
-                        this.isLastShowRewardedShownSuccessfully = true
-                    })
-                    .catch(error => console.log(error))
-                    .finally(() => {
-                        this.Trigger(this.conditions.OnShowRewardedCompleted)
-                        resolve()
-                    })
-            })
+            window.bridge.advertisement.showRewarded()
         },
 
 
