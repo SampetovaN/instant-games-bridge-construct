@@ -10,6 +10,39 @@
         },
 
 
+        // platform
+        IsVk() {
+            return window.bridge.platform.id === 'vk'
+        },
+        IsYandex() {
+            return window.bridge.platform.id === 'yandex'
+        },
+        IsCrazyGames() {
+            return window.bridge.platform.id === 'crazy_games'
+        },
+        IsAbsoluteGames() {
+            return window.bridge.platform.id === 'absolute_games'
+        },
+        IsMock() {
+            return window.bridge.platform.id === 'mock'
+        },
+
+
+        // device
+        IsMobile() {
+            return window.bridge.device.type === 'mobile'
+        },
+        IsTablet() {
+            return window.bridge.device.type === 'tablet'
+        },
+        IsDesktop() {
+            return window.bridge.device.type === 'desktop'
+        },
+        IsTv() {
+            return window.bridge.device.type === 'tv'
+        },
+
+
         // player
         IsPlayerAuthorizationSupported() {
             return window.bridge.player.isAuthorizationSupported
@@ -74,6 +107,18 @@
             }
 
             return window.bridge.storage.isSupported(storageType)
+        },
+        IsStorageAvailable(storageType) {
+            switch (storageType) {
+                case 0:
+                    storageType = "local_storage"
+                    break
+                case 1:
+                    storageType = "platform_internal"
+                    break
+            }
+
+            return window.bridge.storage.isAvailable(storageType)
         },
 
 
@@ -202,6 +247,10 @@
         },
         IsLastRateRatedSuccessfully() {
             return this.isLastRateRatedSuccessfully
+        },
+
+        IsExternalLinksAllowed() {
+            return window.bridge.social.isExternalLinksAllowed
         },
 
 

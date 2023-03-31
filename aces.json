@@ -23,6 +23,28 @@
         ]
     },
     "platform": {
+        "conditions": [
+            {
+                "id": "is-vk",
+                "scriptName": "IsVk"
+            },
+            {
+                "id": "is-yandex",
+                "scriptName": "IsYandex"
+            },
+            {
+                "id": "is-crazy-games",
+                "scriptName": "IsCrazyGames"
+            },
+            {
+                "id": "is-absolute-games",
+                "scriptName": "IsAbsoluteGames"
+            },
+            {
+                "id": "is-mock",
+                "scriptName": "IsMock"
+            }
+        ],
         "expressions": [
             {
                 "id": "platform-id",
@@ -42,6 +64,24 @@
         ]
     },
     "device": {
+        "conditions": [
+            {
+                "id": "is-mobile",
+                "scriptName": "IsMobile"
+            },
+            {
+                "id": "is-tablet",
+                "scriptName": "IsTablet"
+            },
+            {
+                "id": "is-desktop",
+                "scriptName": "IsDesktop"
+            },
+            {
+                "id": "is-tv",
+                "scriptName": "IsTv"
+            }
+        ],
         "expressions": [
             {
                 "id": "device-type",
@@ -163,6 +203,17 @@
             {
                 "id": "is-storage-supported",
                 "scriptName": "IsStorageSupported",
+                "params": [
+                    {
+                        "id": "storage-type",
+                        "type": "combo",
+                        "items": ["local-storage", "platform-internal"]
+                    }
+                ]
+            },
+            {
+                "id": "is-storage-available",
+                "scriptName": "IsStorageAvailable",
                 "params": [
                     {
                         "id": "storage-type",
@@ -421,6 +472,10 @@
                         "type": "number"
                     },
                     {
+                        "id": "absolute_games",
+                        "type": "number"
+                    },
+                    {
                         "id": "mock",
                         "type": "number"
                     }
@@ -461,6 +516,10 @@
                     },
                     {
                         "id": "crazy_games",
+                        "type": "boolean"
+                    },
+                    {
+                        "id": "absolute_games",
                         "type": "boolean"
                     },
                     {
@@ -610,6 +669,11 @@
             {
                 "id": "is-last-rate-rated-successfully",
                 "scriptName": "IsLastRateRatedSuccessfully"
+            },
+
+            {
+                "id": "is-external-links-allowed",
+                "scriptName": "IsExternalLinksAllowed"
             }
         ],
         "actions": [

@@ -206,8 +206,8 @@
 
 
         // advertisement
-        SetMinimumDelayBetweenInterstitial(vk, yandex, crazy_games, mock) {
-            let delayOptions = { vk, yandex, crazy_games, mock }
+        SetMinimumDelayBetweenInterstitial(vk, yandex, crazy_games, absolute_games, mock) {
+            let delayOptions = { vk, yandex, crazy_games, absolute_games, mock }
             window.bridge.advertisement.setMinimumDelayBetweenInterstitial(delayOptions)
         },
         ShowBanner(vk, crazy_games) {
@@ -217,8 +217,8 @@
         HideBanner() {
             window.bridge.advertisement.hideBanner()
         },
-        ShowInterstitial(vk, yandex, crazy_games, mock) {
-            let interstitialOptions = { vk, yandex, crazy_games, mock }
+        ShowInterstitial(vk, yandex, crazy_games, absolute_games, mock) {
+            let interstitialOptions = { vk, yandex, crazy_games, absolute_games, mock }
             window.bridge.advertisement.showInterstitial(interstitialOptions)
         },
         ShowRewarded() {

@@ -46,6 +46,55 @@
                     },
 
 
+                    "is-vk": {
+                        "list-name": "IsVk",
+                        "display-text": "Is Vk",
+                        "description": "Is Vk"
+                    },
+                    "is-yandex": {
+                        "list-name": "IsYandex",
+                        "display-text": "Is Yandex",
+                        "description": "Is Yandex"
+                    },
+                    "is-crazy-games": {
+                        "list-name": "IsCrazyGames",
+                        "display-text": "Is Crazy Games",
+                        "description": "Is Crazy Games"
+                    },
+                    "is-absolute-games": {
+                        "list-name": "IsAbsoluteGames",
+                        "display-text": "Is Absolute Games",
+                        "description": "Is Absolute Games"
+                    },
+                    "is-mock": {
+                        "list-name": "IsMock",
+                        "display-text": "Is Mock",
+                        "description": "Is Mock"
+                    },
+
+
+                    "is-mobile": {
+                        "list-name": "IsMobile",
+                        "display-text": "Is Mobile",
+                        "description": "Is Mobile"
+                    },
+                    "is-tablet": {
+                        "list-name": "IsTablet",
+                        "display-text": "Is Tablet",
+                        "description": "Is Tablet"
+                    },
+                    "is-desktop": {
+                        "list-name": "IsDesktop",
+                        "display-text": "Is Desktop",
+                        "description": "Is Desktop"
+                    },
+                    "is-tv": {
+                        "list-name": "IsTv",
+                        "display-text": "Is Tv",
+                        "description": "Is Tv"
+                    },
+
+
                     "is-player-authorization-supported": {
                         "list-name": "IsPlayerAuthorizationSupported",
                         "display-text": "Is Player Authorization Supported",
@@ -96,6 +145,21 @@
                         "list-name": "IsStorageSupported",
                         "display-text": "Is Storage Supported: [b]{0}[/b].",
                         "description": "Is Storage Supported",
+                        "params": {
+                            "storage-type": {
+                                "name": "StorageType",
+                                "desc": "Storage Type",
+                                "items": {
+                                    "local-storage": "LocalStorage",
+                                    "platform-internal": "PlatformInternal"
+                                }
+                            }
+                        }
+                    },
+                    "is-storage-available": {
+                        "list-name": "IsStorageAvailable",
+                        "display-text": "Is Storage Available: [b]{0}[/b].",
+                        "description": "Is Storage Available",
                         "params": {
                             "storage-type": {
                                 "name": "StorageType",
@@ -354,6 +418,12 @@
                         "description": "Is Last Rate Rated Successfully"
                     },
 
+                    "is-external-links-allowed": {
+                        "list-name": "IsExternalLinksAllowed",
+                        "display-text": "Is External Links Allowed",
+                        "description": "Is External Links Allowed"
+                    },
+
 
                     "is-leaderboard-supported": {
                         "list-name": "IsLeaderboardSupported",
@@ -562,7 +632,7 @@
                     },
                     "set-minimum-delay-between-interstitial": {
                         "list-name": "SetMinimumDelayBetweenInterstitial",
-                        "display-text": "Set Minimum Delay Between Interstitial. VK: [b]{0}[/b], Yandex: [b]{1}[/b], Crazy Games: [b]{2}[/b], Mock: [b]{3}[/b].",
+                        "display-text": "Set Minimum Delay Between Interstitial. VK: [b]{0}[/b], Yandex: [b]{1}[/b], Crazy Games: [b]{2}[/b], Absolute Games: [b]{3}[/b], Mock: [b]{4}[/b].",
                         "description": "Set Minimum Delay Between Interstitial",
                         "params": {
                             "vk": {
@@ -575,7 +645,11 @@
                             },
                             "crazy_games": {
                                 "name": "Crazy Games",
-                                "desc": "Value for razy Games (seconds)"
+                                "desc": "Value for Crazy Games (seconds)"
+                            },
+                            "absolute_games": {
+                                "name": "Absolute Games",
+                                "desc": "Value for Absolute Games (seconds)"
                             },
                             "mock": {
                                 "name": "MOCK",
@@ -585,7 +659,7 @@
                     },
                     "show-interstitial": {
                         "list-name": "ShowInterstitial",
-                        "display-text": "Show Interstitial. Ignore Delay VK: [b]{0}[/b], Yandex: [b]{1}[/b], Crazy Games: [b]{2}[/b], Mock: [b]{3}[/b].",
+                        "display-text": "Show Interstitial. Ignore Delay VK: [b]{0}[/b], Yandex: [b]{1}[/b], Crazy Games: [b]{2}[/b], Absolute Games: [b]{3}[/b], Mock: [b]{4}[/b].",
                         "description": "Show Interstitial",
                         "params": {
                             "vk": {
@@ -599,6 +673,10 @@
                             "crazy_games": {
                                 "name": "Crazy Games",
                                 "desc": "Ignore Delay for Crazy Games"
+                            },
+                            "absolute_games": {
+                                "name": "Absolute Games",
+                                "desc": "Ignore Delay for Absolute Games"
                             },
                             "mock": {
                                 "name": "MOCK",
