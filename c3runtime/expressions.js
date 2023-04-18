@@ -11,6 +11,13 @@
         PlatformPayload() {
             return window.bridge.platform.payload
         },
+        PlatformTld() {
+            if (window.bridge.platform.tld) {
+                return window.bridge.platform.tld
+            }
+
+            return ''
+        },
 
 
         // device

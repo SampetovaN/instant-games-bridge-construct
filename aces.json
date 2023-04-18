@@ -60,6 +60,25 @@
                 "id": "platform-payload",
                 "expressionName": "PlatformPayload",
                 "returnType": "string"
+            },
+            {
+                "id": "platform-tld",
+                "expressionName": "PlatformTld",
+                "returnType": "string"
+            }
+        ],
+        "actions": [
+            {
+                "id": "send-message",
+                "scriptName": "SendMessage",
+                "isAsync": false,
+                "params": [
+                    {
+                        "id": "message",
+                        "type": "combo",
+                        "items": ["game-ready", "in-game-loading-started", "in-game-loading-stopped", "gameplay-started", "gameplay-stopped", "player-got-achievement"]
+                    }
+                ]
             }
         ]
     },

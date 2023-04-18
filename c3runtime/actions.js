@@ -83,6 +83,33 @@
         },
 
 
+        // Platfrom
+        SendMessage(message) {
+            switch (message) {
+                case 0:
+                    message = window.bridge.PLATFORM_MESSAGE.GAME_READY
+                    break
+                case 1:
+                    message = window.bridge.PLATFORM_MESSAGE.IN_GAME_LOADING_STARTED
+                    break
+                case 2:
+                    message = window.bridge.PLATFORM_MESSAGE.IN_GAME_LOADING_STOPPED
+                    break
+                case 3:
+                    message = window.bridge.PLATFORM_MESSAGE.GAMEPLAY_STARTED
+                    break
+                case 4:
+                    message = window.bridge.PLATFORM_MESSAGE.GAMEPLAY_STOPPED
+                    break
+                case 5:
+                    message = window.bridge.PLATFORM_MESSAGE.PLAYER_GOT_ACHIEVEMENT
+                    break
+            }
+
+            window.bridge.platform.sendMessage(message)
+        },
+
+
         // player
         AuthorizePlayer(yandexScopes) {
             this.isLastAuthorizePlayerAuthorizedSuccessfully = false

@@ -6,6 +6,7 @@ Supported platforms:
 + [Yandex Games](https://yandex.com/games)
 + [Crazy Games](https://crazygames.com)
 + [Absolute Games](https://ag.ru)
++ Other [Work In Progress]
 
 Plugins for other game engines:
 + [JS](https://github.com/mewtongames/instant-games-bridge)
