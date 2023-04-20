@@ -7,7 +7,7 @@
             this.conditions = C3.Plugins.InstantGamesBridge.Cnds
             this.actions = C3.Plugins.InstantGamesBridge.Acts
 
-            let cdnUrl = 'https://cdn.jsdelivr.net/gh/instant-games-bridge/instant-games-bridge@1.8.1/dist/instant-games-bridge.js'
+            let cdnUrl = 'https://cdn.jsdelivr.net/gh/instant-games-bridge/instant-games-bridge@1.8.2/dist/instant-games-bridge.js'
             if (properties[1] !== '') {
                 cdnUrl = properties[1]
             }
