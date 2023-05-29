@@ -41,6 +41,10 @@
                 "scriptName": "IsAbsoluteGames"
             },
             {
+                "id": "is-game-distribution",
+                "scriptName": "IsGameDistribution"
+            },
+            {
                 "id": "is-mock",
                 "scriptName": "IsMock"
             }
@@ -495,6 +499,10 @@
                         "type": "number"
                     },
                     {
+                        "id": "game_distribution",
+                        "type": "number"
+                    },
+                    {
                         "id": "mock",
                         "type": "number"
                     }
@@ -511,6 +519,10 @@
                     },
                     {
                         "id": "crazy_games",
+                        "type": "string"
+                    },
+                    {
+                        "id": "game_distribution",
                         "type": "string"
                     }
                 ]
@@ -539,6 +551,10 @@
                     },
                     {
                         "id": "absolute_games",
+                        "type": "boolean"
+                    },
+                    {
+                        "id": "game_distribution",
                         "type": "boolean"
                     },
                     {

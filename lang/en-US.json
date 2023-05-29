@@ -20,6 +20,10 @@
                     "initialize-on-load": {
                         "name": "Initialize On Load",
                         "desc": "Automatically initialize the SDK when it is loaded"
+                    },
+                    "game-distribution-game-id": {
+                        "name": "GameDistribution Game ID",
+                        "desc": "Game ID, which you can find from your control panel on GameDistribution.com"
                     }
                 },
                 "aceCategories": {
@@ -65,6 +69,11 @@
                         "list-name": "IsAbsoluteGames",
                         "display-text": "Is Absolute Games",
                         "description": "Is Absolute Games"
+                    },
+                    "is-game-distribution": {
+                        "list-name": "IsGameDistribution",
+                        "display-text": "Is Game Distribution",
+                        "description": "Is Game Distribution"
                     },
                     "is-mock": {
                         "list-name": "IsMock",
@@ -533,7 +542,7 @@
 
                     "send-message": {
                         "list-name": "SendMessage",
-                        "display-text": "Send Message to Platform. Message: [b]{0}[/b]",
+                        "display-text": "Send Message to Platform. Message: [b]{0}[/b].",
                         "description": "Send Message to Platform",
                         "params": {
                             "message": {
@@ -567,7 +576,7 @@
 
                     "get-storage-data": {
                         "list-name": "GetStorageData",
-                        "display-text": "Get Storage Data. Key: [b]{0}[/b]. Storage: [b]{1}[/b]",
+                        "display-text": "Get Storage Data. Key: [b]{0}[/b]. Storage: [b]{1}[/b].",
                         "description": "Get Storage Data",
                         "params": {
                             "key": {
@@ -587,7 +596,7 @@
                     },
                     "set-storage-data": {
                         "list-name": "SetStorageData",
-                        "display-text": "Set Storage Data. Key: [b]{0}[/b], value: [b]{1}[/b]. Storage: [b]{2}[/b]",
+                        "display-text": "Set Storage Data. Key: [b]{0}[/b], value: [b]{1}[/b]. Storage: [b]{2}[/b].",
                         "description": "Set Storage Data",
                         "params": {
                             "key": {
@@ -611,7 +620,7 @@
                     },
                     "delete-storage-data": {
                         "list-name": "DeleteStorageData",
-                        "display-text": "Delete Storage Data. Key: [b]{0}[/b]. Storage: [b]{1}[/b]",
+                        "display-text": "Delete Storage Data. Key: [b]{0}[/b]. Storage: [b]{1}[/b].",
                         "description": "Delete Storage Data",
                         "params": {
                             "key": {
@@ -633,7 +642,7 @@
 
                     "show-banner": {
                         "list-name": "ShowBanner",
-                        "display-text": "Show Banner. VK banner position: [b]{0}[/b]. Crazy Games responsive banner container ID: [b]{1}[/b]",
+                        "display-text": "Show Banner. VK banner position: [b]{0}[/b]. Crazy Games responsive banner container ID: [b]{1}[/b]. Game Distribution banner container ID: [b]{2}[/b].",
                         "description": "Show Banner",
                         "params": {
                             "vk": {
@@ -643,6 +652,10 @@
                             "crazy_games": {
                                 "name": "Crazy Games",
                                 "desc": "Responsive banner container ID"
+                            },
+                            "game_distribution": {
+                                "name": "Game Distribution",
+                                "desc": "Banner container ID"
                             }
                         }
                     },
@@ -653,7 +666,7 @@
                     },
                     "set-minimum-delay-between-interstitial": {
                         "list-name": "SetMinimumDelayBetweenInterstitial",
-                        "display-text": "Set Minimum Delay Between Interstitial. VK: [b]{0}[/b], Yandex: [b]{1}[/b], Crazy Games: [b]{2}[/b], Absolute Games: [b]{3}[/b], Mock: [b]{4}[/b].",
+                        "display-text": "Set Minimum Delay Between Interstitial. VK: [b]{0}[/b], Yandex: [b]{1}[/b], Crazy Games: [b]{2}[/b], Absolute Games: [b]{3}[/b], Game Distribution: [b]{4}[/b], Mock: [b]{5}[/b].",
                         "description": "Set Minimum Delay Between Interstitial",
                         "params": {
                             "vk": {
@@ -672,6 +685,10 @@
                                 "name": "Absolute Games",
                                 "desc": "Value for Absolute Games (seconds)"
                             },
+                            "game_distribution": {
+                                "name": "Game Distribution",
+                                "desc": "Value for Game Distribution (seconds)"
+                            },
                             "mock": {
                                 "name": "MOCK",
                                 "desc": "Value for MOCK (seconds)"
@@ -680,7 +697,7 @@
                     },
                     "show-interstitial": {
                         "list-name": "ShowInterstitial",
-                        "display-text": "Show Interstitial. Ignore Delay VK: [b]{0}[/b], Yandex: [b]{1}[/b], Crazy Games: [b]{2}[/b], Absolute Games: [b]{3}[/b], Mock: [b]{4}[/b].",
+                        "display-text": "Show Interstitial. Ignore Delay VK: [b]{0}[/b], Yandex: [b]{1}[/b], Crazy Games: [b]{2}[/b], Absolute Games: [b]{3}[/b], Game Distribution: [b]{4}[/b], Mock: [b]{5}[/b].",
                         "description": "Show Interstitial",
                         "params": {
                             "vk": {
@@ -699,9 +716,13 @@
                                 "name": "Absolute Games",
                                 "desc": "Ignore Delay for Absolute Games"
                             },
+                            "game_distribution": {
+                                "name": "Game Distribution",
+                                "desc": "Ignore Delay for Game Distribution"
+                            },
                             "mock": {
                                 "name": "MOCK",
-                                "desc": "Ignore Delay MOCK"
+                                "desc": "Ignore Delay for MOCK"
                             }
                         }
                     },

@@ -23,6 +23,9 @@
         IsAbsoluteGames() {
             return window.bridge.platform.id === 'absolute_games'
         },
+        IsGameDistribution() {
+            return window.bridge.platform.id === 'game_distribution'
+        },
         IsMock() {
             return window.bridge.platform.id === 'mock'
         },

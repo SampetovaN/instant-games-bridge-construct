@@ -7,10 +7,12 @@
             this.conditions = C3.Plugins.InstantGamesBridge.Cnds
             this.actions = C3.Plugins.InstantGamesBridge.Acts
 
-            let cdnUrl = 'https://cdn.jsdelivr.net/gh/instant-games-bridge/instant-games-bridge@1.8.2/dist/instant-games-bridge.js'
+            let cdnUrl = 'https://cdn.jsdelivr.net/gh/instant-games-bridge/instant-games-bridge@1.9.0/dist/instant-games-bridge.js'
             if (properties[1] !== '') {
                 cdnUrl = properties[1]
             }
+
+            this.gameDistributionGameId = properties[3]
 
             if (properties[0]) {
                 this._runtime.AddLoadPromise(this.loadSdk(cdnUrl))
@@ -47,7 +49,15 @@
             return new Promise((resolve, reject) => {
                 const waitForBridgeLoaded = () => {
                     if (window.bridge !== undefined) {
-                        window.bridge.initialize()
+                        let bridgeOptions = {
+                            platforms: { }
+                        }
+
+                        if (this.gameDistributionGameId !== '') {
+                            bridgeOptions.platforms['game_distribution'] = { gameId: this.gameDistributionGameId }
+                        }
+
+                        window.bridge.initialize(bridgeOptions)
                             .then(() => {
                                 window.bridge.advertisement.on('banner_state_changed', state => {
                                     this.Trigger(this.conditions.OnBannerStateChanged)

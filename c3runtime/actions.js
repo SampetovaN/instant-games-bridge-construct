@@ -233,19 +233,19 @@
 
 
         // advertisement
-        SetMinimumDelayBetweenInterstitial(vk, yandex, crazy_games, absolute_games, mock) {
-            let delayOptions = { vk, yandex, crazy_games, absolute_games, mock }
+        SetMinimumDelayBetweenInterstitial(vk, yandex, crazy_games, absolute_games, game_distribution, mock) {
+            let delayOptions = { vk, yandex, crazy_games, absolute_games, game_distribution, mock }
             window.bridge.advertisement.setMinimumDelayBetweenInterstitial(delayOptions)
         },
-        ShowBanner(vk, crazy_games) {
-            let bannerOptions = { vk, crazy_games }
+        ShowBanner(vk, crazy_games, game_distribution) {
+            let bannerOptions = { vk, crazy_games, game_distribution }
             window.bridge.advertisement.showBanner(bannerOptions)
         },
         HideBanner() {
             window.bridge.advertisement.hideBanner()
         },
-        ShowInterstitial(vk, yandex, crazy_games, absolute_games, mock) {
-            let interstitialOptions = { vk, yandex, crazy_games, absolute_games, mock }
+        ShowInterstitial(vk, yandex, crazy_games, absolute_games, game_distribution, mock) {
+            let interstitialOptions = { vk, yandex, crazy_games, absolute_games, game_distribution, mock }
             window.bridge.advertisement.showInterstitial(interstitialOptions)
         },
         ShowRewarded() {
