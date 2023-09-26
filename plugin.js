@@ -1,7 +1,7 @@
 'use strict'
 {
     const PLUGIN_ID = 'InstantGamesBridge'
-    const PLUGIN_VERSION = '1.9.1'
+    const PLUGIN_VERSION = '1.9.2'
     const PLUGIN_CATEGORY = 'platform-specific'
 
     const PLUGIN_CLASS = (SDK.Plugins.InstantGamesBridge = class InstantGamesBridgePlugin extends SDK.IPluginBase {
