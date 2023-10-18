@@ -74,6 +74,25 @@
 
 
         // storage
+        IsStorageDataGetRequestSuccess() {
+            return this.isStorageDataGetRequestSuccess
+        },
+        OnStorageDataGetRequestCompleted() {
+            return true
+        },
+        IsStorageDataSetRequestSuccess() {
+            return this.isStorageDataSetRequestSuccess
+        },
+        OnStorageDataSetRequestCompleted() {
+            return true
+        },
+        IsStorageDataDeleteRequestSuccess() {
+            return this.isStorageDataDeleteRequestSuccess
+        },
+        OnStorageDataDeleteRequestCompleted() {
+            return true
+        },
+
         OnGetStorageDataCompleted() {
             return true
         },

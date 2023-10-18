@@ -247,15 +247,51 @@
             },
 
             {
-                "id": "on-get-storage-data-completed",
-                "scriptName": "OnGetStorageDataCompleted",
+                "id": "on-storage-data-get-request-completed",
+                "scriptName": "OnStorageDataGetRequestCompleted",
                 "isTrigger": true,
                 "isInvertible": false,
                 "isCompatibleWithTriggers": false
             },
             {
+                "id": "is-storage-data-get-request-success",
+                "scriptName": "IsStorageDataGetRequestSuccess"
+            },
+            {
+                "id": "on-storage-data-set-request-completed",
+                "scriptName": "OnStorageDataSetRequestCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "is-storage-data-set-request-success",
+                "scriptName": "IsStorageDataSetRequestSuccess"
+            },
+            {
+                "id": "on-storage-data-delete-request-completed",
+                "scriptName": "OnStorageDataDeleteRequestCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "is-storage-data-delete-request-success",
+                "scriptName": "IsStorageDataDeleteRequestSuccess"
+            },
+
+            {
+                "id": "on-get-storage-data-completed",
+                "scriptName": "OnGetStorageDataCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false,
+                "isDeprecated": true
+            },
+            {
                 "id": "is-last-get-storage-data-got-successfully",
-                "scriptName": "IsLastGetStorageDataGotSuccessfully"
+                "scriptName": "IsLastGetStorageDataGotSuccessfully",
+                "isDeprecated": true
             },
 
             {
@@ -263,11 +299,13 @@
                 "scriptName": "OnSetStorageDataCompleted",
                 "isTrigger": true,
                 "isInvertible": false,
-                "isCompatibleWithTriggers": false
+                "isCompatibleWithTriggers": false,
+                "isDeprecated": true
             },
             {
                 "id": "is-last-set-storage-data-set-successfully",
-                "scriptName": "IsLastSetStorageDataSetSuccessfully"
+                "scriptName": "IsLastSetStorageDataSetSuccessfully",
+                "isDeprecated": true
             },
 
             {
@@ -275,18 +313,92 @@
                 "scriptName": "OnDeleteStorageDataCompleted",
                 "isTrigger": true,
                 "isInvertible": false,
-                "isCompatibleWithTriggers": false
+                "isCompatibleWithTriggers": false,
+                "isDeprecated": true
             },
             {
                 "id": "is-last-delete-storage-data-deleted-successfully",
-                "scriptName": "IsLastDeleteStorageDataDeletedSuccessfully"
+                "scriptName": "IsLastDeleteStorageDataDeletedSuccessfully",
+                "isDeprecated": true
             }
         ],
         "actions": [
             {
+                "id": "append-storage-data-get-request",
+                "scriptName": "AppendStorageDataGetRequest",
+                "params": [
+                    {
+                        "id": "key",
+                        "type": "string"
+                    }
+                ]
+            },
+            {
+                "id": "send-storage-data-get-request",
+                "scriptName": "SendStorageDataGetRequest",
+                "isAsync": true,
+                "params": [
+                    {
+                        "id": "storage-type",
+                        "type": "combo",
+                        "items": ["default", "local-storage", "platform-internal"]
+                    }
+                ]
+            },
+            {
+                "id": "append-storage-data-set-request",
+                "scriptName": "AppendStorageDataSetRequest",
+                "params": [
+                    {
+                        "id": "key",
+                        "type": "string"
+                    },
+                    {
+                        "id": "value",
+                        "type": "any"
+                    }
+                ]
+            },
+            {
+                "id": "send-storage-data-set-request",
+                "scriptName": "SendStorageDataSetRequest",
+                "isAsync": true,
+                "params": [
+                    {
+                        "id": "storage-type",
+                        "type": "combo",
+                        "items": ["default", "local-storage", "platform-internal"]
+                    }
+                ]
+            },
+            {
+                "id": "append-storage-data-delete-request",
+                "scriptName": "AppendStorageDataDeleteRequest",
+                "params": [
+                    {
+                        "id": "key",
+                        "type": "string"
+                    }
+                ]
+            },
+            {
+                "id": "send-storage-data-delete-request",
+                "scriptName": "SendStorageDataDeleteRequest",
+                "isAsync": true,
+                "params": [
+                    {
+                        "id": "storage-type",
+                        "type": "combo",
+                        "items": ["default", "local-storage", "platform-internal"]
+                    }
+                ]
+            },
+
+            {
                 "id": "get-storage-data",
                 "scriptName": "GetStorageData",
                 "isAsync": true,
+                "isDeprecated": true,
                 "params": [
                     {
                         "id": "key",
@@ -303,6 +415,7 @@
                 "id": "set-storage-data",
                 "scriptName": "SetStorageData",
                 "isAsync": true,
+                "isDeprecated": true,
                 "params": [
                     {
                         "id": "key",
@@ -323,6 +436,7 @@
                 "id": "delete-storage-data",
                 "scriptName": "DeleteStorageData",
                 "isAsync": true,
+                "isDeprecated": true,
                 "params": [
                     {
                         "id": "key",

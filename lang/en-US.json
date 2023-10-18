@@ -192,6 +192,39 @@
                         }
                     },
 
+                    "on-storage-data-get-request-completed": {
+                        "list-name": "OnStorageDataGetRequestCompleted",
+                        "display-text": "On Storage Data Get Request Completed",
+                        "description": "On Storage Data Get Request Completed"
+                    },
+                    "is-storage-data-get-request-success": {
+                        "list-name": "IsStorageDataGetRequestSuccess",
+                        "display-text": "Is Storage Data Get Request Success",
+                        "description": "Is Storage Data Get Request Success"
+                    },
+
+                    "on-storage-data-set-request-completed": {
+                        "list-name": "OnStorageDataSetRequestCompleted",
+                        "display-text": "On Storage Data Set Request Completed",
+                        "description": "On Storage Data Set Request Completed"
+                    },
+                    "is-storage-data-set-request-success": {
+                        "list-name": "IsStorageDataSetRequestSuccess",
+                        "display-text": "Is Storage Data Set Request Success",
+                        "description": "Is Storage Data Set Request Success"
+                    },
+
+                    "on-storage-data-delete-request-completed": {
+                        "list-name": "OnStorageDataDeleteRequestCompleted",
+                        "display-text": "On Storage Data Delete Request Completed",
+                        "description": "On Storage Data Delete Request Completed"
+                    },
+                    "is-storage-data-delete-request-success": {
+                        "list-name": "IsStorageDataDeleteRequestSuccess",
+                        "display-text": "Is Storage Data Delete Request Success",
+                        "description": "Is Storage Data Delete Request Success"
+                    },
+
                     "on-get-storage-data-completed": {
                         "list-name": "OnGetStorageDataCompleted",
                         "display-text": "On Get Storage Data Completed",
@@ -573,6 +606,94 @@
                         }
                     },
 
+
+                    "append-storage-data-get-request": {
+                        "list-name": "AppendStorageDataGetRequest",
+                        "display-text": "Append Storage Data Get Request. Key: [b]{0}[/b].",
+                        "description": "Append Storage Data Get Request",
+                        "params": {
+                            "key": {
+                                "name": "Key",
+                                "desc": "Key"
+                            }
+                        }
+                    },
+                    "send-storage-data-get-request": {
+                        "list-name": "SendStorageDataGetRequest",
+                        "display-text": "Send Storage Data Get Request. Storage: [b]{0}[/b].",
+                        "description": "Send Storage Data Get Request",
+                        "params": {
+                            "storage-type": {
+                                "name": "StorageType",
+                                "desc": "Storage Type",
+                                "items": {
+                                    "default": "Default",
+                                    "local-storage": "LocalStorage",
+                                    "platform-internal": "PlatformInternal"
+                                }
+                            }
+                        }
+                    },
+
+                    "append-storage-data-set-request": {
+                        "list-name": "AppendStorageDataSetRequest",
+                        "display-text": "Append Storage Data Set Request. Key: [b]{0}[/b]. Value: [b]{1}[/b].",
+                        "description": "Append Storage Data Set Request",
+                        "params": {
+                            "key": {
+                                "name": "Key",
+                                "desc": "Key"
+                            },
+                            "value": {
+                                "name": "Value",
+                                "desc": "Value"
+                            }
+                        }
+                    },
+                    "send-storage-data-set-request": {
+                        "list-name": "SendStorageDataSetRequest",
+                        "display-text": "Send Storage Data Set Request. Storage: [b]{0}[/b].",
+                        "description": "Send Storage Data Set Request",
+                        "params": {
+                            "storage-type": {
+                                "name": "StorageType",
+                                "desc": "Storage Type",
+                                "items": {
+                                    "default": "Default",
+                                    "local-storage": "LocalStorage",
+                                    "platform-internal": "PlatformInternal"
+                                }
+                            }
+                        }
+                    },
+
+                    "append-storage-data-delete-request": {
+                        "list-name": "AppendStorageDataDeleteRequest",
+                        "display-text": "Append Storage Data Delete Request. Key: [b]{0}[/b].",
+                        "description": "Append Storage Data Delete Request",
+                        "params": {
+                            "key": {
+                                "name": "Key",
+                                "desc": "Key"
+                            }
+                        }
+                    },
+                    "send-storage-data-delete-request": {
+                        "list-name": "SendStorageDataDeleteRequest",
+                        "display-text": "Send Storage Data Delete Request. Storage: [b]{0}[/b].",
+                        "description": "Send Storage Data Delete Request",
+                        "params": {
+                            "storage-type": {
+                                "name": "StorageType",
+                                "desc": "Storage Type",
+                                "items": {
+                                    "default": "Default",
+                                    "local-storage": "LocalStorage",
+                                    "platform-internal": "PlatformInternal"
+                                }
+                            }
+                        }
+                    },
 
                     "get-storage-data": {
                         "list-name": "GetStorageData",

@@ -23,6 +23,10 @@
             }
 
             this.storageData = null
+            this.storageDataGetRequestKeys = []
+            this.storageDataSetRequestKeys = []
+            this.storageDataSetRequestValues = []
+            this.storageDataDeleteRequestKeys = []
         }
 
         loadSdk(cdnUrl) {

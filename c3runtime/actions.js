@@ -135,6 +135,126 @@
 
 
         // storage
+        AppendStorageDataGetRequest(key) {
+            this.storageDataGetRequestKeys.push(key)
+        },
+        SendStorageDataGetRequest(storageType) {
+            this.isStorageDataGetRequestSuccess = false
+
+            switch (storageType) {
+                case 0:
+                    storageType = null
+                    break
+                case 1:
+                    storageType = "local_storage"
+                    break
+                case 2:
+                    storageType = "platform_internal"
+                    break
+            }
+
+            return new Promise(resolve => {
+                window.bridge.storage.get(this.storageDataGetRequestKeys, storageType)
+                    .then(data => {
+                        if (!this.storageData) {
+                            this.storageData = {}
+                        }
+
+                        for (let i = 0; i < data.length; i++) {
+                            let key = this.storageDataGetRequestKeys[i]
+                            let value = data[i]
+                            this.storageData[key] = value
+                        }
+
+                        this.isStorageDataGetRequestSuccess = true
+                    })
+                    .catch(error => console.log(error))
+                    .finally(() => {
+                        this.storageDataGetRequestKeys = []
+                        this.Trigger(this.conditions.OnStorageDataGetRequestCompleted)
+                        resolve()
+                    })
+            })
+        },
+        AppendStorageDataSetRequest(key, value) {
+            this.storageDataSetRequestKeys.push(key)
+            this.storageDataSetRequestValues.push(value)
+        },
+        SendStorageDataSetRequest(storageType) {
+            this.isStorageDataSetRequestSuccess = false
+
+            switch (storageType) {
+                case 0:
+                    storageType = null
+                    break
+                case 1:
+                    storageType = "local_storage"
+                    break
+                case 2:
+                    storageType = "platform_internal"
+                    break
+            }
+
+            return new Promise(resolve => {
+                window.bridge.storage.set(this.storageDataSetRequestKeys, this.storageDataSetRequestValues, storageType)
+                    .then(() => {
+                        this.isStorageDataSetRequestSuccess = true
+
+                        for (let i = 0; i < this.storageDataSetRequestKeys.length; i++) {
+                            let key = this.storageDataSetRequestKeys[i]
+                            let value = this.storageDataSetRequestValues[i]
+                            this.storageData[key] = value
+                        }
+                    })
+                    .catch(error => console.log(error))
+                    .finally(() => {
+                        this.storageDataSetRequestKeys = []
+                        this.storageDataSetRequestValues = []
+                        this.Trigger(this.conditions.OnStorageDataSetRequestCompleted)
+                        resolve()
+                    })
+            })
+        },
+        AppendStorageDataDeleteRequest(key) {
+            this.storageDataDeleteRequestKeys.push(key)
+        },
+        SendStorageDataDeleteRequest(storageType) {
+            this.isStorageDataDeleteRequestSuccess = false
+
+            switch (storageType) {
+                case 0:
+                    storageType = null
+                    break
+                case 1:
+                    storageType = "local_storage"
+                    break
+                case 2:
+                    storageType = "platform_internal"
+                    break
+            }
+
+            return new Promise(resolve => {
+                window.bridge.storage.delete(this.storageDataDeleteRequestKeys, storageType)
+                    .then(() => {
+                        if (this.storageData) {
+                            for (let i = 0; i < this.storageDataDeleteRequestKeys.length; i++) {
+                                let key = this.storageDataDeleteRequestKeys[i]
+                                delete this.storageData[key]
+                            }
+                        }
+
+                        this.isStorageDataDeleteRequestSuccess = true
+                    })
+                    .catch(error => console.log(error))
+                    .finally(() => {
+                        this.storageDataDeleteRequestKeys = []
+                        this.Trigger(this.conditions.OnStorageDataDeleteRequestCompleted)
+                        resolve()
+                    })
+            })
+        },
+
+
         GetStorageData(key, storageType) {
             this.isLastGetStorageDataGotSuccessfully = false
 

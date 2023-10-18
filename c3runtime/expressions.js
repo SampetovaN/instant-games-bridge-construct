@@ -52,8 +52,9 @@
             return window.bridge.storage.defaultType
         },
         StorageData(key) {
-            if (!this.storageData)
+            if (!this.storageData) {
                 return null
+            }
 
             return this.storageData[key]
         },
@@ -76,50 +77,58 @@
 
         // leaderboard
         LeaderboardPlayerScore() {
-            if (typeof this.leaderboardPlayerScore !== 'number')
+            if (typeof this.leaderboardPlayerScore !== 'number') {
                 return 0
+            }
 
             return this.leaderboardPlayerScore
         },
         LeaderboardEntriesCount() {
-            if (!this.leaderboardEntries)
+            if (!this.leaderboardEntries) {
                 return 0
+            }
 
             return this.leaderboardEntries.length
         },
         LeaderboardEntryPlayerId(entryIndex) {
-            if (!this.leaderboardEntries)
+            if (!this.leaderboardEntries) {
                 return ''
+            }
 
             return this.leaderboardEntries[entryIndex].id
         },
         LeaderboardEntryPlayerName(entryIndex) {
-            if (!this.leaderboardEntries)
+            if (!this.leaderboardEntries) {
                 return ''
+            }
 
             return this.leaderboardEntries[entryIndex].name
         },
         LeaderboardEntryPlayerScore(entryIndex) {
-            if (!this.leaderboardEntries)
+            if (!this.leaderboardEntries) {
                 return 0
+            }
 
             return this.leaderboardEntries[entryIndex].score
         },
         LeaderboardEntryPlayerRank(entryIndex) {
-            if (!this.leaderboardEntries)
+            if (!this.leaderboardEntries) {
                 return 0
+            }
 
             return this.leaderboardEntries[entryIndex].rank
         },
         LeaderboardEntryPlayerPhotosCount(entryIndex) {
-            if (!this.leaderboardEntries)
+            if (!this.leaderboardEntries) {
                 return ''
+            }
 
             return this.leaderboardEntries[entryIndex].photos.length
         },
         LeaderboardEntryPlayerPhoto(entryIndex, photoIndex) {
-            if (!this.leaderboardEntries)
+            if (!this.leaderboardEntries) {
                 return ''
+            }
 
             return this.leaderboardEntries[entryIndex].photos[photoIndex]
         },
