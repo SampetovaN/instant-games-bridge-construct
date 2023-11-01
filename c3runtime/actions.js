@@ -78,6 +78,12 @@
                     .finally(() => {
                         this.Trigger(this.conditions.OnInitializationCompleted)
                         resolve()
+
+                        if (this.showInterstitialOnInit) {
+                            if (window.bridge.platform.id === window.bridge.PLATFORM_ID.YANDEX || window.bridge.platform.id === window.bridge.PLATFORM_ID.GAME_DISTRIBUTION) {
+                                window.bridge.advertisement.showInterstitial()
+                            }
+                        }
                     })
             })
         },

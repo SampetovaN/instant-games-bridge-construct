@@ -22,6 +22,10 @@
                 this._runtime.AddLoadPromise(this.initializeSdk())
             }
 
+            if (properties[4]) {
+                this.showInterstitialOnInit = properties[4]
+            }
+
             this.storageData = null
             this.storageDataGetRequestKeys = []
             this.storageDataSetRequestKeys = []
@@ -122,6 +126,12 @@
                                 })
 
                                 resolve()
+
+                                if (this.showInterstitialOnInit) {
+                                    if (window.bridge.platform.id === window.bridge.PLATFORM_ID.YANDEX || window.bridge.platform.id === window.bridge.PLATFORM_ID.GAME_DISTRIBUTION) {
+                                        window.bridge.advertisement.showInterstitial()
+                                    }
+                                }
                             })
                             .catch(error => reject(error))
                     } else {

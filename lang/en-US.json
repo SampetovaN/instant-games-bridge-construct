@@ -11,19 +11,23 @@
                 "properties": {
                     "load-sdk-from-cdn": {
                         "name": "Load SDK from CDN",
-                        "desc": "If false - you should import SDK JS script into scripts folder and mark as main"
+                        "desc": "If false - you should import SDK JS script into scripts folder and mark as main."
                     },
                     "custom-cdn-url": {
                         "name": "Custom CDN URL",
-                        "desc": "Custom CDN URL for loading SDK"
+                        "desc": "Custom CDN URL for loading SDK."
                     },
                     "initialize-on-load": {
                         "name": "Initialize On Load",
-                        "desc": "Automatically initialize the SDK when it is loaded"
+                        "desc": "Automatically initialize the SDK when it is loaded."
                     },
                     "game-distribution-game-id": {
                         "name": "GameDistribution Game ID",
-                        "desc": "Game ID, which you can find from your control panel on GameDistribution.com"
+                        "desc": "Game ID, which you can find from your control panel on GameDistribution.com."
+                    },
+                    "show-interstitial-on-init": {
+                        "name": "Show Interstitial On Init",
+                        "desc": "Automatically show interstitial when SDK is initialized. Supported only on Yandex and Game Distribution."
                     }
                 },
                 "aceCategories": {

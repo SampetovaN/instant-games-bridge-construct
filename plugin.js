@@ -1,7 +1,7 @@
 'use strict'
 {
     const PLUGIN_ID = 'InstantGamesBridge'
-    const PLUGIN_VERSION = '1.9.2.2-preview1'
+    const PLUGIN_VERSION = '1.9.2.3'
     const PLUGIN_CATEGORY = 'platform-specific'
 
     const PLUGIN_CLASS = (SDK.Plugins.InstantGamesBridge = class InstantGamesBridgePlugin extends SDK.IPluginBase {
@@ -23,7 +23,8 @@
                 new SDK.PluginProperty('check', 'load-sdk-from-cdn', true),
                 new SDK.PluginProperty('text', 'custom-cdn-url', ''),
                 new SDK.PluginProperty('check', 'initialize-on-load', true),
-                new SDK.PluginProperty('text', 'game-distribution-game-id', '')
+                new SDK.PluginProperty('text', 'game-distribution-game-id', ''),
+                new SDK.PluginProperty('check', 'show-interstitial-on-init', true)
             ]);
 
             SDK.Lang.PopContext()
