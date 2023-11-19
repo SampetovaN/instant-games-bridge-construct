@@ -1049,6 +1049,16 @@
                             }
                         }
                     },
+                    "storage-data-as-json": {
+                        "translated-name": "StorageDataAsJson",
+                        "description": "Get Storage Data By Key Converted To JSON",
+                        "params": {
+                            "key": {
+                                "name": "Key",
+                                "desc": "Key"
+                            }
+                        }
+                    },
 
 
                     "banner-state": {

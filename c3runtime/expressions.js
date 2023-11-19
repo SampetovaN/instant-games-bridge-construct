@@ -58,6 +58,18 @@
 
             return this.storageData[key]
         },
+        StorageDataAsJSON(key) {
+            if (!this.storageData) {
+                return null
+            }
+
+            let value = this.storageData[key]
+            if (typeof value !== 'string') {
+                value = JSON.stringify(value)
+            }
+
+            return value
+        },
 
 
         // advertisement

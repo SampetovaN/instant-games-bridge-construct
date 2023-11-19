@@ -463,6 +463,17 @@
                 ]
             },
             {
+                "id": "storage-data-as-json",
+                "expressionName": "StorageDataAsJSON",
+                "returnType": "string",
+                "params": [
+                    {
+                        "id": "key",
+                        "type": "string"
+                    }
+                ]
+            },
+            {
                 "id": "default-storage-type",
                 "expressionName": "DefaultStorageType",
                 "returnType": "string"
