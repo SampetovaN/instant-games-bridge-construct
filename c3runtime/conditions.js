@@ -342,5 +342,55 @@
 
             return entry.photos.length > photoIndex
         },
+
+
+        // payments
+        IsPaymentsSupported() {
+            return window.bridge.payments.isSupported
+        },
+
+        OnPaymentsPurchaseCompleted() {
+            return true
+        },
+        OnPaymentsGetPurchasesCompleted() {
+            return true
+        },
+        OnPaymentsGetCatalogCompleted() {
+            return true
+        },
+        OnPaymentsConsumePurchaseCompleted() {
+            return true
+        },
+
+        IsLastPaymentsPurchasePurchasedSuccessfully() {
+            return this.isLastPaymentsPurchasePurchasedSuccessfully
+        },
+
+        IsLastPaymentsGetPurchasesGotSuccessfully() {
+            return this.isLastPaymentsGetPurchasesGotSuccessfully
+        },
+
+        IsLastPaymentsGetCatalogGotSuccessfully() {
+            return this.isLastPaymentsGetCatalogGotSuccessfully
+        },
+
+        IsLastPaymentsConsumePurchaseConsumedSuccessfully() {
+            return this.isLastPaymentsConsumePurchaseConsumedSuccessfully
+        },
+
+        DoesPaymentsHavePurchase(purchaseId) {
+            if (!this.paymentsPurchases || this.paymentsPurchases.length <= 0) {
+                return false
+            }
+
+            for (let i = 0; i < this.paymentsPurchases.length; i++) {
+                let purchase = this.paymentsPurchases[i]
+                if (purchase.id === purchaseId) {
+                    return true
+                }
+            }
+
+            return false
+        },
     }
 }

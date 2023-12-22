@@ -1144,5 +1144,217 @@
                 ]
             }
         ]
+    },
+    "payments": {
+        "conditions": [
+            {
+                "id": "is-payments-supported",
+                "scriptName": "IsPaymentsSupported"
+            },
+
+            {
+                "id": "on-payments-purchase-completed",
+                "scriptName": "OnPaymentsPurchaseCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "is-last-payments-purchase-purchased-successfully",
+                "scriptName": "IsLastPaymentsPurchasePurchasedSuccessfully"
+            },
+
+            {
+                "id": "on-payments-get-purchases-completed",
+                "scriptName": "OnPaymentsGetPurchasesCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "is-last-payments-get-purchases-got-successfully",
+                "scriptName": "IsLastPaymentsGetPurchasesGotSuccessfully"
+            },
+
+            {
+                "id": "on-payments-get-catalog-completed",
+                "scriptName": "OnPaymentsGetCatalogCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "is-last-payments-get-catalog-got-successfully",
+                "scriptName": "IsLastPaymentsGetCatalogGotSuccessfully"
+            },
+
+            {
+                "id": "on-payments-consume-purchase-completed",
+                "scriptName": "OnPaymentsConsumePurchaseCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "is-last-payments-consume-purchase-consumed-successfully",
+                "scriptName": "IsLastPaymentsConsumePurchaseConsumedSuccessfully"
+            },
+
+            {
+                "id": "does-payments-have-purchase",
+                "scriptName": "DoesPaymentsHavePurchase",
+                "params": [
+                    {
+                        "id": "yandex-purchase-id",
+                        "type": "string"
+                    }
+                ]
+            }
+        ],
+        "actions": [
+            {
+                "id": "payments-purchase",
+                "scriptName": "PaymentsPurchase",
+                "isAsync": true,
+                "params": [
+                    {
+                        "id": "yandex-purchase-id",
+                        "type": "string"
+                    }
+                ]
+            },
+            {
+                "id": "payments-get-purchases",
+                "scriptName": "PaymentsGetPurchases",
+                "isAsync": true
+            },
+            {
+                "id": "payments-get-catalog",
+                "scriptName": "PaymentsGetCatalog",
+                "isAsync": true
+            },
+            {
+                "id": "payments-consume-purchase",
+                "scriptName": "PaymentsConsumePurchase",
+                "isAsync": true,
+                "params": [
+                    {
+                        "id": "yandex-purchase-token",
+                        "type": "string"
+                    }
+                ]
+            }
+        ],
+        "expressions": [
+            {
+                "id": "payments-purchases-count",
+                "expressionName": "PaymentsPurchasesCount",
+                "returnType": "number"
+            },
+            {
+                "id": "payments-purchase-id",
+                "expressionName": "PaymentsPurchaseId",
+                "returnType": "string",
+                "params": [
+                    {
+                        "id": "index",
+                        "type": "number"
+                    }
+                ]
+            },
+            {
+                "id": "payments-purchase-token",
+                "expressionName": "PaymentsPurchaseToken",
+                "returnType": "string",
+                "params": [
+                    {
+                        "id": "index",
+                        "type": "number"
+                    }
+                ]
+            },
+            {
+                "id": "payments-catalog-count",
+                "expressionName": "PaymentsCatalogCount",
+                "returnType": "number"
+            },
+            {
+                "id": "payments-catalog-id",
+                "expressionName": "PaymentsCatalogId",
+                "returnType": "string",
+                "params": [
+                    {
+                        "id": "index",
+                        "type": "number"
+                    }
+                ]
+            },
+            {
+                "id": "payments-catalog-title",
+                "expressionName": "PaymentsCatalogTitle",
+                "returnType": "string",
+                "params": [
+                    {
+                        "id": "index",
+                        "type": "number"
+                    }
+                ]
+            },
+            {
+                "id": "payments-catalog-description",
+                "expressionName": "PaymentsCatalogDescription",
+                "returnType": "string",
+                "params": [
+                    {
+                        "id": "index",
+                        "type": "number"
+                    }
+                ]
+            },
+            {
+                "id": "payments-catalog-icon",
+                "expressionName": "PaymentsCatalogIcon",
+                "returnType": "string",
+                "params": [
+                    {
+                        "id": "index",
+                        "type": "number"
+                    }
+                ]
+            },
+            {
+                "id": "payments-catalog-price",
+                "expressionName": "PaymentsCatalogPrice",
+                "returnType": "string",
+                "params": [
+                    {
+                        "id": "index",
+                        "type": "number"
+                    }
+                ]
+            },
+            {
+                "id": "payments-catalog-price-value",
+                "expressionName": "PaymentsCatalogPriceValue",
+                "returnType": "string",
+                "params": [
+                    {
+                        "id": "index",
+                        "type": "number"
+                    }
+                ]
+            },
+            {
+                "id": "payments-catalog-price-currency-code",
+                "expressionName": "PaymentsCatalogPriceCurrencyCode",
+                "returnType": "string",
+                "params": [
+                    {
+                        "id": "index",
+                        "type": "number"
+                    }
+                ]
+            }
+        ]
     }
 }

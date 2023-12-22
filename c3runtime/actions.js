@@ -578,7 +578,7 @@
             })
         },
         LeaderboardShowNativePopup(vkUserResult, vkGlobal) {
-            this.isLastShowNativePopupShownSuccessfully = false
+            this.isLastLeaderboardShowNativePopupShownSuccessfully = false
 
             let showNativePopupOptions = {
                 vk: {
@@ -590,7 +590,7 @@
             return new Promise(resolve => {
                 window.bridge.leaderboard.showNativePopup(showNativePopupOptions)
                     .then(() => {
-                        this.isLastShowNativePopupShownSuccessfully = true
+                        this.isLastLeaderboardShowNativePopupShownSuccessfully = true
                     })
                     .catch(error => console.log(error))
                     .finally(() => {
@@ -598,6 +598,82 @@
                         resolve()
                     })
             })
-        }
+        },
+
+
+        // payments
+        PaymentsPurchase(yandexPurchaseId) {
+            this.isLastPaymentsPurchasePurchasedSuccessfully = false
+
+            let options = {
+                yandex: yandexPurchaseId
+            }
+
+            return new Promise(resolve => {
+                window.bridge.payments.purchase(options)
+                    .then(() => {
+                        this.isLastPaymentsPurchasePurchasedSuccessfully = true
+                    })
+                    .catch(error => console.log(error))
+                    .finally(() => {
+                        this.Trigger(this.conditions.OnPaymentsPurchaseCompleted)
+                        resolve()
+                    })
+            })
+        },
+
+        PaymentsGetPurchases() {
+            this.isLastPaymentsGetPurchasesGotSuccessfully = false
+
+            return new Promise(resolve => {
+                window.bridge.payments.getPurchases()
+                    .then(data => {
+                        this.isLastPaymentsGetPurchasesGotSuccessfully = true
+                        this.paymentsPurchases = data
+                    })
+                    .catch(error => console.log(error))
+                    .finally(() => {
+                        this.Trigger(this.conditions.OnPaymentsGetPurchasesCompleted)
+                        resolve()
+                    })
+            })
+        },
+
+        PaymentsGetCatalog() {
+            this.isLastPaymentsGetCatalogGotSuccessfully = false
+
+            return new Promise(resolve => {
+                window.bridge.payments.getCatalog()
+                    .then(data => {
+                        this.isLastPaymentsGetCatalogGotSuccessfully = true
+                        this.paymentsCatalog = data
+                    })
+                    .catch(error => console.log(error))
+                    .finally(() => {
+                        this.Trigger(this.conditions.OnPaymentsGetCatalogCompleted)
+                        resolve()
+                    })
+            })
+        },
+
+        PaymentsConsumePurchase(yandexPurchaseToken) {
+            this.isLastPaymentsConsumePurchaseConsumedSuccessfully = false
+
+            let options = {
+                yandex: yandexPurchaseToken
+            }
+
+            return new Promise(resolve => {
+                window.bridge.payments.consumePurchase(options)
+                    .then(() => {
+                        this.isLastPaymentsConsumePurchaseConsumedSuccessfully = true
+                    })
+                    .catch(error => console.log(error))
+                    .finally(() => {
+                        this.Trigger(this.conditions.OnPaymentsConsumePurchaseCompleted)
+                        resolve()
+                    })
+            })
+        },
     }
 }

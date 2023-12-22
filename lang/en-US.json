@@ -39,7 +39,8 @@
                     "storage": "Storage",
                     "advertisement": "Advertisement",
                     "social": "Social",
-                    "leaderboard": "Leaderboard"
+                    "leaderboard": "Leaderboard",
+                    "payments": "Payments"
                 },
                 "conditions": {
                     "on-initialization-completed": {
@@ -567,6 +568,69 @@
                                 "desc": "Photo Index"
                             }
                         }
+                    },
+
+
+                    "is-payments-supported": {
+                        "list-name": "IsPaymentsSupported",
+                        "display-text": "Is Payments Supported",
+                        "description": "Is Payments Supported"
+                    },
+
+                    "on-payments-purchase-completed": {
+                        "list-name": "OnPaymentsPurchaseCompleted",
+                        "display-text": "On Payments Purchase Completed",
+                        "description": "On Payments Purchase Completed"
+                    },
+                    "is-last-payments-purchase-purchased-successfully": {
+                        "list-name": "IsLastPaymentsPurchasePurchasedSuccessfully",
+                        "display-text": "Is Last Payments Purchase Purchased Successfully",
+                        "description": "Is Last Payments Purchase Purchased Successfully"
+                    },
+
+                    "on-payments-get-purchases-completed": {
+                        "list-name": "OnPaymentsGetPurchasesCompleted",
+                        "display-text": "On Payments Get Purchases Completed",
+                        "description": "On Payments Get Purchases Completed"
+                    },
+                    "is-last-payments-get-purchases-got-successfully": {
+                        "list-name": "IsLastPaymentsGetPurchasesGotSuccessfully",
+                        "display-text": "Is Last Payments Get Purchases Got Successfully",
+                        "description": "Is Last Payments Get Purchases Got Successfully"
+                    },
+
+                    "on-payments-get-catalog-completed": {
+                        "list-name": "OnPaymentsGetCatalogCompleted",
+                        "display-text": "On Payments Get Catalog Completed",
+                        "description": "On Payments Get Catalog Completed"
+                    },
+                    "is-last-payments-get-catalog-got-successfully": {
+                        "list-name": "IsLastPaymentsGetCatalogGotSuccessfully",
+                        "display-text": "Is Last Payments Get Catalog Got Successfully",
+                        "description": "Is Last Payments Get Catalog Got Successfully"
+                    },
+
+                    "on-payments-consume-purchase-completed": {
+                        "list-name": "OnPaymentsConsumePurchaseCompleted",
+                        "display-text": "On Payments Consume Purchase Completed",
+                        "description": "On Payments Consume Purchase Completed"
+                    },
+                    "is-last-payments-consume-purchase-consumed-successfully": {
+                        "list-name": "IsLastPaymentsConsumePurchaseConsumedSuccessfully",
+                        "display-text": "Is Last Payments Consume Purchase Consumed Successfully",
+                        "description": "Is Last Payments Consume Purchase Consumed Successfully"
+                    },
+
+                    "does-payments-have-purchase": {
+                        "list-name": "DoesPaymentsHavePurchase",
+                        "display-text": "Does Payments Have Purchase. Yandex Purchase ID: [b]{0}[/b]",
+                        "description": "Does Payments Have Purchase",
+                        "params": {
+                            "yandex-purchase-id": {
+                                "name": "Yandex Purchase ID",
+                                "desc": "Yandex Purchase ID"
+                            }
+                        }
                     }
                 },
                 "actions": {
@@ -980,6 +1044,40 @@
                                 "desc": "VK Global"
                             }
                         }
+                    },
+
+
+                    "payments-purchase": {
+                        "list-name": "PaymentsPurchase",
+                        "display-text": "Payments Purchase. Yandex Purchase ID: [b]{0}[/b].",
+                        "description": "Payments Purchase",
+                        "params": {
+                            "yandex-purchase-id": {
+                                "name": "Yandex Purchase ID",
+                                "desc": "Yandex Purchase ID"
+                            }
+                        }
+                    },
+                    "payments-get-purchases": {
+                        "list-name": "PaymentsGetPurchases",
+                        "display-text": "Payments Get Purchases",
+                        "description": "Payments Get Purchases"
+                    },
+                    "payments-get-catalog": {
+                        "list-name": "PaymentsGetCatalog",
+                        "display-text": "Payments Get Catalog",
+                        "description": "Payments Get Catalog"
+                    },
+                    "payments-consume-purchase": {
+                        "list-name": "PaymentsConsumePurchase",
+                        "display-text": "Payments Consume Purchase. Yandex Purchase ID: [b]{0}[/b].",
+                        "description": "Payments Consume Purchase",
+                        "params": {
+                            "yandex-purchase-token": {
+                                "name": "Yandex Purchase ID",
+                                "desc": "Yandex Purchase ID"
+                            }
+                        }
                     }
                 },
                 "expressions": {
@@ -1148,6 +1246,106 @@
                             "photo-index": {
                                 "name": "Photo Index",
                                 "desc": "Photo Index"
+                            }
+                        }
+                    },
+
+
+                    "payments-purchases-count": {
+                        "translated-name": "PaymentsPurchasesCount",
+                        "description": "Payments Purchases Count"
+                    },
+                    "payments-purchase-id": {
+                        "translated-name": "PaymentsPurchaseId",
+                        "description": "Payments Purchase Id",
+                        "params": {
+                            "index": {
+                                "name": "Index",
+                                "desc": "Index"
+                            }
+                        }
+                    },
+                    "payments-purchase-token": {
+                        "translated-name": "PaymentsPurchaseToken",
+                        "description": "Payments Purchase Token",
+                        "params": {
+                            "index": {
+                                "name": "Index",
+                                "desc": "Index"
+                            }
+                        }
+                    },
+                    "payments-catalog-count": {
+                        "translated-name": "PaymentsCatalogCount",
+                        "description": "Payments Catalog Count"
+                    },
+                    "payments-catalog-id": {
+                        "translated-name": "PaymentsCatalogId",
+                        "description": "Payments Catalog Id",
+                        "params": {
+                            "index": {
+                                "name": "Index",
+                                "desc": "Index"
+                            }
+                        }
+                    },
+                    "payments-catalog-title": {
+                        "translated-name": "PaymentsCatalogTitle",
+                        "description": "Payments Catalog Title",
+                        "params": {
+                            "index": {
+                                "name": "Index",
+                                "desc": "Index"
+                            }
+                        }
+                    },
+                    "payments-catalog-description": {
+                        "translated-name": "PaymentsCatalogDescription",
+                        "description": "Payments Catalog Description",
+                        "params": {
+                            "index": {
+                                "name": "Index",
+                                "desc": "Index"
+                            }
+                        }
+                    },
+                    "payments-catalog-icon": {
+                        "translated-name": "PaymentsCatalogIcon",
+                        "description": "Payments Catalog Icon",
+                        "params": {
+                            "index": {
+                                "name": "Index",
+                                "desc": "Index"
+                            }
+                        }
+                    },
+                    "payments-catalog-price": {
+                        "translated-name": "PaymentsCatalogPrice",
+                        "description": "Payments Catalog Price",
+                        "params": {
+                            "index": {
+                                "name": "Index",
+                                "desc": "Index"
+                            }
+                        }
+                    },
+                    "payments-catalog-price-value": {
+                        "translated-name": "PaymentsCatalogPriceValue",
+                        "description": "Payments Catalog Price Value",
+                        "params": {
+                            "index": {
+                                "name": "Index",
+                                "desc": "Index"
+                            }
+                        }
+                    },
+                    "payments-catalog-price-currency-code": {
+                        "translated-name": "PaymentsCatalogPriceCurrencyCode",
+                        "description": "Payments Catalog Price Currency Code",
+                        "params": {
+                            "index": {
+                                "name": "Index",
+                                "desc": "Index"
                             }
                         }
                     }

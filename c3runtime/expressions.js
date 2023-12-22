@@ -144,5 +144,95 @@
 
             return this.leaderboardEntries[entryIndex].photos[photoIndex]
         },
+
+
+        // payments
+        PaymentsPurchasesCount() {
+            if (!this.paymentsPurchases) {
+                return 0
+            }
+
+            return this.paymentsPurchases.length
+        },
+
+        PaymentsPurchaseId(index) {
+            if (!this.paymentsPurchases || this.paymentsPurchases.length <= 0) {
+                return null
+            }
+
+            return this.paymentsPurchases[index].productID
+        },
+
+        PaymentsPurchaseToken(index) {
+            if (!this.paymentsPurchases || this.paymentsPurchases.length <= 0) {
+                return null
+            }
+
+            return this.paymentsPurchases[index].purchaseToken
+        },
+
+        PaymentsCatalogCount() {
+            if (!this.paymentsCatalog) {
+                return 0
+            }
+
+            return this.paymentsCatalog.length
+        },
+
+        PaymentsCatalogId(index) {
+            if (!this.paymentsCatalog || this.paymentsCatalog.length <= 0) {
+                return null
+            }
+
+            return this.paymentsCatalog[index].id
+        },
+
+        PaymentsCatalogTitle(index) {
+            if (!this.paymentsCatalog || this.paymentsCatalog.length <= 0) {
+                return null
+            }
+
+            return this.paymentsCatalog[index].title
+        },
+
+        PaymentsCatalogDescription(index) {
+            if (!this.paymentsCatalog || this.paymentsCatalog.length <= 0) {
+                return null
+            }
+
+            return this.paymentsCatalog[index].description
+        },
+
+        PaymentsCatalogIcon(index) {
+            if (!this.paymentsCatalog || this.paymentsCatalog.length <= 0) {
+                return null
+            }
+
+            return this.paymentsCatalog[index].imageURI
+        },
+
+        PaymentsCatalogPrice(index) {
+            if (!this.paymentsCatalog || this.paymentsCatalog.length <= 0) {
+                return null
+            }
+
+            return this.paymentsCatalog[index].price
+        },
+
+        PaymentsCatalogPriceValue(index) {
+            if (!this.paymentsCatalog || this.paymentsCatalog.length <= 0) {
+                return null
+            }
+
+            return this.paymentsCatalog[index].priceValue
+        },
+
+        PaymentsCatalogPriceCurrencyCode(index) {
+            if (!this.paymentsCatalog || this.paymentsCatalog.length <= 0) {
+                return null
+            }
+
+            return this.paymentsCatalog[index].priceCurrencyCode
+        },
     }
 }
