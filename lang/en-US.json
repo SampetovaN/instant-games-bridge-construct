@@ -1,4 +1,4 @@
-﻿{
+{
     "languageTag": "en-US",
     "fileDescription": "Strings for InstantGamesBridge Plugin",
     "text": {
@@ -40,7 +40,8 @@
                     "advertisement": "Advertisement",
                     "social": "Social",
                     "leaderboard": "Leaderboard",
-                    "payments": "Payments"
+                    "payments": "Payments",
+                    "remote-config": "Remote Config"
                 },
                 "conditions": {
                     "on-initialization-completed": {
@@ -631,6 +632,21 @@
                                 "desc": "Yandex Purchase ID"
                             }
                         }
+                    },
+                    "is-remote-config-supported": {
+                        "list-name": "IsRemoteConfigSupported",
+                        "display-text": "Is Yandex Remote Config Supported",
+                        "description": "Is Yandex Remote Config Supported"
+                    },
+                    "on-remote-config-got-completed": {
+                        "list-name": "OnRemoteConfigGotCompleted",
+                        "display-text": "On Yandex Remote Config Got Completed",
+                        "description": "On Yandex Remote Config Got Completed"
+                    },
+                    "is-remote-config-got-successfully": {
+                        "list-name": "IsRemoteConfigGotSuccessfully",
+                        "display-text": "Is Yandex Remote Config Got Successfully",
+                        "description": "Is Yandex Remote Config Successfully"
                     }
                 },
                 "actions": {
@@ -1078,6 +1094,26 @@
                                 "desc": "Yandex Purchase ID"
                             }
                         }
+                    },
+                    "send-remote-config-get-request": {
+                        "list-name": "SendRemoteConfigGetRequest",
+                        "display-text": "Yandex Send Remote Config Get Request",
+                        "description": "Yandex Send Remote Config Get Request"
+                    },
+                    "append-remote-config-get-request": {
+                        "list-name": "AppendRemoteConfigGetRequest",
+                        "display-text": "Yandex Append Remote Config Get Request. Name: [b]{0}[/b]. Value: [b]{1}[/b].",
+                        "description": "Yandex Append Remote Config Get Request",
+                        "params": {
+                            "name": {
+                                "name": "Name",
+                                "desc": "Name"
+                            },
+                            "value": {
+                                "name": "Value",
+                                "desc": "Value"
+                            }
+                        }
                     }
                 },
                 "expressions": {
@@ -1346,6 +1382,17 @@
                             "index": {
                                 "name": "Index",
                                 "desc": "Index"
+                            }
+                        }
+                    },
+
+                    "remote-config": {
+                        "translated-name": "RemoteConfig",
+                        "description": "Yandex Remote Config Flag Value",
+                        "params": {
+                            "key": {
+                                "name": "Key",
+                                "desc": "Key"
                             }
                         }
                     }

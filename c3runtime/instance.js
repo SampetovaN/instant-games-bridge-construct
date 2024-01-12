@@ -7,7 +7,7 @@
             this.conditions = C3.Plugins.InstantGamesBridge.Cnds
             this.actions = C3.Plugins.InstantGamesBridge.Acts
 
-            let cdnUrl = 'https://cdn.jsdelivr.net/gh/instant-games-bridge/instant-games-bridge@1.10.0/dist/instant-games-bridge.js'
+            let cdnUrl = 'https://cdn.jsdelivr.net/gh/instant-games-bridge/instant-games-bridge@1.10.1/dist/instant-games-bridge.js'
             if (properties[1] !== '') {
                 cdnUrl = properties[1]
             }
@@ -31,6 +31,8 @@
             this.storageDataSetRequestKeys = []
             this.storageDataSetRequestValues = []
             this.storageDataDeleteRequestKeys = []
+            this.remoteConfig = {}
+            this.remoteConfigGetRequesValues = []
         }
 
         loadSdk(cdnUrl) {

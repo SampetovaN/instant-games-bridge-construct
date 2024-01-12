@@ -234,5 +234,14 @@
 
             return this.paymentsCatalog[index].priceCurrencyCode
         },
+
+        // remote-config
+        RemoteConfig(key) {
+            if (!this.remoteConfig) {
+                return null
+            }
+
+            return this.remoteConfig[key]
+        }
     }
 }

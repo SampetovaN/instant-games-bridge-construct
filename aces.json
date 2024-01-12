@@ -1,4 +1,4 @@
-﻿{
+{
     "common": {
         "conditions": [
             {
@@ -1352,6 +1352,59 @@
                     {
                         "id": "index",
                         "type": "number"
+                    }
+                ]
+            }
+        ]
+    },
+    "remote-config": {
+        "conditions": [
+            {
+                "id": "is-remote-config-supported",
+                "scriptName": "IsRemoteConfigSupported"
+            },
+            {
+                "id": "on-remote-config-got-completed",
+                "scriptName": "OnRemoteConfigGotCompleted",
+                "isTrigger": true,
+                "isInvertible": false,
+                "isCompatibleWithTriggers": false
+            },
+            {
+                "id": "is-remote-config-got-successfully",
+                "scriptName": "IsRemoteConfigGotSuccessfully"
+            }
+        ],
+        "actions": [
+            {
+                "id": "send-remote-config-get-request",
+                "scriptName": "SendRemoteConfigGetRequest",
+                "isAsync": true
+            },
+            {
+                "id": "append-remote-config-get-request",
+                "scriptName": "AppendRemoteConfigGetRequest",
+                "params": [
+                    {
+                        "id": "name",
+                        "type": "string"
+                    },
+                    {
+                        "id": "value",
+                        "type": "any"
+                    }
+                ]
+            }
+        ],
+        "expressions": [
+            {
+                "id": "remote-config",
+                "expressionName": "RemoteConfig",
+                "returnType": "any",
+                "params": [
+                    {
+                        "id": "key",
+                        "type": "string"
                     }
                 ]
             }

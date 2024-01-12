@@ -675,5 +675,29 @@
                     })
             })
         },
+
+        // remote-config
+
+        AppendRemoteConfigGetRequest(name, value) {
+            this.remoteConfigGetRequesValues.push({name, value})
+        },
+
+        SendRemoteConfigGetRequest() {
+            this.isRemoteConfigGotSuccessfully = false
+            const params = {defaultFlags: {}, clientFeatures: this.remoteConfigGetRequesValues}
+            return new Promise(resolve => {
+                window.bridge.remoteConfig.get(params)
+                    .then(data => {
+                        this.isRemoteConfigGotSuccessfully = true
+                        this.remoteConfig = data
+                    })
+                    .catch(error => console.log(error))
+                    .finally(() => {
+                        this.remoteConfigGetRequesValues = [];
+                        this.Trigger(this.conditions.OnRemoteConfigGotCompleted)
+                        resolve()
+                    })
+            })
+        },
     }
 }

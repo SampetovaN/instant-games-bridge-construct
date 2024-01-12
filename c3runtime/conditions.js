@@ -392,5 +392,20 @@
 
             return false
         },
+
+        // remote-config
+
+        IsRemoteConfigSupported() {
+            return window.bridge.remoteConfig.isSupported
+        },
+
+        OnRemoteConfigGotCompleted() {
+            return true
+        },
+
+        IsRemoteConfigGotSuccessfully() {
+            return this.isRemoteConfigGotSuccessfully
+        }
+
     }
 }
