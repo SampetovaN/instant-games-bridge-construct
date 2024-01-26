@@ -31,6 +31,8 @@
             this.storageDataSetRequestKeys = []
             this.storageDataSetRequestValues = []
             this.storageDataDeleteRequestKeys = []
+            this.remoteConfig = {}
+            this.remoteConfigGetRequesValues = []
         }
 
         loadSdk(cdnUrl) {
