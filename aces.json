@@ -1373,6 +1373,16 @@
             {
                 "id": "is-remote-config-got-successfully",
                 "scriptName": "IsRemoteConfigGotSuccessfully"
+            },
+            {
+                "id": "has-remote-config",
+                "scriptName": "HasRemoteConfig",
+                "params": [
+                    {
+                        "id": "key",
+                        "type": "string"
+                    }
+                ]
             }
         ],
         "actions": [
@@ -1391,7 +1401,7 @@
                     },
                     {
                         "id": "value",
-                        "type": "any"
+                        "type": "string"
                     }
                 ]
             }

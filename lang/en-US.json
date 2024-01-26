@@ -633,6 +633,8 @@
                             }
                         }
                     },
+
+
                     "is-remote-config-supported": {
                         "list-name": "IsRemoteConfigSupported",
                         "display-text": "Is Yandex Remote Config Supported",
@@ -647,6 +649,17 @@
                         "list-name": "IsRemoteConfigGotSuccessfully",
                         "display-text": "Is Yandex Remote Config Got Successfully",
                         "description": "Is Yandex Remote Config Successfully"
+                    },
+                    "has-remote-config": {
+                        "list-name": "HasRemoteConfig",
+                        "display-text": "Has Remote Config. Key: [b]{0}[/b]",
+                        "description": "Has Remote Config",
+                        "params": {
+                            "key": {
+                                "name": "Key",
+                                "desc": "Key"
+                            }
+                        }
                     }
                 },
                 "actions": {
@@ -1097,13 +1110,13 @@
                     },
                     "send-remote-config-get-request": {
                         "list-name": "SendRemoteConfigGetRequest",
-                        "display-text": "Yandex Send Remote Config Get Request",
-                        "description": "Yandex Send Remote Config Get Request"
+                        "display-text": "Send Remote Config Get Request",
+                        "description": "Send Remote Config Get Request"
                     },
                     "append-remote-config-get-request": {
                         "list-name": "AppendRemoteConfigGetRequest",
-                        "display-text": "Yandex Append Remote Config Get Request. Name: [b]{0}[/b]. Value: [b]{1}[/b].",
-                        "description": "Yandex Append Remote Config Get Request",
+                        "display-text": "Append Remote Config Get Request. Yandex Client Feature Name: [b]{0}[/b]. Yandex Client Feature Value: [b]{1}[/b].",
+                        "description": "Append Remote Config Get Request",
                         "params": {
                             "name": {
                                 "name": "Name",

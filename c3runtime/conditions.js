@@ -394,7 +394,6 @@
         },
 
         // remote-config
-
         IsRemoteConfigSupported() {
             return window.bridge.remoteConfig.isSupported
         },
@@ -405,7 +404,15 @@
 
         IsRemoteConfigGotSuccessfully() {
             return this.isRemoteConfigGotSuccessfully
-        }
+        },
+
+        HasRemoteConfig(key) {
+            if (!this.remoteConfig)
+                return 0
+
+            let value = this.remoteConfig[key]
+            return value !== null && typeof value !== 'undefined'
+        },
 
     }
 }

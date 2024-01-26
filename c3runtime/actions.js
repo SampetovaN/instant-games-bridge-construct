@@ -677,23 +677,23 @@
         },
 
         // remote-config
-
         AppendRemoteConfigGetRequest(name, value) {
-            this.remoteConfigGetRequesValues.push({name, value})
+            this.remoteConfigGetRequestClientFeatures.push({ name, value })
         },
 
         SendRemoteConfigGetRequest() {
             this.isRemoteConfigGotSuccessfully = false
-            const params = {defaultFlags: {}, clientFeatures: this.remoteConfigGetRequesValues}
+            let options = { defaultFlags: { }, clientFeatures: this.remoteConfigGetRequestClientFeatures }
+
             return new Promise(resolve => {
-                window.bridge.remoteConfig.get(params)
+                window.bridge.remoteConfig.get(options)
                     .then(data => {
                         this.isRemoteConfigGotSuccessfully = true
                         this.remoteConfig = data
                     })
                     .catch(error => console.log(error))
                     .finally(() => {
-                        this.remoteConfigGetRequesValues = [];
+                        this.remoteConfigGetRequestClientFeatures = []
                         this.Trigger(this.conditions.OnRemoteConfigGotCompleted)
                         resolve()
                     })
