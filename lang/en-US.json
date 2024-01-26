@@ -1086,12 +1086,12 @@
                     },
                     "payments-consume-purchase": {
                         "list-name": "PaymentsConsumePurchase",
-                        "display-text": "Payments Consume Purchase. Yandex Purchase ID: [b]{0}[/b].",
+                        "display-text": "Payments Consume Purchase. Yandex Purchase Token: [b]{0}[/b].",
                         "description": "Payments Consume Purchase",
                         "params": {
                             "yandex-purchase-token": {
-                                "name": "Yandex Purchase ID",
-                                "desc": "Yandex Purchase ID"
+                                "name": "Yandex Purchase Token",
+                                "desc": "Yandex Purchase Token"
                             }
                         }
                     },
